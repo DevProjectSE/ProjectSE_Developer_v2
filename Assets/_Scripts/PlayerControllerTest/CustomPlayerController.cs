@@ -16,12 +16,11 @@ public class CustomPlayerController : MonoBehaviour
     // [SerializeField]
     // private InputActionReference activePrimaryX;
     [SerializeField]
-    private InputActionReference sitStandAction;
+    private InputActionReference rightControllerAction;
     [SerializeField]
     private LocomotionManager locoManager;
     private XRInputModalityManager xRInModalManager;
     private CharacterController char_Ctrler;
-    private CharacterControllerDriver CCD;
     private Camera cam;
 
     private bool isSit = false;
@@ -29,7 +28,7 @@ public class CustomPlayerController : MonoBehaviour
     public Transform camOffset;
     public Transform standPos;
     public Transform sitPos;
-    public Transform mainCamPos;
+    // public Transform mainCamPos;
 
     [Tooltip("플레이어 중심부터 카메라가 나아갈 수 있는 최대 거리")]
     public float maxDistance;
@@ -38,14 +37,10 @@ public class CustomPlayerController : MonoBehaviour
     [Tooltip("카메라가 지정 범위를 벗어났을 시 컨트롤러 제어가능")]
     public bool ctrlerControl;
 
-    private XROrigin xROrigin;
-
     private void Awake()
     {
         xRInModalManager = GetComponent<XRInputModalityManager>();
-        CCD = GetComponent<CharacterControllerDriver>();
         cam = GetComponentInChildren<Camera>();
-        xROrigin = GetComponent<XROrigin>();
     }
 
     private void Start()
@@ -55,15 +50,15 @@ public class CustomPlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        // sitStandAction.action.performed += SitDown;
-        // sitStandAction.action.performed += StandUp;
+        rightControllerAction.action.performed += SitDown;
+        rightControllerAction.action.performed += StandUp;
         // activePrimaryX.action.performed += Primary;
     }
 
     private void OnDisable()
     {
-        // sitStandAction.action.performed -= SitDown;
-        // sitStandAction.action.performed -= StandUp;
+        rightControllerAction.action.performed -= SitDown;
+        rightControllerAction.action.performed -= StandUp;
         // activePrimaryX.action.performed -= Primary;
     }
 
@@ -72,28 +67,29 @@ public class CustomPlayerController : MonoBehaviour
         // CtrlerControl();
     }
 
-    private void CtrlerControl()
-    {   //다른 스크립트에서 범위제한 해제 == ctrlerControl = true
-        if (ctrlerControl == false) return;
+    //충동체 중심으로 카메라가 가면 안되도록.
+    // private void CtrlerControl()
+    // {   //다른 스크립트에서 범위제한 해제 == ctrlerControl = true
+    //     if (ctrlerControl == false) return;
 
-        //충돌체 중심부터 카메라의 거리까지 계산
-        Vector3 ccTrans = char_Ctrler.transform.position + new Vector3(0, 3, 0);
-        Vector3 camTrans = mainCamPos.position;
-        float distance = Vector3.Distance(camTrans, ccTrans);
+    //     //충돌체 중심부터 카메라의 거리까지 계산
+    //     Vector3 ccTrans = char_Ctrler.transform.position + new Vector3(0, 3, 0);
+    //     Vector3 camTrans = mainCamPos.position;
+    //     float distance = Vector3.Distance(camTrans, ccTrans);
 
-        if (distance > maxDistance)
-        {
-            locoManager.gameObject.SetActive(false);
-            xRInModalManager.leftController.SetActive(false);
-            xRInModalManager.rightController.SetActive(false);
-        }
-        if (distance < maxDistance)
-        {
-            locoManager.gameObject.SetActive(true);
-            xRInModalManager.leftController.SetActive(true);
-            xRInModalManager.rightController.SetActive(true);
-        }
-    }
+    //     if (distance > maxDistance)
+    //     {
+    //         locoManager.gameObject.SetActive(false);
+    //         xRInModalManager.leftController.SetActive(false);
+    //         xRInModalManager.rightController.SetActive(false);
+    //     }
+    //     if (distance < maxDistance)
+    //     {
+    //         locoManager.gameObject.SetActive(true);
+    //         xRInModalManager.leftController.SetActive(true);
+    //         xRInModalManager.rightController.SetActive(true);
+    //     }
+    // }
 
     #region 콜백
     private void Primary(InputAction.CallbackContext context)
@@ -104,11 +100,11 @@ public class CustomPlayerController : MonoBehaviour
     private void SitDown(InputAction.CallbackContext context)
     {
         float valuey = context.ReadValue<Vector2>().y;
-        if (cam.transform.localPosition.y < -1.5) return;
+        if (cam.transform.localPosition.y < -2) return;
         if (valuey < 0 && isSit == false)
         {
             camOffset.position =
-            new Vector3(camOffset.position.x, sitPos.position.y, camOffset.position.z);
+            new Vector3(camOffset.position.x, camOffset.position.y - 2, camOffset.position.z);
             isSit = true;
         }
     }
@@ -119,10 +115,9 @@ public class CustomPlayerController : MonoBehaviour
         if (valuey > 0 && isSit)
         {
             camOffset.position =
-            new Vector3(camOffset.position.x, standPos.position.y, camOffset.position.z);
+            new Vector3(camOffset.position.x, camOffset.position.y + 2, camOffset.position.z);
             isSit = false;
         }
     }
-
     #endregion
 }
