@@ -19,11 +19,10 @@ public class CustomPlayerController : MonoBehaviour
     private InputActionReference rightControllerAction;
     private Camera cam;
 
-    private bool isSit = false;
+    private bool isSit;
 
     public Transform camOffset;
-    public Transform standPos;
-    public Transform sitPos;
+    public Transform camStartPos;
     // public Transform mainCamPos;
 
     [Tooltip("플레이어 중심부터 카메라가 나아갈 수 있는 최대 거리")]
@@ -39,10 +38,16 @@ public class CustomPlayerController : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        camOffset.position = camStartPos.position;
+    }
+
     private void OnEnable()
     {
         rightControllerAction.action.performed += SitDown;
         rightControllerAction.action.performed += StandUp;
+        isSit = false;
         // activePrimaryX.action.performed += Primary;
     }
 
@@ -62,8 +67,9 @@ public class CustomPlayerController : MonoBehaviour
     private void SitDown(InputAction.CallbackContext context)
     {
         float valuey = context.ReadValue<Vector2>().y;
+        Debug.Log($"Sitdown : {valuey}");
         if (cam.transform.localPosition.y < -2) return;
-        if (valuey < 0 && isSit == false)
+        if (valuey <= -1 && isSit == false)
         {
             camOffset.position =
             new Vector3(camOffset.position.x, camOffset.position.y - 2, camOffset.position.z);
@@ -74,7 +80,8 @@ public class CustomPlayerController : MonoBehaviour
     private void StandUp(InputAction.CallbackContext context)
     {
         float valuey = context.ReadValue<Vector2>().y;
-        if (valuey > 0 && isSit)
+        Debug.Log($"standup : {valuey}");
+        if (valuey >= 1 && isSit)
         {
             camOffset.position =
             new Vector3(camOffset.position.x, camOffset.position.y + 2, camOffset.position.z);
