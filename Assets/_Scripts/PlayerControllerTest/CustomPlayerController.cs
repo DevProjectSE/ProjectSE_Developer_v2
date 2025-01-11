@@ -17,10 +17,6 @@ public class CustomPlayerController : MonoBehaviour
     // private InputActionReference activePrimaryX;
     [SerializeField]
     private InputActionReference rightControllerAction;
-    [SerializeField]
-    private LocomotionManager locoManager;
-    private XRInputModalityManager xRInModalManager;
-    private CharacterController char_Ctrler;
     private Camera cam;
 
     private bool isSit = false;
@@ -39,13 +35,8 @@ public class CustomPlayerController : MonoBehaviour
 
     private void Awake()
     {
-        xRInModalManager = GetComponent<XRInputModalityManager>();
         cam = GetComponentInChildren<Camera>();
-    }
 
-    private void Start()
-    {
-        char_Ctrler = GetComponent<CharacterController>();
     }
 
     private void OnEnable()
@@ -61,35 +52,6 @@ public class CustomPlayerController : MonoBehaviour
         rightControllerAction.action.performed -= StandUp;
         // activePrimaryX.action.performed -= Primary;
     }
-
-    private void Update()
-    {
-        // CtrlerControl();
-    }
-
-    //충동체 중심으로 카메라가 가면 안되도록.
-    // private void CtrlerControl()
-    // {   //다른 스크립트에서 범위제한 해제 == ctrlerControl = true
-    //     if (ctrlerControl == false) return;
-
-    //     //충돌체 중심부터 카메라의 거리까지 계산
-    //     Vector3 ccTrans = char_Ctrler.transform.position + new Vector3(0, 3, 0);
-    //     Vector3 camTrans = mainCamPos.position;
-    //     float distance = Vector3.Distance(camTrans, ccTrans);
-
-    //     if (distance > maxDistance)
-    //     {
-    //         locoManager.gameObject.SetActive(false);
-    //         xRInModalManager.leftController.SetActive(false);
-    //         xRInModalManager.rightController.SetActive(false);
-    //     }
-    //     if (distance < maxDistance)
-    //     {
-    //         locoManager.gameObject.SetActive(true);
-    //         xRInModalManager.leftController.SetActive(true);
-    //         xRInModalManager.rightController.SetActive(true);
-    //     }
-    // }
 
     #region 콜백
     private void Primary(InputAction.CallbackContext context)
@@ -119,5 +81,36 @@ public class CustomPlayerController : MonoBehaviour
             isSit = false;
         }
     }
+    #endregion
+
+    #region 미사용
+    private void Update()
+    {
+        // CtrlerControl();
+    }
+
+    //충동체 중심으로 카메라가 가면 안되도록.
+    // private void CtrlerControl()
+    // {   //다른 스크립트에서 범위제한 해제 == ctrlerControl = true
+    //     if (ctrlerControl == false) return;
+
+    //     //충돌체 중심부터 카메라의 거리까지 계산
+    //     Vector3 ccTrans = char_Ctrler.transform.position + new Vector3(0, 3, 0);
+    //     Vector3 camTrans = mainCamPos.position;
+    //     float distance = Vector3.Distance(camTrans, ccTrans);
+
+    //     if (distance > maxDistance)
+    //     {
+    //         locoManager.gameObject.SetActive(false);
+    //         xRInModalManager.leftController.SetActive(false);
+    //         xRInModalManager.rightController.SetActive(false);
+    //     }
+    //     if (distance < maxDistance)
+    //     {
+    //         locoManager.gameObject.SetActive(true);
+    //         xRInModalManager.leftController.SetActive(true);
+    //         xRInModalManager.rightController.SetActive(true);
+    //     }
+    // }
     #endregion
 }
