@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Destroyer
   - Water
+  - PlayerRay
   layers:
   - Default
   - TransparentFX
