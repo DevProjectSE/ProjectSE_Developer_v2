@@ -1,114 +1,112 @@
-// using System.Collections;
-// using System.Collections.Generic;
-// using System.Numerics;
-// using UnityEngine;
-// using UnityEngine.InputSystem;
-// using Vector3 = UnityEngine.Vector3;
-// using Vector2 = UnityEngine.Vector2;
-// using UnityEngine.XR.Interaction.Toolkit.Inputs;
-// using UnityEngine.Android;
-// using UnityEngine.XR.Content.Interaction;
+using System.Collections;
+using System.Collections.Generic;
+using System.Numerics;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using Vector3 = UnityEngine.Vector3;
+using Vector2 = UnityEngine.Vector2;
+using UnityEngine.XR.Interaction.Toolkit.Inputs;
+using UnityEngine.Android;
+using UnityEngine.XR.Content.Interaction;
+using UnityEngine.XR.Interaction.Toolkit;
+using Unity.XR.CoreUtils;
+using TMPro;
 
-// public class CustomPlayerController : MonoBehaviour
-// {
-//     // [SerializeField]
-//     // private InputActionReference activePrimaryX;
-//     [SerializeField]
-//     private InputActionReference sitStandAction;
-//     [SerializeField]
-//     private LocomotionManager locoManager;
-//     private XRInputModalityManager xRInModalManager;
-//     private CharacterController char_Ctrler;
+public class CustomPlayerController : MonoBehaviour
+{
+    // [SerializeField]
+    // private InputActionReference activePrimaryX;
+    [SerializeField]
+    private InputActionReference rightControllerAction;
+    private Camera cam;
+    // private bool isSit;
+    public Transform camOffset;
+    public Transform camStartPos;
+    public TextMeshProUGUI text;
 
-//     private bool isSit = false;
+    private bool isPressed;
+    private void Awake()
+    {
+        cam = GetComponentInChildren<Camera>();
+    }
 
-//     public Transform camOffset;
-//     public Transform standPos;
-//     public Transform sitPos;
-//     public Transform mainCamPos;
+    private void Start()
+    {
+        // camOffset.position = camStartPos.position;
+    }
 
-//     [Tooltip("플레이어 중심부터 카메라가 나아갈 수 있는 최대 거리")]
-//     public float maxDistance;
-//     [Tooltip("카메라가 지정 범위를 벗어났을 시 컨트롤러 제어가능")]
-//     public bool ctrlerControl;
+    private void OnEnable()
+    {
+        rightControllerAction.action.performed += DownUpAction;
+        rightControllerAction.action.started += DownUpAction;
+        rightControllerAction.action.canceled += DownUpAction;
 
-//     private void Awake()
-//     {
-//         xRInModalManager = GetComponent<XRInputModalityManager>();
-//     }
+        // rightControllerAction.action.started += SitDown;
+        // rightControllerAction.action.canceled += SitDown;
+        // rightControllerAction.action.started += StandUp;
+        // rightControllerAction.action.canceled += StandUp;
+        // isSit = false;
+        // activePrimaryX.action.performed += Primary;
+    }
 
-//     private void Start()
-//     {
-//         char_Ctrler = GetComponent<CharacterController>();
-//     }
+    private void OnDisable()
+    {
+        rightControllerAction.action.performed += DownUpAction;
+        rightControllerAction.action.started += DownUpAction;
+        rightControllerAction.action.canceled += DownUpAction;
 
-//     private void OnEnable()
-//     {
-//         sitStandAction.action.performed += SitDown;
-//         sitStandAction.action.performed += StandUp;
-//         // activePrimaryX.action.performed += Primary;
-//     }
+        // rightControllerAction.action.started -= SitDown;
+        // rightControllerAction.action.canceled -= SitDown;
+        // rightControllerAction.action.started -= StandUp;
+        // rightControllerAction.action.canceled -= StandUp;
+        // activePrimaryX.action.performed -= Primary;
+    }
 
-//     private void OnDisable()
-//     {
-//         sitStandAction.action.performed -= SitDown;
-//         sitStandAction.action.performed -= StandUp;
-//         // activePrimaryX.action.performed -= Primary;
-//     }
+    private void Update()
+    {
+        if (isPressed)
+        {
 
-//     private void Update()
-//     {
-//         CtrlerControl();
-//     }
+        }
+    }
 
-//     private void CtrlerControl()
-//     {   //다른 스크립트에서 범위제한 해제 == ctrlerControl = true
-//         if (ctrlerControl == false) return;
+    #region 콜백
+    private void Primary(InputAction.CallbackContext context)
+    {
+        float value = context.ReadValue<float>();
+        Debug.Log("하이");
+    }
+    private void SitDown(InputAction.CallbackContext context)
+    {
+        // if (isSit == true) return;
+        float valuey = context.ReadValue<Vector2>().y;
+        if (cam.transform.localPosition.y < -2) return;
+        if (valuey <= -0.9)
+        {
+            camOffset.position =
+            new Vector3(camOffset.position.x, camOffset.position.y - 2, camOffset.position.z);
+            // isSit = true;
+        }
+    }
 
-//         //충돌체 중심부터 카메라의 거리까지 계산
-//         Vector3 ccTrans = char_Ctrler.transform.position + new Vector3(0, 3, 0);
-//         Vector3 camTrans = mainCamPos.position;
-//         float distance = Vector3.Distance(camTrans, ccTrans);
+    private void StandUp(InputAction.CallbackContext context)
+    {
 
-//         if (distance > maxDistance)
-//         {
-//             locoManager.gameObject.SetActive(false);
-//             xRInModalManager.leftController.SetActive(false);
-//             xRInModalManager.rightController.SetActive(false);
-//         }
-//         if (distance < maxDistance)
-//         {
-//             locoManager.gameObject.SetActive(true);
-//             xRInModalManager.leftController.SetActive(true);
-//             xRInModalManager.rightController.SetActive(true);
-//         }
-//     }
+        // if (isSit == false) return;
+        float valuey = context.ReadValue<Vector2>().y;
+        if (valuey >= 0.9)
+        {
+            camOffset.position =
+            new Vector3(camOffset.position.x, camOffset.position.y + 2, camOffset.position.z);
+            // isSit = false;
 
-//     #region 콜백
-//     private void Primary(InputAction.CallbackContext context)
-//     {
-//         float value = context.ReadValue<float>();
-//         Debug.Log("하이");
-//     }
-//     private void SitDown(InputAction.CallbackContext context)
-//     {
-//         float valuey = context.ReadValue<Vector2>().y;
-//         if (valuey < 0 && isSit == false)
-//         {
-//             camOffset.position = sitPos.position;
-//             char_Ctrler.height = sitPos.position.y;
-//             isSit = true;
-//         }
-//     }
-//     private void StandUp(InputAction.CallbackContext context)
-//     {
-//         float valuey = context.ReadValue<Vector2>().y;
-//         if (valuey > 0 && isSit)
-//         {
-//             camOffset.position = standPos.position;
-//             char_Ctrler.height = standPos.position.y;
-//             isSit = false;
-//         }
-//     }
-//     #endregion
-// }
+        }
+    }
+
+    private void DownUpAction(InputAction.CallbackContext context)
+    {
+        Vector2 value = context.ReadValue<Vector2>();
+        text.text = value.ToString();
+    }
+    #endregion
+}
