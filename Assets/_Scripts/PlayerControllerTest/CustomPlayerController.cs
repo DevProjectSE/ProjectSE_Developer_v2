@@ -11,6 +11,10 @@ using UnityEngine.XR.Content.Interaction;
 using UnityEngine.XR.Interaction.Toolkit;
 using Unity.XR.CoreUtils;
 using TMPro;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
+using Unity.VisualScripting;
+using EPOOutline;
+using System;
 
 public class CustomPlayerController : MonoBehaviour
 {
@@ -18,21 +22,33 @@ public class CustomPlayerController : MonoBehaviour
     // private InputActionReference activePrimaryX;
     [SerializeField]
     private InputActionReference rightControllerAction;
+    // private XRInputModalityManager XRinputModalityManager;
+
+    // private XRInteractionGroup r_interactionGroup;
+    // private XRInteractionGroup l_interactionGroup;
+
+    // private XRDirectInteractor l_xRDirectInteractor;
+    // private XRDirectInteractor r_xRDirectInteractor;
+    // private XRRayInteractor
+
+    public GameObject lController;
+
     private Camera cam;
     // private bool isSit;
     public Transform camOffset;
     public Transform camStartPos;
     public TextMeshProUGUI text;
+    public LayerMask targetLayer;
 
-    private bool isPressed;
     private void Awake()
     {
         cam = GetComponentInChildren<Camera>();
-    }
-
-    private void Start()
-    {
-        // camOffset.position = camStartPos.position;
+        // XRinputModalityManager = GetComponent<XRInputModalityManager>();
+        // r_interactionGroup = XRinputModalityManager.rightController.GetComponent<XRInteractionGroup>();
+        // l_interactionGroup = XRinputModalityManager.leftController.GetComponent<XRInteractionGroup>();
+        // r_xRDirectInteractor = r_interactionGroup.startingGroupMembers[1].GetComponent<XRDirectInteractor>();
+        // l_xRDirectInteractor = l_interactionGroup.startingGroupMembers[1].GetComponent<XRDirectInteractor>();
+        // l_xRDirectInteractor.hoverEntered.AddListener(L_FindClosest);
     }
 
     private void OnEnable()
@@ -60,14 +76,6 @@ public class CustomPlayerController : MonoBehaviour
         // rightControllerAction.action.started -= StandUp;
         // rightControllerAction.action.canceled -= StandUp;
         // activePrimaryX.action.performed -= Primary;
-    }
-
-    private void Update()
-    {
-        if (isPressed)
-        {
-
-        }
     }
 
     #region 콜백
@@ -108,5 +116,7 @@ public class CustomPlayerController : MonoBehaviour
         Vector2 value = context.ReadValue<Vector2>();
         text.text = value.ToString();
     }
+
     #endregion
+
 }
