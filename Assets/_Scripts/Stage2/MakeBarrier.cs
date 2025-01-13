@@ -10,6 +10,7 @@ public class MakeBarrier : MonoBehaviour
     public float targetIntensity;
     public float targetAngle;
     private float chageSpeed = 5f;
+    public float intensitycontrol;
 
     
     private void OnTriggerExit(Collider ohter)
@@ -26,19 +27,25 @@ public class MakeBarrier : MonoBehaviour
     }
 
 
+    private void IntensityControl()
+    {
+        RenderSettings.ambientIntensity = intensitycontrol;
+    }
     private IEnumerator ChangeBrightnessCoroutine()
     {
         print("코루틴 시작됨");
-        float courrentIntensity = lightSource.intensity;
+        //float courrentIntensity = lightSource.intensity;
+        //float currentAngleX = lightSource.transform.localRotation.eulerAngles.x;
+        //float elapsedTime = 0f;
+        float courrentIntensity = RenderSettings.ambientIntensity;
         float currentAngleX = lightSource.transform.localRotation.eulerAngles.x;
         float elapsedTime = 0f;
-
-        print(currentAngleX);
 
 
         while (elapsedTime < chageSpeed)
         {
-            lightSource.intensity = Mathf.Lerp(courrentIntensity, targetIntensity, elapsedTime / chageSpeed);
+            //lightSource.intensity = Mathf.Lerp(courrentIntensity, targetIntensity, elapsedTime / chageSpeed);
+            RenderSettings.ambientIntensity = Mathf.Lerp(courrentIntensity, targetIntensity, elapsedTime / chageSpeed);
             float angleDifference = Mathf.DeltaAngle(currentAngleX, targetAngle);
             float newAngle = currentAngleX + angleDifference * (elapsedTime / chageSpeed);
 
@@ -49,6 +56,7 @@ public class MakeBarrier : MonoBehaviour
         }
 
         lightSource.intensity = targetIntensity;
+        RenderSettings.ambientIntensity = targetIntensity;
         lightSource.transform.rotation = Quaternion.Euler(targetAngle, 0, 0);
         Destroy(gameObject);
     }
