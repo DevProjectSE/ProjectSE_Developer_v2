@@ -22,26 +22,27 @@ public class CustomPlayerController : MonoBehaviour
     // private InputActionReference activePrimaryX;
     [SerializeField]
     private InputActionReference rightControllerAction;
-    // private XRInputModalityManager XRinputModalityManager;
-
-    // private XRInteractionGroup r_interactionGroup;
-    // private XRInteractionGroup l_interactionGroup;
-
-    // private XRDirectInteractor l_xRDirectInteractor;
-    // private XRDirectInteractor r_xRDirectInteractor;
-    // private XRRayInteractor
-
-    public GameObject lController;
-
+    [SerializeField]
+    private Transform l_Controller;
+    [SerializeField]
+    private Transform r_Controller;
+    private SphereCollider l_Coll;
+    private SphereCollider r_Coll;
     private Camera cam;
+    private bool isSit = false;
+
     // private bool isSit;
+    public float detectRange;
     public Transform camOffset;
     public Transform camStartPos;
     public TextMeshProUGUI text;
     public LayerMask targetLayer;
-
     private void Awake()
     {
+        l_Coll = l_Controller.GetComponentInChildren<SphereCollider>();
+        r_Coll = r_Controller.GetComponentInChildren<SphereCollider>();
+        l_Coll.radius = detectRange / 6;
+        r_Coll.radius = detectRange / 6;
         cam = GetComponentInChildren<Camera>();
         // XRinputModalityManager = GetComponent<XRInputModalityManager>();
         // r_interactionGroup = XRinputModalityManager.rightController.GetComponent<XRInteractionGroup>();
@@ -54,28 +55,63 @@ public class CustomPlayerController : MonoBehaviour
     private void OnEnable()
     {
         rightControllerAction.action.performed += DownUpAction;
-        rightControllerAction.action.started += DownUpAction;
-        rightControllerAction.action.canceled += DownUpAction;
 
-        // rightControllerAction.action.started += SitDown;
-        // rightControllerAction.action.canceled += SitDown;
-        // rightControllerAction.action.started += StandUp;
-        // rightControllerAction.action.canceled += StandUp;
-        // isSit = false;
         // activePrimaryX.action.performed += Primary;
     }
 
     private void OnDisable()
     {
-        rightControllerAction.action.performed += DownUpAction;
-        rightControllerAction.action.started += DownUpAction;
-        rightControllerAction.action.canceled += DownUpAction;
-
-        // rightControllerAction.action.started -= SitDown;
-        // rightControllerAction.action.canceled -= SitDown;
-        // rightControllerAction.action.started -= StandUp;
-        // rightControllerAction.action.canceled -= StandUp;
+        rightControllerAction.action.performed -= DownUpAction;
         // activePrimaryX.action.performed -= Primary;
+    }
+
+    private void Update()
+    {
+        FindClosest(l_Controller);
+        FindClosest(r_Controller);
+    }
+
+    private void FindClosest(Transform pos)
+    {
+        Collider[] colliders = Physics.OverlapSphere(pos.position, detectRange, targetLayer);
+        if (colliders.Length == 0) return;
+        GameObject target = null;
+        float distance = 0;
+        foreach (Collider c in colliders)
+        {
+            if (target == null)
+            {
+                target = c.gameObject;
+                distance = Vector3.Distance(pos.position, target.transform.position);
+            }
+            else
+            {
+                GameObject tempTarget = c.gameObject;
+                float tempDistance = Vector3.Distance(pos.position, tempTarget.transform.position);
+                if (distance > tempDistance)
+                {
+                    target = tempTarget;
+                }
+            }
+        }
+        if (target != null)
+        {
+            foreach (Collider c in colliders)
+            {
+                if (target != c.gameObject)
+                {
+                    c.gameObject.GetComponent<Outlinable>().enabled = false;
+                }
+            }
+            target.GetComponent<Outlinable>().enabled = true;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(r_Controller.position, detectRange);
+        Gizmos.DrawWireSphere(l_Controller.position, detectRange);
     }
 
     #region 콜백
@@ -89,7 +125,7 @@ public class CustomPlayerController : MonoBehaviour
         // if (isSit == true) return;
         float valuey = context.ReadValue<Vector2>().y;
         if (cam.transform.localPosition.y < -2) return;
-        if (valuey <= -0.9)
+        if (valuey <= -0.35f)
         {
             camOffset.position =
             new Vector3(camOffset.position.x, camOffset.position.y - 2, camOffset.position.z);
@@ -102,7 +138,7 @@ public class CustomPlayerController : MonoBehaviour
 
         // if (isSit == false) return;
         float valuey = context.ReadValue<Vector2>().y;
-        if (valuey >= 0.9)
+        if (valuey >= 0.35f)
         {
             camOffset.position =
             new Vector3(camOffset.position.x, camOffset.position.y + 2, camOffset.position.z);
@@ -113,8 +149,20 @@ public class CustomPlayerController : MonoBehaviour
 
     private void DownUpAction(InputAction.CallbackContext context)
     {
-        Vector2 value = context.ReadValue<Vector2>();
+        float value = context.ReadValue<Vector2>().y;
         text.text = value.ToString();
+        if (value >= 0.35f && isSit == true)
+        {
+            camOffset.position =
+            new Vector3(camOffset.position.x, camOffset.position.y + 2, camOffset.position.z);
+            isSit = false;
+        }
+        if (value <= -0.35f && isSit == false)
+        {
+            camOffset.position =
+            new Vector3(camOffset.position.x, camOffset.position.y - 2, camOffset.position.z);
+            isSit = true;
+        }
     }
 
     #endregion
