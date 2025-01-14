@@ -35,7 +35,6 @@ public class CustomPlayerController : MonoBehaviour
     public float detectRange;
     public Transform camOffset;
     public Transform camStartPos;
-    public TextMeshProUGUI text;
     public LayerMask targetLayer;
     private void Awake()
     {
@@ -150,7 +149,6 @@ public class CustomPlayerController : MonoBehaviour
     private void DownUpAction(InputAction.CallbackContext context)
     {
         float value = context.ReadValue<Vector2>().y;
-        text.text = value.ToString();
         if (value >= 0.35f && isSit == true)
         {
             camOffset.position =

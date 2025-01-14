@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class StageFourth : MonoBehaviour
 {
@@ -19,9 +20,9 @@ public class StageFourth : MonoBehaviour
         {
             trashCan = GetComponentInChildren<TrashCan_Active>();
         }
-        foreach (GameObject g in stageFourtItem)
+        for (int i = 1; i < stageFourtItem.Count; i++)
         {
-            g.SetActive(false);
+            stageFourtItem[i].SetActive(false);
         }
     }
 
@@ -42,23 +43,27 @@ public class StageFourth : MonoBehaviour
         isMirrorClear = true;
         stains.Clear();
         trashCan.GrabActivate(true);
+        stageFourtItem[0].layer = LayerMask.NameToLayer("Object");
+        stageFourtItem[0].GetComponent<XRGrabInteractable>().enabled = false;
         //ToDo : 유리 교체
     }
     public void TrashCanClear()
     {
         isTrashCanClear = true;
-        stageFourtItem[0].gameObject.SetActive(true);
+        stageFourtItem[1].gameObject.SetActive(true);
     }
     public void LockerClear()
     {
         isLockerClear = true;
-        stageFourtItem[1].gameObject.SetActive(true);
+        stageFourtItem[2].gameObject.SetActive(true);
     }
 
     public void WallBreakClear()
     {
+        stageFourtItem[2].layer = LayerMask.NameToLayer("Object");
+        stageFourtItem[2].GetComponent<XRGrabInteractable>().enabled = false;
         isWallBreakClear = true;
-        stageFourtItem[2].gameObject.SetActive(true);
+        stageFourtItem[3].gameObject.SetActive(true);
     }
 
 }
