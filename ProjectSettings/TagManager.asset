@@ -10,6 +10,7 @@ TagManager:
   - Water
   - PlayerRay
   - Hammer
+  - Handmop
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - UI
   - Object
   - Item
-  - 
-  - 
+  - Pusher
+  - Grabable
   - 
   - 
   - 
