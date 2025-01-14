@@ -57,7 +57,7 @@ public class DescDialogSystem : MonoBehaviour
             {
                 isTypingEffect = false;
 
-                //타이핑 효과를 중지하고, 현재 대사 전체를 출력한다.
+                //타이핑 효과를 중지하고, 현재 대사   전체를 출력한다.
                 StopCoroutine("OnTypingText");
                 dialogIndex[currentDialogIndex].textDialogue.text = dialogs[currentDialogIndexNum].dialogue;
                 //대사가 완료되었을 때 출력되는 커서 활성화
