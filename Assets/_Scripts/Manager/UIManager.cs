@@ -11,11 +11,14 @@ public class UIManager : MonoBehaviour
     public FadeInOut fadeInOutObj;
     public GameObject tutorialUI;
     public GameObject playerDialog;
+
     [Header("Player Dialogue")]
     public TextMeshProUGUI Name;
     public TextMeshProUGUI dialog;
+
     [Header("UI Image")]
     public Image controllerQuestImg;
+
     [Header("UI Text")]
     public TextMeshProUGUI questText;
     public TextMeshProUGUI controllerQuestText;

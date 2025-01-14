@@ -1,34 +1,53 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ExcelReader : MonoBehaviour
 {
-    private TextAsset csvData; // CSV 데이터를 저장할 변수
-    private string[] rows;     // 행 데이터를 저장할 배열
+    // 데이터를 저장할 클래스
+    [System.Serializable]
+    public class ScenarioData
+    {
+        public string CharacterName; // 캐릭터 이름
+        public string Dialogue;      // 대사
+        public string Emotion;       // 감정 (예: 웃음, 화남 등)
+    }
+
+    private List<ScenarioData> scenarioList = new List<ScenarioData>(); // 구조화된 데이터를 저장할 리스트
 
     // Start is called before the first frame update
-    void Start()
+    void Start()     
     {
-        // 'example'은 파일 이름 (확장자는 제외)
-        csvData = Resources.Load<TextAsset>("시나리오 대사_25_01_06");
+        TextAsset csvData = Resources.Load<TextAsset>("시나리오 대사_25_01_06");
+
         if (csvData != null)
         {
-            rows = csvData.text.Split('\n'); // 데이터를 행 단위로 분리
+            string[] rows = csvData.text.Split('\n');
             foreach (var row in rows)
             {
-                Debug.Log(row); // 각 행의 데이터를 출력
+                string[] columns = row.Split(',');
+
+                // 데이터 유효성 검증 (열 개수 확인)
+                if (columns.Length >= 3)
+                {
+                    ScenarioData data = new ScenarioData
+                    {
+                        CharacterName = columns[1].Trim(),
+                        Dialogue = columns[2].Trim(),
+                        Emotion = columns[3].Trim()
+                    };
+                    scenarioList.Add(data);
+                }
+            }
+
+            // 구조화된 데이터 출력
+            foreach (var scenario in scenarioList)
+            {
+                Debug.Log($"캐릭터: {scenario.CharacterName}, 대사: {scenario.Dialogue}, 감정: {scenario.Emotion}");
             }
         }
         else
         {
-            Debug.LogError("CSV 파일을 찾을 수 없습니다. Resources 폴더에 'example.csv' 파일이 있는지 확인하세요.");
+            Debug.LogError("CSV 파일을 찾을 수 없습니다. Resources 폴더에 파일이 있는지 확인하세요.");
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // 필요 시 Update 로직 추가
     }
 }
