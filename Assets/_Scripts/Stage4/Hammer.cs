@@ -6,10 +6,9 @@ using UnityEngine;
 public class Hammer : MonoBehaviour
 {
 
-    public Rigidbody rb;
-    public TextMeshProUGUI rb_Velocity;
+    public Rigidbody m_Rb;
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        m_Rb = GetComponent<Rigidbody>();
     }
 }

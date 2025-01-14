@@ -5,16 +5,20 @@ using UnityEngine.XR.Content.Interaction;
 
 public class TrashCan_Active : MonoBehaviour
 {
-
+    public StageFourth stageFourth;
     public Transform trashCan_model;
     private XRLever xRLever;
-
     public GameObject handle;
-
+    public GameObject keyObject;
     private IEnumerator enumerator;
     private void Awake()
     {
+        if (stageFourth == null)
+        {
+            stageFourth = GetComponentInParent<StageFourth>();
+        }
         xRLever = GetComponentInChildren<XRLever>();
+        keyObject.SetActive(false);
     }
     private void Start()
     {
@@ -24,14 +28,15 @@ public class TrashCan_Active : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("In Corou");
-
             if (trashCan_model.localEulerAngles.x >= xRLever.minAngle)
             {
                 handle.GetComponent<Rigidbody>().useGravity = true;
                 handle.GetComponent<Rigidbody>().isKinematic = false;
                 handle.transform.parent = null;
                 xRLever.enabled = false;
+                keyObject.SetActive(true);
+                keyObject.transform.parent = null;
+                stageFourth.TrashCanClear();
                 StopCoroutine(enumerator);
             }
             yield return null;
@@ -45,9 +50,11 @@ public class TrashCan_Active : MonoBehaviour
 
     public void LeverActive()
     {
-        Debug.Log("Stop");
         StopCoroutine(enumerator);
     }
-
+    public void GrabActivate(bool value)
+    {
+        xRLever.enabled = value;
+    }
 }
 

@@ -164,7 +164,6 @@ public class CustomPlayerController : MonoBehaviour
             isSit = true;
         }
     }
-
     #endregion
 
 }

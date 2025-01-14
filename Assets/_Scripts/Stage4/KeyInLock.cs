@@ -6,7 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class KeyInLock : MonoBehaviour
 {
-
+    public StageFourth stageFourth;
     private XRKnob knob;
     public Transform openHint;
     public Transform upper_Part_LOD0;
@@ -16,6 +16,10 @@ public class KeyInLock : MonoBehaviour
 
     private void Awake()
     {
+        if (stageFourth == null)
+        {
+            stageFourth = GetComponentInParent<StageFourth>();
+        }
         knob = GetComponent<XRKnob>();
     }
 
@@ -31,6 +35,7 @@ public class KeyInLock : MonoBehaviour
                 coll.enabled = false;
                 isActived = true;
             }
+            stageFourth.LockerClear();
         }
     }
 }

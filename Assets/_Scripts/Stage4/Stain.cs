@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Stain : MonoBehaviour
 {
-
-    private MeshRenderer m_MeshRenderer;
+    private StageFourth stageFourth;
+    public MeshRenderer m_MeshRenderer { get; private set; }
     private int count = 0;
 
     private void Awake()
     {
+        if (stageFourth == null)
+        {
+            stageFourth = GetComponentInParent<StageFourth>();
+        }
         m_MeshRenderer = GetComponent<MeshRenderer>();
     }
 
@@ -22,6 +26,11 @@ public class Stain : MonoBehaviour
             {
                 m_MeshRenderer.material.color -= new Color(0, 0, 0, 0.25f);
                 count = 0;
+            }
+            if (m_MeshRenderer.material.color.a <= 0)
+            {
+                stageFourth.StainClear();
+                gameObject.SetActive(false);
             }
         }
     }

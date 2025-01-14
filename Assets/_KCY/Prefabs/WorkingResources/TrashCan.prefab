@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3276918965800448701}
   - component: {fileID: 7667240520879807606}
   - component: {fileID: 5602803038404463998}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Bin Lid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7392076408406737000}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Trash_Can_model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 395566430779678567}
   - component: {fileID: 2491634093493437494}
   - component: {fileID: 6040391412338303174}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Handle_Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ Transform:
   m_GameObject: {fileID: 7222967460106450882}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00194}
+  m_LocalPosition: {x: 0, y: -0.00001, z: 0.00194}
   m_LocalScale: {x: 0.00050758326, y: 0.002460164, z: 0.002460164}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 6568406915039317022}
   - component: {fileID: 1747332005549916572}
   - component: {fileID: 7053428500357987399}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Bin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 1084254549447831324}
   - component: {fileID: 1159238905636122718}
   - component: {fileID: 7205082350539477973}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: MovePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
