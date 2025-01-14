@@ -21,7 +21,7 @@ public class EnterState : IState
     {
         //손전등 획득시
         Debug.Log("손전등 획득");
-        Stage3GameManager.Instance.TransitionToState(new PlayingSate1());
+        Stage3Manager.Instance.TransitionToState(new PlayingSate1());
     }
 
     public void Exit()
@@ -41,7 +41,7 @@ public class PlayingSate1 : IState
     {
         //손전등 획득시
         Debug.Log("첫번째 상태 클리어");
-        Stage3GameManager.Instance.TransitionToState(new PlayingSate2());
+        Stage3Manager.Instance.TransitionToState(new PlayingSate2());
     }
 
     public void Exit()
@@ -61,7 +61,7 @@ public class PlayingSate2 : IState
     {
         //손전등 획득시
         Debug.Log("첫번째 상태 클리어");
-        Stage3GameManager.Instance.TransitionToState(new Stage3End());
+        Stage3Manager.Instance.TransitionToState(new Stage3End());
     }
 
     public void Exit()
@@ -80,7 +80,7 @@ public class Stage3End : IState
     public void Execute()
     {
         //손전등 획득시
-        Debug.Log("첫번째 상태 클리어");
+        //Debug.Log("첫번째 상태 클리어");
     }
 
     public void Exit()

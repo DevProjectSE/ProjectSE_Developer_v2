@@ -8,8 +8,8 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 public class FlashLight : MonoBehaviour
 {
     public GameObject flashLight;
-    [SerializeField] private InputActionReference leftActivateAction;
-    [SerializeField] private InputActionReference rightActivateAction;
+     private ActionBasedController leftActivateAction;
+     private ActionBasedController rightActivateAction;
 
     private int lightState = 0;
 
@@ -19,6 +19,12 @@ public class FlashLight : MonoBehaviour
 
     public GameObject targetObject; //??????? ???
     public float rayDistance = 50f; //???
+
+    private void Awake()
+    {
+        leftActivateAction = GetComponent<ActionBasedController>();
+        rightActivateAction = GetComponent<ActionBasedController>();
+    }
 
     private void Start()
     {
@@ -58,13 +64,13 @@ public class FlashLight : MonoBehaviour
     {
         if (leftActivateAction != null)
         {
-            leftActivateAction.action.performed += GetOnLight;
+            leftActivateAction.selectAction.reference.action.performed += GetOnLight;
 
         }
 
         if (rightActivateAction != null)
         {
-            rightActivateAction.action.performed += GetOnLight;
+            rightActivateAction.selectAction.reference.action.performed += GetOnLight;
 
         }
     }
@@ -73,11 +79,11 @@ public class FlashLight : MonoBehaviour
     {
         if (leftActivateAction != null)
         {
-            leftActivateAction.action.performed -= GetOnLight;
+            leftActivateAction.selectAction.reference.action.performed -= GetOnLight;
         }
         if (rightActivateAction != null)
         {
-            rightActivateAction.action.performed -= GetOnLight;
+            rightActivateAction.selectAction.reference.action.performed -= GetOnLight;
         }
     }
     private void GetOnLight(InputAction.CallbackContext context)
