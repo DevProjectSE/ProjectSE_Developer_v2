@@ -11,6 +11,7 @@ TagManager:
   - PlayerRay
   - Hammer
   - Handmop
+  - TrashCan
   layers:
   - Default
   - TransparentFX
