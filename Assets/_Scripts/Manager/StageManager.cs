@@ -9,8 +9,15 @@ public class StageManager : MonoBehaviour
     public STAGE stage;
 
     [Header("Stage1_DialogSystem")]
-    public DialogSystem FirstTutorialDialog;
-    public DialogSystem SecondTutorialDialog;
+    public DialogSystem firstTutorialDialog;
+    public DialogSystem secondTutorialDialog;
+    [Header("Stage1_Tutorial_Sprites")]
+    public Sprite viewTutorialImg;
+    public Sprite movingTutorialImg;
+    public Sprite gripTutorialImg;
+    public Sprite objectActiveTutorialImg;
+    public Sprite putTutorialImg;
+    public Sprite sitdownTutorialImg;
 
 
     // Start is called before the first frame update
@@ -23,11 +30,28 @@ public class StageManager : MonoBehaviour
                 //오브젝트를 쭉 훑어본 후 플레이어의 위치로 카메라가 이동하며 이후 플레이어가 움직일 수 있다.
                 GameManager.Instance.Player.GetComponentInChildren<InputActionManager>().enabled = false;
                 //대사 내용 출력 이후 플레이어 캐릭터 조작 활성화
-                FirstTutorialDialog.gameObject.SetActive(true);
+                firstTutorialDialog.gameObject.SetActive(true);
+                yield return new WaitUntil(()=> firstTutorialDialog.isDialogsEnd == true);
 
+                //퀘스트 내용 초기화
+                GameManager.Instance.uiManager.ChangeTutorialText(GameManager.Instance.uiManager.questText,
+                    "부엌으로 이동하여 냉장고에서 음료수를 꺼내 마시세요.");
                 //퀘스트 알림 UI 활성화 2초간 활성화 이후 해당 UI가 축소되고 좌측 상단에 고정
+                GameManager.Instance.uiManager.mainQuestUiObj.SetActive(true);
+                yield return new WaitForSeconds(2f);
+                GameManager.Instance.uiManager.mainQuestUiObj.SetActive(false);
+                GameManager.Instance.uiManager.miniMainQuestUiObj.SetActive(true);
+
+                //출력 전 UI 초기화
+                GameManager.Instance.uiManager.ChanageAllTutorialUI(GameManager.Instance.uiManager.controllerQuestText, GameManager.Instance.uiManager.controllerQuestImg,
+                    "우측 컨트롤러의 스틱을 이용하여 방향을 돌리세요.", viewTutorialImg);
                 //시야 방향키 알림 UI 오른쪽에 출력
+                GameManager.Instance.uiManager.controllerTutoObj.SetActive(true);
+
                 //컨트롤러를 통해 시야 방향이 변경되면 시야 알림 UI 비활성화
+
+                //GameManager.Instance.uiManager.controllerTutoObj.SetActive(false);
+
                 //이후 이동 방법을 알려주는 UI 출력
                 //컨트롤러를 통해 이동하면 이동 UI 비활성화
 
@@ -56,7 +80,7 @@ public class StageManager : MonoBehaviour
                 //음료수를 마실 때와 같은 방법으로 핸드폰 상호작용
                 //아이템 사용 버튼을 누르면 전화벨 소리와 햅틱 반응 종료, 좌측 상단에 있던 지시사항 UI비활성화
                 //아이템 사용 버튼을 누르면 대사가 출력된다.
-                SecondTutorialDialog.gameObject.SetActive(true);
+                //secondTutorialDialog.gameObject.SetActive(true);
 
                 //이때 핸드폰 사용하는 도중에 인벤토리에 핸드폰을 넣을 수 없다.
                 //모든 대사가 종료되면 화면에 검은색 화면으로 페이드 아웃된다.
@@ -66,14 +90,19 @@ public class StageManager : MonoBehaviour
 
                 break;
             case STAGE.STAGE2:
+
                 break;
             case STAGE.STAGE3:
+
                 break;
             case STAGE.STAGE4:
+
                 break;
             case STAGE.STAGE5:
+
                 break;
             case STAGE.STAGE6:
+
                 break;
         }
     }

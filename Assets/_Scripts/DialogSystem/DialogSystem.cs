@@ -22,6 +22,7 @@ public class DialogSystem : MonoBehaviour
     private int currentDialogIndex = -1; // 현재 대사 순번
     private int currentDialogIndexNum = 0; // 현재 설명을 하는 dialogIndex의 배열 순번
     private bool isTypingEffect = false; // 텍스트 타이핑 효과 재생 중인지 확인하는 변수
+    public bool isDialogsEnd = false;  //대화가 종료되었는지 확인하는 변수
 
     private void Start()
     {
@@ -91,6 +92,7 @@ public class DialogSystem : MonoBehaviour
             SetActiveObjects(speaker, false);
         }
         GameManager.Instance.Player.GetComponentInChildren<InputActionManager>().enabled = true;
+        isDialogsEnd = true;
         Debug.Log("모든 대사가 완료되었습니다.");
     }
 }
