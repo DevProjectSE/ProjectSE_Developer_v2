@@ -45,6 +45,7 @@ public class Tile : MonoBehaviour
                 ActivateObj();
                 tile[hitCount + 1].SetActive(true);
                 stageFourth.WallBreakClear();
+                GetComponent<BoxCollider>().enabled = false;
                 return;
             }
         }

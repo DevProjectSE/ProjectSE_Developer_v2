@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Content.Interaction;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class StageFourth : MonoBehaviour
@@ -13,6 +14,8 @@ public class StageFourth : MonoBehaviour
     public List<GameObject> stageFourtItem;
 
     public TrashCan_Active trashCan;
+
+    public XRKnob doorKnob;
 
     private void Awake()
     {
@@ -56,6 +59,7 @@ public class StageFourth : MonoBehaviour
     {
         isLockerClear = true;
         stageFourtItem[2].gameObject.SetActive(true);
+        doorKnob.enabled = true;
     }
 
     public void WallBreakClear()
