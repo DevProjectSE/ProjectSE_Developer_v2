@@ -8,17 +8,17 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 public class FlashLight : MonoBehaviour
 {
     public GameObject flashLight;
-     private ActionBasedController leftActivateAction;
-     private ActionBasedController rightActivateAction;
+    private ActionBasedController leftActivateAction;
+    private ActionBasedController rightActivateAction;
 
     private int lightState = 0;
 
-    private Light lightComponent; //?????? ??
+    private Light lightComponent; //사용하는 빛
     public Color basicColor = Color.white;
     public Color UVColor = Color.blue;
 
-    public GameObject targetObject; //??????? ???
-    public float rayDistance = 50f; //???
+    public GameObject targetObject; //보이게할 대상
+    public float rayDistance = 50f; //거리
 
     private void Awake()
     {
@@ -40,16 +40,16 @@ public class FlashLight : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, rayDistance))
         {
-            // ?????? ????????? ????? ???
+            // 광선이 오브젝트에 닿았을 경우
             if (lightState == 2 && hit.collider.gameObject == targetObject)
             {
-                // ????????? ????? ???
+                // 오브젝트를 보이게 한다
                 targetObject.GetComponent<Renderer>().enabled = true;
             }
         }
         else
         {
-            // ?????? ????????? ???? ?????? ????????? ?????
+            // 광선이 오브젝트에 닿지 않으면 오브젝트를 숨긴다
             targetObject.GetComponent<Renderer>().enabled = false;
         }
 
