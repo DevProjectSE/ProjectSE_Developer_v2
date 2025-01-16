@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit.Inputs;
 
 public class StageManager : MonoBehaviour
@@ -9,10 +12,35 @@ public class StageManager : MonoBehaviour
     public STAGE stage;
 
     [Header("Stage1_DialogSystem")]
-    public DialogSystem FirstTutorialDialog;
-    public DialogSystem SecondTutorialDialog;
+    public DialogSystem firstTutorialDialog;
+    public DialogSystem secondTutorialDialog;
+    [Header("Stage1_Tutorial_Sprites")]
+    public Sprite viewTutorialImg;
+    public Sprite movingTutorialImg;
+    public Sprite gripTutorialImg;
+    public Sprite objectActiveTutorialImg;
+    public Sprite putTutorialImg;
+    public Sprite sitdownTutorialImg;
 
+    public InputActionReference rightJoystick;
+    public InputActionReference leftJoystick;
 
+    private bool isSnapTurned = false; // 스냅턴 실행 여부 플래그
+    private bool isPlayerMoved = false; //플레이어 이동 여부 플래그
+    public bool inCokeArea = false; //탄산수 획득 가능 위치 플래그
+    public bool inTrashcanArea = false; //사용한 탄산수 버리기 가능한 위치 플래그
+    public bool throwCokecan = false;   //쓰레기 버리기 여부 플래그
+
+    private void OnEnable()
+    {
+        rightJoystick.action.performed += RightHandSnapturn;
+        leftJoystick.action.performed += LeftHandMove;
+    }
+    private void OnDisable()
+    {
+        rightJoystick.action.performed -= RightHandSnapturn;
+        leftJoystick.action.performed -= LeftHandMove;
+    }
     // Start is called before the first frame update
     IEnumerator Start()
     {
@@ -23,15 +51,43 @@ public class StageManager : MonoBehaviour
                 //오브젝트를 쭉 훑어본 후 플레이어의 위치로 카메라가 이동하며 이후 플레이어가 움직일 수 있다.
                 GameManager.Instance.Player.GetComponentInChildren<InputActionManager>().enabled = false;
                 //대사 내용 출력 이후 플레이어 캐릭터 조작 활성화
-                FirstTutorialDialog.gameObject.SetActive(true);
+                firstTutorialDialog.gameObject.SetActive(true);
+                yield return new WaitUntil(()=> firstTutorialDialog.isDialogsEnd == true);
 
+                //퀘스트 내용 초기화
+                GameManager.Instance.uiManager.ChangeTutorialText(GameManager.Instance.uiManager.questText,
+                    "부엌으로 이동하여 냉장고에서 음료수를 꺼내 마시세요.");
                 //퀘스트 알림 UI 활성화 2초간 활성화 이후 해당 UI가 축소되고 좌측 상단에 고정
+                GameManager.Instance.uiManager.mainQuestUiObj.SetActive(true);
+                yield return new WaitForSeconds(2f);
+                GameManager.Instance.uiManager.mainQuestUiObj.SetActive(false);
+                GameManager.Instance.uiManager.miniMainQuestUiObj.SetActive(true);
+
+                //출력 전 UI 초기화
+                GameManager.Instance.uiManager.ChanageAllTutorialUI(GameManager.Instance.uiManager.controllerQuestText, GameManager.Instance.uiManager.controllerQuestImg,
+                    "우측 컨트롤러의 스틱을 이용하여 방향을 돌리세요.", viewTutorialImg);
                 //시야 방향키 알림 UI 오른쪽에 출력
+                GameManager.Instance.uiManager.controllerTutoObj.SetActive(true);
+
                 //컨트롤러를 통해 시야 방향이 변경되면 시야 알림 UI 비활성화
+                // 스냅턴 실행될 때까지 대기
+                yield return new WaitUntil(() => isSnapTurned);
+                GameManager.Instance.uiManager.controllerTutoObj.SetActive(false);
+
+                // UI 이동 방법 내용으로 초기화
+                GameManager.Instance.uiManager.ChanageAllTutorialUI(GameManager.Instance.uiManager.controllerQuestText, GameManager.Instance.uiManager.controllerQuestImg,
+                    "좌측 컨트롤러의 스틱을 이용하여 이동하세요", movingTutorialImg);
                 //이후 이동 방법을 알려주는 UI 출력
+                GameManager.Instance.uiManager.controllerTutoObj.SetActive(true);
+
                 //컨트롤러를 통해 이동하면 이동 UI 비활성화
+                // 플레이어 이동 실행될 때까지 대기
+                yield return new WaitUntil(() => isPlayerMoved);
+                GameManager.Instance.uiManager.controllerTutoObj.SetActive(false);
 
                 //냉장고 앞까지 이동 시 최초로 1번 그립 버튼에 대한 UI 우측에 활성화 
+                GameManager.Instance.uiManager.ChanageAllTutorialUI(GameManager.Instance.uiManager.controllerQuestText, GameManager.Instance.uiManager.controllerQuestImg,
+                   "그립 버튼을 누르고 문을 여세요.", gripTutorialImg);
                 //컨트롤러를 이용하여 그립 버튼이 눌리면 그립 UI 비활성화 (냉장고 문을 놓아도 닫히지 않는다.)
                 //앉기 버튼에대한 UI 우측에 활성화
                 //컨트롤러 키를 이용하여 캐릭터가 앉으면 앉기 UI 비활성화 
@@ -55,8 +111,10 @@ public class StageManager : MonoBehaviour
                 //인벤토리를 열면 인벤토리 알림 UI 비활성화
                 //음료수를 마실 때와 같은 방법으로 핸드폰 상호작용
                 //아이템 사용 버튼을 누르면 전화벨 소리와 햅틱 반응 종료, 좌측 상단에 있던 지시사항 UI비활성화
+
                 //아이템 사용 버튼을 누르면 대사가 출력된다.
-                SecondTutorialDialog.gameObject.SetActive(true);
+                //secondTutorialDialog.gameObject.SetActive(true);
+                //yield return new WaitUntil(() => secondTutorialDialog.isDialogsEnd == true);
 
                 //이때 핸드폰 사용하는 도중에 인벤토리에 핸드폰을 넣을 수 없다.
                 //모든 대사가 종료되면 화면에 검은색 화면으로 페이드 아웃된다.
@@ -66,14 +124,19 @@ public class StageManager : MonoBehaviour
 
                 break;
             case STAGE.STAGE2:
+
                 break;
             case STAGE.STAGE3:
+
                 break;
             case STAGE.STAGE4:
+
                 break;
             case STAGE.STAGE5:
+
                 break;
             case STAGE.STAGE6:
+
                 break;
         }
     }
@@ -83,4 +146,24 @@ public class StageManager : MonoBehaviour
     {
         
     }
+    
+    private void RightHandSnapturn(InputAction.CallbackContext callback)
+    {
+        Vector2 input = callback.ReadValue<Vector2>();
+        if (Mathf.Abs(input.x) > 0.5f) // 스냅턴 입력 기준 (X축 입력이 0.5 이상일 경우)
+        {
+            isSnapTurned = true;
+            Debug.Log("스냅턴 실행 감지");
+        }
+    }
+    private void LeftHandMove(InputAction.CallbackContext callback)
+    {
+        Vector2 input = callback.ReadValue<Vector2>();
+        if (input != Vector2.zero)
+        {
+            isPlayerMoved = true;
+            Debug.Log("컨트롤러 이동 입력 감지");
+        }
+    }
+    
 }
