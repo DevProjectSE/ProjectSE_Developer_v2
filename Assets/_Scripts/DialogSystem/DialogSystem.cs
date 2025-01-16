@@ -22,14 +22,37 @@ public class DialogSystem : MonoBehaviour
     private int currentDialogIndex = -1; // 현재 대사 순번
     private int currentDialogIndexNum = 0; // 현재 설명을 하는 dialogIndex의 배열 순번
     private bool isTypingEffect = false; // 텍스트 타이핑 효과 재생 중인지 확인하는 변수
-    public bool isDialogsEnd = false;  //대화가 종료되었는지 확인하는 변수
+    public bool isDialogsEnd = false;  // 대화가 종료되었는지 확인하는 변수
 
     private void Start()
     {
+        InitializeSpeakers();
+
         if (isAutoStart)
         {
             StartCoroutine(AutoPlayDialog());
         }
+    }
+
+    /// <summary>
+    /// Speaker UI 요소를 초기화합니다.
+    /// </summary>
+    private void InitializeSpeakers()
+    {
+        foreach (var speaker in speakers)
+        {
+            speaker.dialogImage.gameObject.SetActive(false);
+            speaker.textName.gameObject.SetActive(false);
+            speaker.textDialogue.gameObject.SetActive(false);
+            speaker.objectArrow.SetActive(false);
+
+            // 이름 초기화
+            speaker.textName.text = "";
+            speaker.textDialogue.text = "";
+        }
+
+        currentDialogIndex = -1; // 대화 시작을 위한 초기화
+        isDialogsEnd = false;    // 대화 종료 상태 초기화
     }
 
     public IEnumerator AutoPlayDialog()
@@ -56,6 +79,9 @@ public class DialogSystem : MonoBehaviour
         currentDialogIndexNum = dialogs[currentDialogIndex].dialogIndex;
         SetActiveObjects(speakers[currentDialogIndexNum], true);
 
+        // 이름 업데이트
+        speakers[currentDialogIndexNum].textName.text = dialogs[currentDialogIndex].Name;
+
         // 대사 타이핑 효과 실행
         StartCoroutine(OnTypingText());
     }
@@ -65,7 +91,11 @@ public class DialogSystem : MonoBehaviour
         speaker.dialogImage.gameObject.SetActive(visible);
         speaker.textName.gameObject.SetActive(visible);
         speaker.textDialogue.gameObject.SetActive(visible);
-        speaker.objectArrow.SetActive(false); // 커서는 항상 초기화
+
+        if (!visible)
+        {
+            speaker.objectArrow.SetActive(false); // 커서는 항상 초기화
+        }
     }
 
     private IEnumerator OnTypingText()
@@ -91,9 +121,13 @@ public class DialogSystem : MonoBehaviour
         {
             SetActiveObjects(speaker, false);
         }
+
         GameManager.Instance.Player.GetComponentInChildren<InputActionManager>().enabled = true;
         isDialogsEnd = true;
         Debug.Log("모든 대사가 완료되었습니다.");
+
+        // 이 오브젝트를 비활성화하여 대화 종료를 알림
+        this.gameObject.SetActive(false);
     }
 }
 
@@ -101,7 +135,7 @@ public class DialogSystem : MonoBehaviour
 public struct Speaker
 {
     public Image dialogImage; // 대화창 이미지
-    public TextMeshProUGUI textName;
+    public TextMeshProUGUI textName; // 이름 텍스트
     public TextMeshProUGUI textDialogue; // 대사 텍스트
     public GameObject objectArrow; // 커서
 }
@@ -110,7 +144,7 @@ public struct Speaker
 public struct Dialog
 {
     public int dialogIndex; // 대사를 출력할 Speaker 배열 순번
-    public string Name;
+    public string Name; // 이름
     [TextArea(5, 5)]
-    public string dialogue;
+    public string dialogue; // 대사 내용
 }

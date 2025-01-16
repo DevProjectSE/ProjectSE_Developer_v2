@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour
     [Header("UI Text")]
     public TextMeshProUGUI questText;
     public TextMeshProUGUI controllerQuestText;
+    public TextMeshProUGUI miniQuestText;
 
     private void Awake()
     {

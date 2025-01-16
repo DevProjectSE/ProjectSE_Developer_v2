@@ -12,6 +12,7 @@ TagManager:
   - Hammer
   - Handmop
   - TrashCan
+  - Hand
   layers:
   - Default
   - TransparentFX
