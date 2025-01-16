@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using EPOOutline;
 using UnityEngine;
 using UnityEngine.XR.Content.Interaction;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -13,6 +14,8 @@ public class KeyInLock : MonoBehaviour
     public List<BoxCollider> upper_Part_collsList = new();
 
     private bool isActived = false;
+
+    public Outlinable outlinable;
 
     private void Awake()
     {
@@ -35,6 +38,8 @@ public class KeyInLock : MonoBehaviour
                 coll.enabled = false;
                 isActived = true;
             }
+            outlinable.BackParameters.Enabled = false;
+            outlinable.FrontParameters.Enabled = false;
             stageFourth.LockerClear();
         }
     }
