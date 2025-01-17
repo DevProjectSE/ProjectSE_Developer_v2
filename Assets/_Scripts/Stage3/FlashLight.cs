@@ -9,8 +9,8 @@ public class FlashLight : MonoBehaviour
 {
     public GameObject flashLight;
 
-    private ActionBasedController leftActivateAction;
-    private ActionBasedController rightActivateAction;
+    private InputActionReference leftActivateAction;
+    private InputActionReference rightActivateAction;
 
     public SpriteMask spriteMask;
     private Light lightComponent; //»ç¿ëÇÏ´Â ºû
@@ -25,8 +25,8 @@ public class FlashLight : MonoBehaviour
     private int lightState = 0;
     public bool canToggleLight = false;
 
-    public InputActionProperty leftButtonAction;
-    public InputActionProperty rightButtonAction;
+    //public InputActionProperty leftButtonAction;
+    //public InputActionProperty rightButtonAction;
 
     private void Awake()
     {
@@ -38,8 +38,8 @@ public class FlashLight : MonoBehaviour
     private void Start()
     {
 
-        leftActivateAction.selectAction.reference.action.performed += ctx =>ToggleLight();
-        rightActivateAction.selectAction.reference.action.performed += ctx => ToggleLight();
+        leftActivateAction.action.performed += ctx =>ToggleLight();
+        rightActivateAction.action.performed += ctx => ToggleLight();
 
     }
 
@@ -72,13 +72,13 @@ public class FlashLight : MonoBehaviour
     {
         if (leftActivateAction != null)
         {
-            leftActivateAction.selectAction.reference.action.performed += ctx => ToggleLight();
+            leftActivateAction.action.performed += ctx => ToggleLight();
 
         }
 
         if (rightActivateAction != null)
         {
-            rightActivateAction.selectAction.reference.action.performed += ctx=>  ToggleLight();
+            rightActivateAction.action.performed += ctx=>  ToggleLight();
 
         }
     }
@@ -87,11 +87,11 @@ public class FlashLight : MonoBehaviour
     {
         if (leftActivateAction != null)
         {
-            leftActivateAction.selectAction.reference.action.performed -= ctx => ToggleLight();
+            leftActivateAction.action.performed -= ctx => ToggleLight();
         }
         if (leftActivateAction != null)
         {
-            rightActivateAction.selectAction.reference.action.performed -= ctx => ToggleLight();
+            rightActivateAction.action.performed -= ctx => ToggleLight();
         }
     }
     public void ToggleLight()
