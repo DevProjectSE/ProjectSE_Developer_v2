@@ -932,7 +932,6 @@ MonoBehaviour:
   r_Controller: {fileID: 4837676079947654878}
   detectRange: 0.6
   camOffset: {fileID: 2711537672819537896}
-  camStartPos: {fileID: 1183130436597920837}
   targetLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -1195,7 +1194,7 @@ MonoBehaviour:
   stage: 1
   renderingStrategy: 1
   renderingMode: 0
-  outlineLayerMask: -1
+  outlineLayerMask: 1
   primaryBufferSizeMode: 2
   primaryRendererScale: 0.5
   primarySizeReference: 800
@@ -1427,8 +1426,8 @@ MonoBehaviour:
   m_ConeCastAngle: 3
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 161
-  m_RaycastTriggerInteraction: 2
+    m_Bits: 1185
+  m_RaycastTriggerInteraction: 1
   m_RaycastSnapVolumeInteraction: 1
   m_HitClosestOnly: 1
   m_HoverToSelect: 0
@@ -1751,7 +1750,7 @@ Transform:
   m_GameObject: {fileID: 2882890593352632509}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.915, z: 0}
+  m_LocalPosition: {x: 0, y: 0.897, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2486,37 +2485,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &5058744716691032948
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1183130436597920837}
-  m_Layer: 0
-  m_Name: CamStartPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1183130436597920837
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5058744716691032948}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3645242683660706622}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5684802181188039054
 GameObject:
   m_ObjectHideFlags: 0
@@ -3536,7 +3504,6 @@ Transform:
   - {fileID: 4527699420700477552}
   - {fileID: 875899131575948363}
   - {fileID: 7350992339522270686}
-  - {fileID: 1183130436597920837}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9031510756627900742
@@ -3678,10 +3645,10 @@ MonoBehaviour:
   m_ConeCastAngle: 3
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 161
+    m_Bits: 1185
   m_RaycastTriggerInteraction: 1
   m_RaycastSnapVolumeInteraction: 1
-  m_HitClosestOnly: 0
+  m_HitClosestOnly: 1
   m_HoverToSelect: 0
   m_HoverTimeToSelect: 0.5
   m_AutoDeselect: 0

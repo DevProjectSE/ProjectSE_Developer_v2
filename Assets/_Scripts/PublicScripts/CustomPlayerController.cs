@@ -34,8 +34,8 @@ public class CustomPlayerController : MonoBehaviour
     // private bool isSit;
     public float detectRange;
     public Transform camOffset;
-    public Transform camStartPos;
     public LayerMask targetLayer;
+
     private void Awake()
     {
         l_Coll = l_Controller.GetComponentInChildren<SphereCollider>();
