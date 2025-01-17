@@ -930,7 +930,7 @@ MonoBehaviour:
     type: 3}
   l_Controller: {fileID: 3898106423229892181}
   r_Controller: {fileID: 4837676079947654878}
-  detectRange: 0.6
+  detectRange: 0.2
   camOffset: {fileID: 2711537672819537896}
   targetLayer:
     serializedVersion: 2
