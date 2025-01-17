@@ -7,7 +7,7 @@ namespace MikeNspired.UnityXRHandPoser
     public class InventoryManager : MonoBehaviour
     {
         [SerializeField]
-        private InputActionReference openMenuInputLeftHand, openMenuInputRightHand;
+        private InputActionReference openMenuInputLeftHand;
         private InventorySlot[] inventorySlots;
         public ActionBasedController leftController = null, rightController = null;
         [SerializeField] private AudioSource enableAudio = null, disableAudio = null;
@@ -23,7 +23,6 @@ namespace MikeNspired.UnityXRHandPoser
                 itemSlot.StartCoroutine(itemSlot.CreateStartingItemAndDisable());
             
             openMenuInputLeftHand.GetInputAction().performed += x => ToggleInventoryAtController(false);
-            openMenuInputRightHand.GetInputAction().performed += x => ToggleInventoryAtController(true);
         }
 
         private void OnValidate()
@@ -33,13 +32,11 @@ namespace MikeNspired.UnityXRHandPoser
         private void OnEnable()
         {
             openMenuInputLeftHand.EnableAction();
-            openMenuInputRightHand.EnableAction();
         } 
 
         private void OnDisable()
         { 
             openMenuInputLeftHand.DisableAction();
-            openMenuInputRightHand.DisableAction();
         }
         
         private void ToggleInventoryAtController(bool isRightHand)
@@ -53,6 +50,7 @@ namespace MikeNspired.UnityXRHandPoser
         private void TurnOnInventory(GameObject hand)
         {
             isActive = !isActive;
+            Debug.Log($"Inventory Active State: {isActive}"); // 상태 확인 로그
             ToggleInventoryItems(isActive, hand);
             PlayAudio(isActive);
         }

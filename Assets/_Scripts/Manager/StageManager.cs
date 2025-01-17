@@ -28,9 +28,12 @@ public class StageManager : MonoBehaviour
 
     public InputActionReference rightJoystick;
     public InputActionReference leftJoystick;
+
     public InputActionReference leftGripButton;
     public InputActionReference rightGripButton;
-    public InputActionReference rightPrimaryButton;
+
+    public InputActionReference leftSecondaryButton;
+    public InputActionReference rightSecondaryButton;
 
     [Header("튜토리얼 동작 확인 플래그")]
     private bool isSnapTurned = false; // 스냅턴 실행 여부 플래그
@@ -61,7 +64,10 @@ public class StageManager : MonoBehaviour
         leftGripButton.action.canceled += GripButtonReleased;
         rightGripButton.action.performed += GripButtonPressed;
         rightGripButton.action.canceled += GripButtonReleased;
-        rightPrimaryButton.action.performed += OpenCan;
+
+        leftSecondaryButton.action.performed += InventoryOpen;
+        rightSecondaryButton.action.performed += OpenCan;
+
     }
     private void OnDisable()
     {
@@ -72,7 +78,8 @@ public class StageManager : MonoBehaviour
         leftGripButton.action.canceled -= GripButtonReleased;
         rightGripButton.action.performed -= GripButtonPressed;
         rightGripButton.action.canceled -= GripButtonReleased;
-        rightPrimaryButton.action.performed -= OpenCan;
+        leftSecondaryButton.action.performed -= InventoryOpen;
+        rightSecondaryButton.action.performed -= OpenCan;
     }
     // Start is called before the first frame update
     IEnumerator Start()
@@ -276,7 +283,13 @@ public class StageManager : MonoBehaviour
     {
         if (isTouchDrink && isGripButtonPress)
         {
+            Debug.Log("캔 뚜껑 열기");
             isCanOpen = true;
         }
+    }
+    private void InventoryOpen(InputAction.CallbackContext callback)
+    {
+        Debug.Log("인벤토리 열기");
+        isInventoryOpen = true;
     }
 }

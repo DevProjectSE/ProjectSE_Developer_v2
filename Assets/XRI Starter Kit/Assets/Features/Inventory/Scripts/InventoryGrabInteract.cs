@@ -1,76 +1,96 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.InputSystem;
+using MikeNspired.UnityXRHandPoser;
 
-namespace MikeNspired.UnityXRHandPoser
+public class InventoryGrabInteract : MonoBehaviour
 {
-    public class InventoryGrabInteract : MonoBehaviour
+    [SerializeField] private InteractButton interactButton = InteractButton.grip;
+    [SerializeField] private InventoryManager inventoryManager;
+
+    [SerializeField] private List<ActionBasedController> controllers = new List<ActionBasedController>();
+    [SerializeField] private InventorySlot inventorySlot;
+    [SerializeField] private ActionBasedController leftHand, rightHand;
+
+    private enum InteractButton
     {
-        [SerializeField] private InteractButton interactButton = InteractButton.grip;
-        [SerializeField] private InventoryManager inventoryManager;
+        trigger,
+        grip
+    };
 
-        private List<ActionBasedController> controllers = new List<ActionBasedController>();
-        private InventorySlot inventorySlot;
-        private ActionBasedController leftHand, rightHand;
+    private void Start()
+    {
+        OnValidate();
 
-        private enum InteractButton
+        if (interactButton == InteractButton.grip)
         {
-            trigger,
-            grip
-        };
+            leftHand.selectAction.reference.GetInputAction().performed += x => SetControllerGrip(leftHand, true);
+            rightHand.selectAction.reference.GetInputAction().performed += x => SetControllerGrip(rightHand, true);
+            leftHand.selectAction.reference.GetInputAction().canceled += x => SetControllerGrip(leftHand, false);
+            rightHand.selectAction.reference.GetInputAction().canceled += x => SetControllerGrip(rightHand, false);
+        }
 
-        private void Start()
+        else
         {
-            OnValidate();
+            leftHand.activateAction.reference.GetInputAction().performed += x => SetControllerGrip(leftHand, true);
+            rightHand.activateAction.reference.GetInputAction().performed += x => SetControllerGrip(rightHand, true);
+            leftHand.activateAction.reference.GetInputAction().canceled += x => SetControllerGrip(leftHand, false);
+            rightHand.activateAction.reference.GetInputAction().canceled += x => SetControllerGrip(rightHand, false);
+        }
+    }
 
-            if (interactButton == InteractButton.grip)
+    private void OnValidate()
+    {
+        if (!inventoryManager)
+            inventoryManager = GetComponentInParent<InventoryManager>();
+        if (!inventorySlot)
+            inventorySlot = GetComponent<InventorySlot>();
+        if (!leftHand && inventoryManager)
+            leftHand = inventoryManager.leftController;
+        if (!rightHand && inventoryManager)
+            rightHand = inventoryManager.rightController;
+    }
+
+    private void SetControllerGrip(ActionBasedController controller, bool state)
+    {
+        if (!controllers.Contains(controller))
+        {
+            return;
+        }
+
+        if (!inventorySlot.gameObject.activeInHierarchy)
+        {
+            return;
+        }
+
+        inventorySlot.TryInteractWithSlot(controller.GetComponentInChildren<XRDirectInteractor>());
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var directInteractor = other.GetComponent<XRDirectInteractor>();
+        if (directInteractor != null)
+        {
+            var controllerComponent = directInteractor.GetComponentInParent<ActionBasedController>();
+            if (controllerComponent && !controllers.Contains(controllerComponent))
             {
-                leftHand.selectAction.reference.GetInputAction().performed += x => SetControllerGrip(leftHand, true);
-                rightHand.selectAction.reference.GetInputAction().performed += x => SetControllerGrip(rightHand, true);
-                leftHand.selectAction.reference.GetInputAction().canceled += x => SetControllerGrip(leftHand, false);
-                rightHand.selectAction.reference.GetInputAction().canceled += x => SetControllerGrip(rightHand, false);
+                controllers.Add(controllerComponent);
             }
-
-            else
-            {
-                leftHand.activateAction.reference.GetInputAction().performed += x => SetControllerGrip(leftHand, true);
-                rightHand.activateAction.reference.GetInputAction().performed += x => SetControllerGrip(rightHand, true);
-                leftHand.activateAction.reference.GetInputAction().canceled += x => SetControllerGrip(leftHand, false);
-                rightHand.activateAction.reference.GetInputAction().canceled += x => SetControllerGrip(rightHand, false);
-            }
+            return;
         }
 
-        private void OnValidate()
+        var foundController = other.GetComponentInParent<ActionBasedController>();
+        if (foundController && !controllers.Contains(foundController))
         {
-            if (!inventoryManager)
-                inventoryManager = GetComponentInParent<InventoryManager>();
-            if (!inventorySlot)
-                inventorySlot = GetComponent<InventorySlot>();
-            if (!leftHand && inventoryManager)
-                leftHand = inventoryManager.leftController;
-            if (!rightHand && inventoryManager)
-                rightHand = inventoryManager.rightController;
+            controllers.Add(foundController);
         }
+    }
 
-        private void SetControllerGrip(ActionBasedController controller, bool state)
-        {
-            if (!controllers.Contains(controller)) return;
-            if (!inventorySlot.gameObject.activeInHierarchy) return;
-            inventorySlot.TryInteractWithSlot(controller.GetComponentInChildren<XRDirectInteractor>());
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (!other.TryGetComponent(out XRBaseInteractor interactor)) return;
-            var controller = interactor.GetComponentInParent<ActionBasedController>();
-
-            if (controller && !controllers.Contains(controller)) controllers.Add(controller);
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            var controller = other.GetComponentInParent<ActionBasedController>();
-            if (controller) controllers.Remove(controller);
-        }
+    private void OnTriggerExit(Collider other)
+    {
+        var controller = other.GetComponentInParent<ActionBasedController>();
+        if (controller) controllers.Remove(controller);
     }
 }

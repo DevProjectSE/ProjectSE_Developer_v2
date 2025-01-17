@@ -790,6 +790,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Secondarykey",
+                    "type": "Button",
+                    "id": "ec81b8e4-2bd7-4bc0-b670-8e0d7ca4e5cb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "81a054a6-998a-440a-8fc0-1b3a962ad828",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -966,6 +984,28 @@
                     "processors": "",
                     "groups": ";Generic XR Controller",
                     "action": "Primarykey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c3ca9b6e-a678-4cdd-9120-c30c762a3610",
+                    "path": "<XRController>{LeftHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Generic XR Controller",
+                    "action": "Secondarykey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "083a677b-8f89-4595-a904-40bd68b56202",
+                    "path": "<XRController>{LeftHand}/menuButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Generic XR Controller",
+                    "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1606,6 +1646,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Secondarykey",
+                    "type": "Button",
+                    "id": "3c0e187a-e614-4889-abe0-c1a1e8e747fb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1782,6 +1831,17 @@
                     "processors": "",
                     "groups": ";Generic XR Controller",
                     "action": "Primarykey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "17a104ea-cbbd-4548-855c-877ddbfd3671",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Generic XR Controller",
+                    "action": "Secondarykey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

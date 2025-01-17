@@ -13,12 +13,6 @@ public class TutorialCoke : MonoBehaviour
             FindObjectOfType<StageManager>().throwCokecan = true;
             Debug.Log("해당 오브젝트는 더이상 잡을 수 없습니다.");
         }
-        else if(other.CompareTag("Hand"))
-        {
-            //손에 닿았을 경우
-            FindObjectOfType<StageManager>().isTouchDrink = true;
-            Debug.Log("음료가 손에 닿았습니다.");
-        }
         else if(other.CompareTag("MainCamera"))
         {
             //카메라의 콜라이더와 접촉 시 마시는 효과음과 함께 활성화 된 콜라 마시는 UI 비활성화
@@ -26,7 +20,15 @@ public class TutorialCoke : MonoBehaviour
             //효과음 재생
             Debug.Log("음료를 마셨습니다.");
         }
-        
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Hand"))
+        {
+            //손에 닿았을 경우
+            FindObjectOfType<StageManager>().isTouchDrink = true;
+            Debug.Log("음료가 손에 닿았습니다.");
+        }
     }
     private void OnTriggerExit(Collider other)
     {
