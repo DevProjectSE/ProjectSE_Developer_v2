@@ -8,28 +8,39 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 public class FlashLight : MonoBehaviour
 {
     public GameObject flashLight;
+
     private ActionBasedController leftActivateAction;
     private ActionBasedController rightActivateAction;
 
-    private int lightState = 0;
+    public SpriteMask spriteMask;
+    private Light lightComponent; //»ç¿ëÇÏ´Â ºû
 
-    private Light lightComponent; //ì‚¬ìš©í•˜ëŠ” ë¹›
     public Color basicColor = Color.white;
     public Color UVColor = Color.blue;
+    
 
-    public GameObject targetObject; //ë³´ì´ê²Œí•  ëŒ€ìƒ
-    public float rayDistance = 50f; //ê±°ë¦¬
+    public float rayDistance = 50f; //°Å¸®
+    public GameObject targetObject; //º¸ÀÌ°ÔÇÒ ´ë»ó
+
+    private int lightState = 0;
+    public bool canToggleLight = false;
+
+    public InputActionProperty leftButtonAction;
+    public InputActionProperty rightButtonAction;
 
     private void Awake()
     {
-        leftActivateAction = GetComponent<ActionBasedController>();
-        rightActivateAction = GetComponent<ActionBasedController>();
+        lightComponent = flashLight.GetComponent<Light>();
+        flashLight.SetActive(false);
+        
     }
 
     private void Start()
     {
-        lightComponent = flashLight.GetComponent<Light>();
-        flashLight.SetActive(false);
+
+        leftActivateAction.selectAction.reference.action.performed += ctx =>ToggleLight();
+        rightActivateAction.selectAction.reference.action.performed += ctx => ToggleLight();
+
     }
 
     private void Update()
@@ -40,23 +51,20 @@ public class FlashLight : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, rayDistance))
         {
-            // ê´‘ì„ ì´ ì˜¤ë¸Œì íŠ¸ì— ë‹¿ì•˜ì„ ê²½ìš°
+            spriteMask.transform.position = hit.point;
+            // ±¤¼±ÀÌ ¿ÀºêÁ§Æ®¿¡ ´ê¾ÒÀ» °æ¿ì
             if (lightState == 2 && hit.collider.gameObject == targetObject)
             {
-                // ì˜¤ë¸Œì íŠ¸ë¥¼ ë³´ì´ê²Œ í•œë‹¤
+                // ¿ÀºêÁ§Æ®¸¦ º¸ÀÌ°Ô ÇÑ´Ù
                 targetObject.GetComponent<Renderer>().enabled = true;
             }
         }
         else
         {
-            // ê´‘ì„ ì´ ì˜¤ë¸Œì íŠ¸ì— ë‹¿ì§€ ì•Šìœ¼ë©´ ì˜¤ë¸Œì íŠ¸ë¥¼ ìˆ¨ê¸´ë‹¤
+            // ±¤¼±ÀÌ ¿ÀºêÁ§Æ®¿¡ ´êÁö ¾ÊÀ¸¸é ¿ÀºêÁ§Æ®¸¦ ¼û±ä´Ù
             targetObject.GetComponent<Renderer>().enabled = false;
         }
 
-        if (lightState != 2)
-        {
-            targetObject.GetComponent<Renderer>().enabled = false;
-        }
 
     }
 
@@ -64,13 +72,13 @@ public class FlashLight : MonoBehaviour
     {
         if (leftActivateAction != null)
         {
-            leftActivateAction.selectAction.reference.action.performed += GetOnLight;
+            leftActivateAction.selectAction.reference.action.performed += ctx => ToggleLight();
 
         }
 
         if (rightActivateAction != null)
         {
-            rightActivateAction.selectAction.reference.action.performed += GetOnLight;
+            rightActivateAction.selectAction.reference.action.performed += ctx=>  ToggleLight();
 
         }
     }
@@ -79,15 +87,20 @@ public class FlashLight : MonoBehaviour
     {
         if (leftActivateAction != null)
         {
-            leftActivateAction.selectAction.reference.action.performed -= GetOnLight;
+            leftActivateAction.selectAction.reference.action.performed -= ctx => ToggleLight();
         }
-        if (rightActivateAction != null)
+        if (leftActivateAction != null)
         {
-            rightActivateAction.selectAction.reference.action.performed -= GetOnLight;
+            rightActivateAction.selectAction.reference.action.performed -= ctx => ToggleLight();
         }
     }
-    private void GetOnLight(InputAction.CallbackContext context)
+    public void ToggleLight()
     {
+        if(!canToggleLight)
+        {
+            return; 
+        }
+
         if (lightState == 0)
         {
 
@@ -106,4 +119,15 @@ public class FlashLight : MonoBehaviour
             lightState = 0;
         }
     }
+
+    public void OnSelectEntered()
+    {
+        canToggleLight = true;
+    }
+
+    public void OnSelectExited()
+    {
+        canToggleLight = false;
+    }
+
 }
