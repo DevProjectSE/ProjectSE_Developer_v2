@@ -11,8 +11,17 @@ public class NumberKeyPad : MonoBehaviour
     public TextMeshProUGUI text;
     public int num { get; set; }
     private bool isEnterPressed;
-    public List<XRGripButton> keyPadButton;
+    public List<XRGripButton> keyPadButtons;
     public bool isUnlocked = false;
+
+    public void KeyPadButtonsActivate()
+    {
+        foreach (XRGripButton xRGripButton in keyPadButtons)
+        {
+            xRGripButton.enabled = true;
+        }
+    }
+
     public void KeyPadInsert()
     {
         if (isEnterPressed)
@@ -30,7 +39,7 @@ public class NumberKeyPad : MonoBehaviour
         {
             text.color = new Color(0, 255, 0);
             text.text = "UNLOCKED";
-            foreach (XRGripButton xRGripButton in keyPadButton)
+            foreach (XRGripButton xRGripButton in keyPadButtons)
             {
                 xRGripButton.enabled = false;
             }

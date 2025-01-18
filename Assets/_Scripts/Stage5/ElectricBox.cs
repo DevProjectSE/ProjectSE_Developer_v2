@@ -6,11 +6,22 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class ElectricBox : MonoBehaviour
 {
+    public StageFifth stageFifth;
     public List<Material> lamps_Mat;
     public List<MeshRenderer> lamps_Mesh;
     public XRGripButton xRGripButton;
     public XRLever xRLever;
     public List<Knobs> knobs;
+
+    private void Awake()
+    {
+        if (stageFifth == null)
+        {
+            stageFifth = GetComponentInParent<StageFifth>();
+        }
+
+    }
+
     public void OnLeverDeActive()
     {
         //초록on
@@ -52,6 +63,7 @@ public class ElectricBox : MonoBehaviour
         {
             knob.enabled = false;
         }
+        stageFifth.numberKeyPad.KeyPadButtonsActivate();
     }
 
     public void ResetButton()
