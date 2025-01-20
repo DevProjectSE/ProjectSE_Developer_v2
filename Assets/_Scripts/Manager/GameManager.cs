@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : SingletonManager<GameManager>
+public class GameManager : MonoBehaviour
 {
+
+    public static GameManager Instance;
 
     [Header("스테이지 클리어 여부")]
     [Tooltip("스테이지1 클리어 여부")] public bool isStage1Clear;
@@ -21,9 +23,9 @@ public class GameManager : SingletonManager<GameManager>
 
     public DataManager dataManager;
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
+        Instance = this;
     }
     private void Start()
     {
