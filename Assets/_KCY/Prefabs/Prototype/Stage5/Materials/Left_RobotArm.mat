@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: body_diff
+  m_Name: Left_RobotArm
   m_Shader: {fileID: -6465566751694194690, guid: 2c6e52535f17dfc4b8e0bb3d1e91aea4,
     type: 3}
   m_Parent: {fileID: 0}
@@ -101,7 +101,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Dissolve: -0.0039942255
+    - _Dissolve: 0
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EdgeColorIntensity: 1

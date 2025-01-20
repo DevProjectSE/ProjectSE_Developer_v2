@@ -767,7 +767,7 @@ MonoBehaviour:
   m_ImproveAccuracyWithSphereCollider: 1
   m_PhysicsLayerMask:
     serializedVersion: 2
-    m_Bits: 641
+    m_Bits: 2689
   m_PhysicsTriggerInteraction: 1
 --- !u!135 &7726485633318895175
 SphereCollider:
@@ -930,11 +930,13 @@ MonoBehaviour:
     type: 3}
   l_Controller: {fileID: 3898106423229892181}
   r_Controller: {fileID: 4837676079947654878}
-  detectRange: 0.6
+  detectRange: 0.2
   camOffset: {fileID: 2711537672819537896}
   targetLayer:
     serializedVersion: 2
     m_Bits: 128
+  locomotionSystem: {fileID: 2185942032283716197}
+  tunnelingVignette: {fileID: 8071215589172947924}
 --- !u!1 &2299115553804121738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,7 +1428,7 @@ MonoBehaviour:
   m_ConeCastAngle: 3
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 1185
+    m_Bits: 3233
   m_RaycastTriggerInteraction: 1
   m_RaycastSnapVolumeInteraction: 1
   m_HitClosestOnly: 1
@@ -2462,7 +2464,7 @@ MonoBehaviour:
   m_ImproveAccuracyWithSphereCollider: 1
   m_PhysicsLayerMask:
     serializedVersion: 2
-    m_Bits: 641
+    m_Bits: 2689
   m_PhysicsTriggerInteraction: 1
 --- !u!135 &8143015537856803852
 SphereCollider:
@@ -3645,7 +3647,7 @@ MonoBehaviour:
   m_ConeCastAngle: 3
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 1185
+    m_Bits: 3233
   m_RaycastTriggerInteraction: 1
   m_RaycastSnapVolumeInteraction: 1
   m_HitClosestOnly: 1

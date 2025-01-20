@@ -36,19 +36,18 @@ public class CustomPlayerController : MonoBehaviour
     public Transform camOffset;
     public LayerMask targetLayer;
 
+    public LocomotionSystem locomotionSystem;
+
+    public GameObject tunnelingVignette;
+
     private void Awake()
     {
-        l_Coll = l_Controller.GetComponentInChildren<SphereCollider>();
-        r_Coll = r_Controller.GetComponentInChildren<SphereCollider>();
+        if (l_Coll == null) l_Coll = l_Controller.GetComponentInChildren<SphereCollider>();
+        if (r_Coll == null) r_Coll = r_Controller.GetComponentInChildren<SphereCollider>();
+        if (locomotionSystem == null) locomotionSystem = GetComponentInChildren<LocomotionSystem>();
         l_Coll.radius = detectRange / 6;
         r_Coll.radius = detectRange / 6;
-        cam = GetComponentInChildren<Camera>();
-        // XRinputModalityManager = GetComponent<XRInputModalityManager>();
-        // r_interactionGroup = XRinputModalityManager.rightController.GetComponent<XRInteractionGroup>();
-        // l_interactionGroup = XRinputModalityManager.leftController.GetComponent<XRInteractionGroup>();
-        // r_xRDirectInteractor = r_interactionGroup.startingGroupMembers[1].GetComponent<XRDirectInteractor>();
-        // l_xRDirectInteractor = l_interactionGroup.startingGroupMembers[1].GetComponent<XRDirectInteractor>();
-        // l_xRDirectInteractor.hoverEntered.AddListener(L_FindClosest);
+        if (cam == null) cam = GetComponentInChildren<Camera>();
     }
 
     private void OnEnable()
@@ -163,5 +162,20 @@ public class CustomPlayerController : MonoBehaviour
         }
     }
     #endregion
+
+    public void CtrlActivation()
+    {
+        locomotionSystem.enabled = true;
+        l_Controller.GetComponent<XRBaseController>().enabled = true;
+        r_Controller.GetComponent<XRBaseController>().enabled = true;
+        tunnelingVignette.SetActive(true);
+    }
+    public void CtrlRelease()
+    {
+        locomotionSystem.enabled = false;
+        l_Controller.GetComponent<XRBaseController>().enabled = false;
+        r_Controller.GetComponent<XRBaseController>().enabled = false;
+        tunnelingVignette.SetActive(false);
+    }
 
 }

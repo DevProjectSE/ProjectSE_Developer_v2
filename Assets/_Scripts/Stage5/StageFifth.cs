@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Content.Interaction;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class StageFifth : MonoBehaviour
@@ -13,6 +14,10 @@ public class StageFifth : MonoBehaviour
     public Material teacher_Mat;
     public Material robotArm_Mat;
     public GameObject robotArm;
+
+    public GameObject key_Rooftop;
+
+    public XRKnob safeBox_Door_Knob;
     private void Start()
     {
         robotArm_Mat.SetFloat("_Dissolve", 1);
@@ -42,8 +47,6 @@ public class StageFifth : MonoBehaviour
             if (b != 0)
                 robotArm_Mat.SetFloat("_Dissolve", b - 0.002f);
             yield return null;
-            Debug.Log($"a : {a}");
-            Debug.Log($"b : {b}");
         }
     }
 
@@ -52,6 +55,8 @@ public class StageFifth : MonoBehaviour
         if (numberKeyPad.isUnlocked)
         {
             isNumberKeyPadClear = true;
+            key_Rooftop.GetComponent<XRGrabInteractable>().enabled = true;
+            safeBox_Door_Knob.enabled = true;
         }
     }
 }

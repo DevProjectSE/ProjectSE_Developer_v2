@@ -35,23 +35,23 @@ public class StageManager : MonoBehaviour
     public InputActionReference leftSecondaryButton;
     public InputActionReference rightSecondaryButton;
 
-    [Header("Æ©Åä¸®¾ó µ¿ÀÛ È®ÀÎ ÇÃ·¡±×")]
-    private bool isSnapTurned = false; // ½º³ÀÅÏ ½ÇÇà ¿©ºÎ ÇÃ·¡±×
-    private bool isPlayerMoved = false; //ÇÃ·¹ÀÌ¾î ÀÌµ¿ ¿©ºÎ ÇÃ·¡±×
+    [Header("íŠœí† ë¦¬ì–¼ ë™ì‘ í™•ì¸ í”Œë˜ê·¸")]
+    private bool isSnapTurned = false; // ìŠ¤ëƒ…í„´ ì‹¤í–‰ ì—¬ë¶€ í”Œë˜ê·¸
+    private bool isPlayerMoved = false; //í”Œë ˆì´ì–´ ì´ë™ ì—¬ë¶€ í”Œë˜ê·¸
 
-    public bool isTutorialArea = false; //Æ©Åä¸®¾ó ÁøÇà °¡´É À§Ä¡¿¡ Á¸ÀçÇÏ´ÂÁö È®ÀÎÇÏ´Â ÇÃ·¡±×
-    public bool isSitdown = false;  //¾É¾Ò´ÂÁö È®ÀÎÇÏ´Â ÇÃ·¡±×
+    public bool isTutorialArea = false; //íŠœí† ë¦¬ì–¼ ì§„í–‰ ê°€ëŠ¥ ìœ„ì¹˜ì— ì¡´ì¬í•˜ëŠ”ì§€ í™•ì¸í•˜ëŠ” í”Œë˜ê·¸
+    public bool isSitdown = false;  //ì•‰ì•˜ëŠ”ì§€ í™•ì¸í•˜ëŠ” í”Œë˜ê·¸
 
-    public bool isTouchDrink = false;    //Äİ¶ó°¡ ¼Õ¿¡ ´ê¾ÆÀÖ´ÂÁö È®ÀÎÇÏ´Â ÇÃ·¡±×
-    private bool isGripButtonPress = false; //±×¸³ ¹öÆ°À» ´­·¶´ÂÁö È®ÀÎÇÏ´Â ÇÃ·¡±×
-    private bool isCanOpen = false; //Äİ¶ó ÄµÀ» ¶¤´ÂÁö È®ÀÎÇÏ´Â ÇÃ·¡±×
-    public bool isCokeDrink = false;    //Äİ¶ó ¸¶¼Ì´ÂÁö È®ÀÎÇÏ´Â ÇÃ·¡±×
-    public bool throwCokecan = false;   //¾²·¹±â ¹ö¸®±â ¿©ºÎ ÇÃ·¡±×
+    public bool isTouchDrink = false;    //ì½œë¼ê°€ ì†ì— ë‹¿ì•„ìˆëŠ”ì§€ í™•ì¸í•˜ëŠ” í”Œë˜ê·¸
+    private bool isGripButtonPress = false; //ê·¸ë¦½ ë²„íŠ¼ì„ ëˆŒë €ëŠ”ì§€ í™•ì¸í•˜ëŠ” í”Œë˜ê·¸
+    private bool isCanOpen = false; //ì½œë¼ ìº”ì„ ë•„ëŠ”ì§€ í™•ì¸í•˜ëŠ” í”Œë˜ê·¸
+    public bool isCokeDrink = false;    //ì½œë¼ ë§ˆì…¨ëŠ”ì§€ í™•ì¸í•˜ëŠ” í”Œë˜ê·¸
+    public bool throwCokecan = false;   //ì“°ë ˆê¸° ë²„ë¦¬ê¸° ì—¬ë¶€ í”Œë˜ê·¸
 
-    public bool isInventoryOpen = false;    //ÀÎº¥Åä¸® ½ÇÇà¿©ºÎ È®ÀÎ ÇÃ·¡±×
-    public bool isGetThePhone = false;  //ÀüÈ­¸¦ ¹Ş¾Ò´ÂÁö È®ÀÎÇÏ´Â ÇÃ·¡±×
+    public bool isInventoryOpen = false;    //ì¸ë²¤í† ë¦¬ ì‹¤í–‰ì—¬ë¶€ í™•ì¸ í”Œë˜ê·¸
+    public bool isGetThePhone = false;  //ì „í™”ë¥¼ ë°›ì•˜ëŠ”ì§€ í™•ì¸í•˜ëŠ” í”Œë˜ê·¸
 
-    [Header("ÇİÆ½")]
+    [Header("í–…í‹±")]
     public XRBaseController leftXRController;
     public XRBaseController rightXRController;
 
@@ -88,141 +88,140 @@ public class StageManager : MonoBehaviour
         switch (stage)
         {
             case STAGE.STAGE1:
-                //¿ÀºêÁ§Æ®¸¦ Âß ÈÈ¾îº» ÈÄ ÇÃ·¹ÀÌ¾îÀÇ À§Ä¡·Î Ä«¸Ş¶ó°¡ ÀÌµ¿ÇÏ¸ç ÀÌÈÄ ÇÃ·¹ÀÌ¾î°¡ ¿òÁ÷ÀÏ ¼ö ÀÖ´Ù.
+                //ì˜¤ë¸Œì íŠ¸ë¥¼ ì­‰ í›‘ì–´ë³¸ í›„ í”Œë ˆì´ì–´ì˜ ìœ„ì¹˜ë¡œ ì¹´ë©”ë¼ê°€ ì´ë™í•˜ë©° ì´í›„ í”Œë ˆì´ì–´ê°€ ì›€ì§ì¼ ìˆ˜ ìˆë‹¤.
                 GameManager.Instance.Player.GetComponentInChildren<InputActionManager>().enabled = false;
-                //´ë»ç ³»¿ë Ãâ·Â ÀÌÈÄ ÇÃ·¹ÀÌ¾î Ä³¸¯ÅÍ Á¶ÀÛ È°¼ºÈ­
+                //ëŒ€ì‚¬ ë‚´ìš© ì¶œë ¥ ì´í›„ í”Œë ˆì´ì–´ ìºë¦­í„° ì¡°ì‘ í™œì„±í™”
                 firstTutorialDialog.gameObject.SetActive(true);
                 yield return new WaitUntil(() => firstTutorialDialog.isDialogsEnd == true);
 
-                //Äù½ºÆ® ³»¿ë ÃÊ±âÈ­
+                //í€˜ìŠ¤íŠ¸ ë‚´ìš© ì´ˆê¸°í™”
                 GameManager.Instance.uiManager.ChangeTutorialText(GameManager.Instance.uiManager.questText,
-                    "ºÎ¾ıÀ¸·Î ÀÌµ¿ÇÏ¿© ³ÃÀå°í¿¡¼­ À½·á¼ö¸¦ ²¨³» ¸¶½Ã¼¼¿ä.");
-                //Äù½ºÆ® ¾Ë¸² UI È°¼ºÈ­ 2ÃÊ°£ È°¼ºÈ­ ÀÌÈÄ ÇØ´ç UI°¡ Ãà¼ÒµÇ°í ÁÂÃø »ó´Ü¿¡ °íÁ¤
+                    "ë¶€ì—Œìœ¼ë¡œ ì´ë™í•˜ì—¬ ëƒ‰ì¥ê³ ì—ì„œ ìŒë£Œìˆ˜ë¥¼ êº¼ë‚´ ë§ˆì‹œì„¸ìš”.");
+                //í€˜ìŠ¤íŠ¸ ì•Œë¦¼ UI í™œì„±í™” 2ì´ˆê°„ í™œì„±í™” ì´í›„ í•´ë‹¹ UIê°€ ì¶•ì†Œë˜ê³  ì¢Œì¸¡ ìƒë‹¨ì— ê³ ì •
                 GameManager.Instance.uiManager.mainQuestUiObj.SetActive(true);
                 yield return new WaitForSeconds(2f);
                 GameManager.Instance.uiManager.mainQuestUiObj.SetActive(false);
                 GameManager.Instance.uiManager.miniMainQuestUiObj.SetActive(true);
 
-                //Ãâ·Â Àü UI ÃÊ±âÈ­
+                //ì¶œë ¥ ì „ UI ì´ˆê¸°í™”
                 GameManager.Instance.uiManager.ChanageAllTutorialUI(GameManager.Instance.uiManager.controllerQuestText, GameManager.Instance.uiManager.controllerQuestImg,
-                    "¿ìÃø ÄÁÆ®·Ñ·¯ÀÇ ½ºÆ½À» ÀÌ¿ëÇÏ¿© ¹æÇâÀ» µ¹¸®¼¼¿ä.", viewTutorialImg);
-                //½Ã¾ß ¹æÇâÅ° ¾Ë¸² UI ¿À¸¥ÂÊ¿¡ Ãâ·Â
+                    "ìš°ì¸¡ ì»¨íŠ¸ë¡¤ëŸ¬ì˜ ìŠ¤í‹±ì„ ì´ìš©í•˜ì—¬ ë°©í–¥ì„ ëŒë¦¬ì„¸ìš”.", viewTutorialImg);
+                //ì‹œì•¼ ë°©í–¥í‚¤ ì•Œë¦¼ UI ì˜¤ë¥¸ìª½ì— ì¶œë ¥
                 GameManager.Instance.uiManager.controllerTutoObj.SetActive(true);
 
-                //ÄÁÆ®·Ñ·¯¸¦ ÅëÇØ ½Ã¾ß ¹æÇâÀÌ º¯°æµÇ¸é ½Ã¾ß ¾Ë¸² UI ºñÈ°¼ºÈ­
-                // ½º³ÀÅÏ ½ÇÇàµÉ ¶§±îÁö ´ë±â
+                //ì»¨íŠ¸ë¡¤ëŸ¬ë¥¼ í†µí•´ ì‹œì•¼ ë°©í–¥ì´ ë³€ê²½ë˜ë©´ ì‹œì•¼ ì•Œë¦¼ UI ë¹„í™œì„±í™”
+                // ìŠ¤ëƒ…í„´ ì‹¤í–‰ë  ë•Œê¹Œì§€ ëŒ€ê¸°
                 yield return new WaitUntil(() => isSnapTurned);
                 GameManager.Instance.uiManager.controllerTutoObj.SetActive(false);
 
-                // UI ÀÌµ¿ ¹æ¹ı ³»¿ëÀ¸·Î ÃÊ±âÈ­
+                // UI ì´ë™ ë°©ë²• ë‚´ìš©ìœ¼ë¡œ ì´ˆê¸°í™”
                 GameManager.Instance.uiManager.ChanageAllTutorialUI(GameManager.Instance.uiManager.controllerQuestText, GameManager.Instance.uiManager.controllerQuestImg,
-                    "ÁÂÃø ÄÁÆ®·Ñ·¯ÀÇ ½ºÆ½À» ÀÌ¿ëÇÏ¿© ÀÌµ¿ÇÏ¼¼¿ä", movingTutorialImg);
-                //ÀÌÈÄ ÀÌµ¿ ¹æ¹ıÀ» ¾Ë·ÁÁÖ´Â UI Ãâ·Â
+                    "ì¢Œì¸¡ ì»¨íŠ¸ë¡¤ëŸ¬ì˜ ìŠ¤í‹±ì„ ì´ìš©í•˜ì—¬ ì´ë™í•˜ì„¸ìš”", movingTutorialImg);
+                //ì´í›„ ì´ë™ ë°©ë²•ì„ ì•Œë ¤ì£¼ëŠ” UI ì¶œë ¥
                 GameManager.Instance.uiManager.controllerTutoObj.SetActive(true);
 
-                //ÄÁÆ®·Ñ·¯¸¦ ÅëÇØ ÀÌµ¿ÇÏ¸é ÀÌµ¿ UI ºñÈ°¼ºÈ­
-                // ÇÃ·¹ÀÌ¾î ÀÌµ¿ ½ÇÇàµÉ ¶§±îÁö ´ë±â
+                //ì»¨íŠ¸ë¡¤ëŸ¬ë¥¼ í†µí•´ ì´ë™í•˜ë©´ ì´ë™ UI ë¹„í™œì„±í™”
+                // í”Œë ˆì´ì–´ ì´ë™ ì‹¤í–‰ë  ë•Œê¹Œì§€ ëŒ€ê¸°
                 yield return new WaitUntil(() => isPlayerMoved);
                 GameManager.Instance.uiManager.controllerTutoObj.SetActive(false);
 
                 GameManager.Instance.uiManager.ChanageAllTutorialUI(GameManager.Instance.uiManager.controllerQuestText, GameManager.Instance.uiManager.controllerQuestImg,
-                    "±×¸³ ¹öÆ°À» ´©¸£°í ¹®À» ¿©¼¼¿ä.", gripTutorialImg);
-                //³ÃÀå°í ¾Õ±îÁö ÀÌµ¿ ½Ã ÃÖÃÊ·Î 1¹ø ±×¸³ ¹öÆ°¿¡ ´ëÇÑ UI ¿ìÃø¿¡ È°¼ºÈ­ 
+                    "ê·¸ë¦½ ë²„íŠ¼ì„ ëˆ„ë¥´ê³  ë¬¸ì„ ì—¬ì„¸ìš”.", gripTutorialImg);
+                //ëƒ‰ì¥ê³  ì•ê¹Œì§€ ì´ë™ ì‹œ ìµœì´ˆë¡œ 1ë²ˆ ê·¸ë¦½ ë²„íŠ¼ì— ëŒ€í•œ UI ìš°ì¸¡ì— í™œì„±í™” 
                 yield return new WaitUntil(() => isTutorialArea);
                 GameManager.Instance.uiManager.controllerTutoObj.SetActive(true);
 
-                //ÄÁÆ®·Ñ·¯¸¦ ÀÌ¿ëÇÏ¿© ±×¸³ ¹öÆ°ÀÌ ´­¸®¸é ±×¸³ UI ºñÈ°¼ºÈ­ (³ÃÀå°í ¹®À» ³õ¾Æµµ ´İÈ÷Áö ¾Ê´Â´Ù.)
+                //ì»¨íŠ¸ë¡¤ëŸ¬ë¥¼ ì´ìš©í•˜ì—¬ ê·¸ë¦½ ë²„íŠ¼ì´ ëˆŒë¦¬ë©´ ê·¸ë¦½ UI ë¹„í™œì„±í™” (ëƒ‰ì¥ê³  ë¬¸ì„ ë†“ì•„ë„ ë‹«íˆì§€ ì•ŠëŠ”ë‹¤.)
                 yield return new WaitUntil(() => isGripButtonPress);
                 GameManager.Instance.uiManager.controllerTutoObj.SetActive(false);
 
-
                 GameManager.Instance.uiManager.ChanageAllTutorialUI(GameManager.Instance.uiManager.controllerQuestText, GameManager.Instance.uiManager.controllerQuestImg,
-                   "¿ìÃø ÄÁÆ®·Ñ·¯ÀÇ ½ºÆ½À» ÈÄ¹æÀ¸·Î ÀÔ·ÂÇÏ¿© ¾ÉÀ¸¼¼¿ä", sitdownTutorialImg);
-                //¾É±â ¹öÆ°¿¡´ëÇÑ UI ¿ìÃø¿¡ È°¼ºÈ­
+                   "ìš°ì¸¡ ì»¨íŠ¸ë¡¤ëŸ¬ì˜ ìŠ¤í‹±ì„ í›„ë°©ìœ¼ë¡œ ì…ë ¥í•˜ì—¬ ì•‰ìœ¼ì„¸ìš”", sitdownTutorialImg);
+                //ì•‰ê¸° ë²„íŠ¼ì—ëŒ€í•œ UI ìš°ì¸¡ì— í™œì„±í™”
                 GameManager.Instance.uiManager.controllerTutoObj.SetActive(true);
-                //ÄÁÆ®·Ñ·¯ Å°¸¦ ÀÌ¿ëÇÏ¿© Ä³¸¯ÅÍ°¡ ¾ÉÀ¸¸é ¾É±â UI ºñÈ°¼ºÈ­ 
+                //ì»¨íŠ¸ë¡¤ëŸ¬ í‚¤ë¥¼ ì´ìš©í•˜ì—¬ ìºë¦­í„°ê°€ ì•‰ìœ¼ë©´ ì•‰ê¸° UI ë¹„í™œì„±í™” 
                 yield return new WaitUntil(() => isSitdown);
                 GameManager.Instance.uiManager.controllerTutoObj.SetActive(false);
 
                 GameManager.Instance.uiManager.ChanageAllTutorialUI(GameManager.Instance.uiManager.controllerQuestText, GameManager.Instance.uiManager.controllerQuestImg,
-                    "±×¸³ ¹öÆ°À» ´­·¯¼­ À½·á¼ö¸¦ ÀâÀ¸¼¼¿ä.", gripTutorialImg);
-                //1ÃÊµÚ ¾ÆÀÌÅÛ Àâ±â ¼³¸í UIÃâ·Â 
+                    "ê·¸ë¦½ ë²„íŠ¼ì„ ëˆŒëŸ¬ì„œ ìŒë£Œìˆ˜ë¥¼ ì¡ìœ¼ì„¸ìš”.", gripTutorialImg);
+                //1ì´ˆë’¤ ì•„ì´í…œ ì¡ê¸° ì„¤ëª… UIì¶œë ¥ 
                 yield return new WaitForSeconds(1f);
                 GameManager.Instance.uiManager.controllerTutoObj.SetActive(true);
-                //ÄÁÆ®·Ñ·¯¸¦ ÀÌ¿ëÇÏ¿© À½·á¼ö¸¦ ÀâÀ¸¸é 1ÃÊµÚ ¾ÆÀÌÅÛ Àâ±â ¼³¸í UI ºñÈ°¼ºÈ­
+                //ì»¨íŠ¸ë¡¤ëŸ¬ë¥¼ ì´ìš©í•˜ì—¬ ìŒë£Œìˆ˜ë¥¼ ì¡ìœ¼ë©´ 1ì´ˆë’¤ ì•„ì´í…œ ì¡ê¸° ì„¤ëª… UI ë¹„í™œì„±í™”
                 yield return new WaitUntil(() => isTouchDrink && isGripButtonPress);
                 GameManager.Instance.uiManager.controllerTutoObj.SetActive(false);
                 GameManager.Instance.uiManager.ChanageAllTutorialUI(GameManager.Instance.uiManager.controllerQuestText, GameManager.Instance.uiManager.controllerQuestImg,
-                    "B ¹öÆ°À» ´­·¯¼­ Äµ ¶Ñ²±À» µû¼¼¿ä", objectActiveTutorialImg);
-                //À½·á¼ö¸¦ ÀâÀ¸¸é 1ÃÊµÚ ¾ÆÀÌÅÛÀ» »ç¿ëÇÏ´Â Å°¸¦ ¾Ë·ÁÁÖ´Â UI È°¼ºÈ­ 
+                    "B ë²„íŠ¼ì„ ëˆŒëŸ¬ì„œ ìº” ëšœê»‘ì„ ë”°ì„¸ìš”", objectActiveTutorialImg);
+                //ìŒë£Œìˆ˜ë¥¼ ì¡ìœ¼ë©´ 1ì´ˆë’¤ ì•„ì´í…œì„ ì‚¬ìš©í•˜ëŠ” í‚¤ë¥¼ ì•Œë ¤ì£¼ëŠ” UI í™œì„±í™” 
                 yield return new WaitForSeconds(1f);
                 GameManager.Instance.uiManager.controllerTutoObj.SetActive(true);
 
-                //ÄÁÆ®·Ñ·¯¸¦ ÀÌ¿ëÇÏ¿© Äµ ¶Ñ²±À» µû¸é UI ºñÈ°¼ºÈ­ 
+                //ì»¨íŠ¸ë¡¤ëŸ¬ë¥¼ ì´ìš©í•˜ì—¬ ìº” ëšœê»‘ì„ ë”°ë©´ UI ë¹„í™œì„±í™” 
                 yield return new WaitUntil(() => isCanOpen);
                 GameManager.Instance.uiManager.controllerTutoObj.SetActive(false);
 
-                //À½·á¼ö¸¦ ÁöÁ¤µÈ ±¸¿ª ³»(Çìµå¼Â ºÎ±Ù)·Î À§Ä¡½ÃÅ°¸é À½·á¼ö¸¦ ¸¶½Ã´Â È¿°úÀ½ Àç»ı.
-                //È¿°úÀ½ÀÌ Á¾·áµÇ¸é ÁÂÃø »ó´Ü¿¡ ÀÖ´Â Äù½ºÆ® UI ºñÈ°¼ºÈ­ ->Ä³¸¯ÅÍ »óÅÂ º¯È­ X
+                //ìŒë£Œìˆ˜ë¥¼ ì§€ì •ëœ êµ¬ì—­ ë‚´(í—¤ë“œì…‹ ë¶€ê·¼)ë¡œ ìœ„ì¹˜ì‹œí‚¤ë©´ ìŒë£Œìˆ˜ë¥¼ ë§ˆì‹œëŠ” íš¨ê³¼ìŒ ì¬ìƒ.
+                //íš¨ê³¼ìŒì´ ì¢…ë£Œë˜ë©´ ì¢Œì¸¡ ìƒë‹¨ì— ìˆëŠ” í€˜ìŠ¤íŠ¸ UI ë¹„í™œì„±í™” ->ìºë¦­í„° ìƒíƒœ ë³€í™” X
                 yield return new WaitUntil(() => isCokeDrink);
                 GameManager.Instance.uiManager.mainQuestUiObj.SetActive(false);
 
                 GameManager.Instance.uiManager.ChangeTutorialText(GameManager.Instance.uiManager.questText,
-                    "[ÆäÆ®º´À» ¾²·¹±âÅëÀ¸·Î ¹ö¸®¼¼¿ä]");
+                    "[í˜íŠ¸ë³‘ì„ ì“°ë ˆê¸°í†µìœ¼ë¡œ ë²„ë¦¬ì„¸ìš”]");
                 GameManager.Instance.uiManager.ChangeTutorialText(GameManager.Instance.uiManager.miniQuestText,
-                    "[ÆäÆ®º´À» ¾²·¹±âÅëÀ¸·Î ¹ö¸®¼¼¿ä]");
-                //À½·á¼ö¸¦ ¸¶½Ã°í 1ÃÊµÚ ¾ÆÀÌÅÛÀ» ¿ÀºêÁ§Æ®¿Í »óÈ£ÀÛ¿ëÀ» ÇÏ´Â UI È°¼ºÈ­
+                    "[í˜íŠ¸ë³‘ì„ ì“°ë ˆê¸°í†µìœ¼ë¡œ ë²„ë¦¬ì„¸ìš”]");
+                //ìŒë£Œìˆ˜ë¥¼ ë§ˆì‹œê³  1ì´ˆë’¤ ì•„ì´í…œì„ ì˜¤ë¸Œì íŠ¸ì™€ ìƒí˜¸ì‘ìš©ì„ í•˜ëŠ” UI í™œì„±í™”
                 yield return new WaitForSeconds(1f);
                 GameManager.Instance.uiManager.mainQuestUiObj.SetActive(true);
-                //È­¸é Áß¾Ó ÇÏ´Ü¿¡ [ÆäÆ®º´À» ¾²·¹±âÅëÀ¸·Î ¹ö¸®¼¼¿ä] ÅØ½ºÆ® 2ÃÊ°£ Ãâ·Â
+                //í™”ë©´ ì¤‘ì•™ í•˜ë‹¨ì— [í˜íŠ¸ë³‘ì„ ì“°ë ˆê¸°í†µìœ¼ë¡œ ë²„ë¦¬ì„¸ìš”] í…ìŠ¤íŠ¸ 2ì´ˆê°„ ì¶œë ¥
                 yield return new WaitForSeconds(2f);
                 GameManager.Instance.uiManager.mainQuestUiObj.SetActive(false);
-                //ÀÌÈÄ ÆùÆ®¿Í ÅØ½ºÆ® ¹Ú½ºÀÇ Å©±â¸¦ ¿ø·¡ Å©±âÀÇ 75%·Î Ãà¼ÒÇÑ ÈÄ ¿ìÃø »ó´ÜÀ¸·Î °íÁ¤ 
+                //ì´í›„ í°íŠ¸ì™€ í…ìŠ¤íŠ¸ ë°•ìŠ¤ì˜ í¬ê¸°ë¥¼ ì›ë˜ í¬ê¸°ì˜ 75%ë¡œ ì¶•ì†Œí•œ í›„ ìš°ì¸¡ ìƒë‹¨ìœ¼ë¡œ ê³ ì • 
                 GameManager.Instance.uiManager.miniMainQuestUiObj.SetActive(true);
                 yield return new WaitUntil(() => throwCokecan);
                 yield return new WaitForSeconds(1f);
-                //¾ÆÀÌÅÛ ¿ÀºêÁ§Æ®ÀÇ »óÈ£ÀÛ¿ëÀÌ ¿Ï·áµÇ¸é 1ÃÊµÚ ÅØ½ºÆ®¿Í ¿ìÃø »ó´Ü UI ºñÈ°¼ºÈ­
+                //ì•„ì´í…œ ì˜¤ë¸Œì íŠ¸ì˜ ìƒí˜¸ì‘ìš©ì´ ì™„ë£Œë˜ë©´ 1ì´ˆë’¤ í…ìŠ¤íŠ¸ì™€ ìš°ì¸¡ ìƒë‹¨ UI ë¹„í™œì„±í™”
                 GameManager.Instance.uiManager.miniMainQuestUiObj.SetActive(false);
 
-                //¹ö¸° ¾ÆÀÌÅÛÀº »óÈ£ÀÛ¿ëÀÌ ºÒ°¡´ÉÇÏ´Ù.
+                //ë²„ë¦° ì•„ì´í…œì€ ìƒí˜¸ì‘ìš©ì´ ë¶ˆê°€ëŠ¥í•˜ë‹¤.
                 GameManager.Instance.uiManager.ChangeTutorialText(GameManager.Instance.uiManager.questText,
-                    "[ÇÚµåÆùÀ» ¹ŞÀ¸¼¼¿ä]");
+                    "[í•¸ë“œí°ì„ ë°›ìœ¼ì„¸ìš”]");
                 GameManager.Instance.uiManager.ChangeTutorialText(GameManager.Instance.uiManager.miniQuestText,
-                    "[ÇÚµåÆùÀ» ¹ŞÀ¸¼¼¿ä]");
+                    "[í•¸ë“œí°ì„ ë°›ìœ¼ì„¸ìš”]");
 
                 yield return new WaitForSeconds(3f);
-                //¾ÆÀÌÅÛ »ç¿ëÀ» ¸¶Ä¡°í 3ÃÊ µÚ ÀüÈ­º§ ¼Ò¸® Àç»ı, ÀÌ¶§ ¸ğµç ÄÁÆ®·Ñ·¯´Â ÀüÈ­º§ÀÌ ¿ï¸®´Â ÁÖ±â¿¡ ¸ÂÃç ÇİÆ½ ¹İÀÀ
-                //ÇÚµåÆù ¾ÆÀÌÅÛÀ» »ç¿ëÇÏ±â Àü±îÁö ¹İº¹µÈ´Ù. ÇÚµåÆù°ú À¯Àú »çÀÌÀÇ °Å¸® »ó°ü ¾øÀÌ, ÇÚµåÆùÀÇ À½·®Àº µ¿ÀÏÇÏ´Ù.
-                //È­¸é Áß¾Ó ÇÏ´Ü¿¡ [ÇÚµåÆùÀ» ¹ŞÀ¸¼¼¿ä] ÅØ½ºÆ® 2ÃÊ°£ Ãâ·Â
+                //ì•„ì´í…œ ì‚¬ìš©ì„ ë§ˆì¹˜ê³  3ì´ˆ ë’¤ ì „í™”ë²¨ ì†Œë¦¬ ì¬ìƒ, ì´ë•Œ ëª¨ë“  ì»¨íŠ¸ë¡¤ëŸ¬ëŠ” ì „í™”ë²¨ì´ ìš¸ë¦¬ëŠ” ì£¼ê¸°ì— ë§ì¶° í–…í‹± ë°˜ì‘
+                //í•¸ë“œí° ì•„ì´í…œì„ ì‚¬ìš©í•˜ê¸° ì „ê¹Œì§€ ë°˜ë³µëœë‹¤. í•¸ë“œí°ê³¼ ìœ ì € ì‚¬ì´ì˜ ê±°ë¦¬ ìƒê´€ ì—†ì´, í•¸ë“œí°ì˜ ìŒëŸ‰ì€ ë™ì¼í•˜ë‹¤.
+                //í™”ë©´ ì¤‘ì•™ í•˜ë‹¨ì— [í•¸ë“œí°ì„ ë°›ìœ¼ì„¸ìš”] í…ìŠ¤íŠ¸ 2ì´ˆê°„ ì¶œë ¥
                 GameManager.Instance.uiManager.mainQuestUiObj.SetActive(true);
-                //ÇİÆ½Àº ¸Ş¼­µå·Î »¬ °Í
+                //í–…í‹±ì€ ë©”ì„œë“œë¡œ ëº„ ê²ƒ
                 leftXRController.SendHapticImpulse(0.5f, 2f);
                 rightXRController.SendHapticImpulse(0.5f, 2f);
                 yield return new WaitForSeconds(2f);
 
                 GameManager.Instance.uiManager.ChanageAllTutorialUI(GameManager.Instance.uiManager.controllerQuestText, GameManager.Instance.uiManager.controllerQuestImg,
-                    "Y ¹öÆ°À» ´­·¯¼­ ÀÎº¥Åä¸®¸¦ ¿©¼¼¿ä", objectActiveTutorialImg);
-                //ÀÌÈÄ ÆùÆ®¿Í ÅØ½ºÆ® Å©±â°¡ 75%·Î Ãà¼ÒµÈ ÈÄ ÁÂÃø »ó´ÜÀ¸·Î ÀÌµ¿ÇÏ¿© °íÁ¤µÈ´Ù.
+                    "Y ë²„íŠ¼ì„ ëˆŒëŸ¬ì„œ ì¸ë²¤í† ë¦¬ë¥¼ ì—¬ì„¸ìš”", objectActiveTutorialImg);
+                //ì´í›„ í°íŠ¸ì™€ í…ìŠ¤íŠ¸ í¬ê¸°ê°€ 75%ë¡œ ì¶•ì†Œëœ í›„ ì¢Œì¸¡ ìƒë‹¨ìœ¼ë¡œ ì´ë™í•˜ì—¬ ê³ ì •ëœë‹¤.
                 GameManager.Instance.uiManager.mainQuestUiObj.SetActive(false);
                 GameManager.Instance.uiManager.miniMainQuestUiObj.SetActive(true);
-                //ÀÌ¶§ ÀÎº¥Åä¸® Ãâ·ÂÀ» ¾Ë·ÁÁÖ´Â UI°¡ È°¼ºÈ­ µÈ´Ù.
+                //ì´ë•Œ ì¸ë²¤í† ë¦¬ ì¶œë ¥ì„ ì•Œë ¤ì£¼ëŠ” UIê°€ í™œì„±í™” ëœë‹¤.
                 GameManager.Instance.uiManager.controllerTutoObj.SetActive(true);
-                //ÀÎº¥Åä¸®¸¦ ¿­¸é ÀÎº¥Åä¸® ¾Ë¸² UI ºñÈ°¼ºÈ­
+                //ì¸ë²¤í† ë¦¬ë¥¼ ì—´ë©´ ì¸ë²¤í† ë¦¬ ì•Œë¦¼ UI ë¹„í™œì„±í™”
                 yield return new WaitUntil(() => isInventoryOpen);
                 GameManager.Instance.uiManager.controllerTutoObj.SetActive(false);
-                //À½·á¼ö¸¦ ¸¶½Ç ¶§¿Í °°Àº ¹æ¹ıÀ¸·Î ÇÚµåÆù »óÈ£ÀÛ¿ë
-                //¾ÆÀÌÅÛ »ç¿ë ¹öÆ°À» ´©¸£¸é ÀüÈ­º§ ¼Ò¸®¿Í ÇİÆ½ ¹İÀÀ Á¾·á, ÁÂÃø »ó´Ü¿¡ ÀÖ´ø Áö½Ã»çÇ× UIºñÈ°¼ºÈ­
+                //ìŒë£Œìˆ˜ë¥¼ ë§ˆì‹¤ ë•Œì™€ ê°™ì€ ë°©ë²•ìœ¼ë¡œ í•¸ë“œí° ìƒí˜¸ì‘ìš©
+                //ì•„ì´í…œ ì‚¬ìš© ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ì „í™”ë²¨ ì†Œë¦¬ì™€ í–…í‹± ë°˜ì‘ ì¢…ë£Œ, ì¢Œì¸¡ ìƒë‹¨ì— ìˆë˜ ì§€ì‹œì‚¬í•­ UIë¹„í™œì„±í™”
                 yield return new WaitUntil(() => isGetThePhone);
                 GameManager.Instance.uiManager.miniMainQuestUiObj.SetActive(false);
-                //¾ÆÀÌÅÛ »ç¿ë ¹öÆ°À» ´©¸£¸é ´ë»ç°¡ Ãâ·ÂµÈ´Ù.
+                //ì•„ì´í…œ ì‚¬ìš© ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ëŒ€ì‚¬ê°€ ì¶œë ¥ëœë‹¤.
                 secondTutorialDialog.gameObject.SetActive(true);
                 yield return new WaitUntil(() => secondTutorialDialog.isDialogsEnd == true);
 
-                //ÀÌ¶§ ÇÚµåÆù »ç¿ëÇÏ´Â µµÁß¿¡ ÀÎº¥Åä¸®¿¡ ÇÚµåÆùÀ» ³ÖÀ» ¼ö ¾ø´Ù.
-                //¸ğµç ´ë»ç°¡ Á¾·áµÇ¸é È­¸é¿¡ °ËÀº»ö È­¸éÀ¸·Î ÆäÀÌµå ¾Æ¿ôµÈ´Ù.
+                //ì´ë•Œ í•¸ë“œí° ì‚¬ìš©í•˜ëŠ” ë„ì¤‘ì— ì¸ë²¤í† ë¦¬ì— í•¸ë“œí°ì„ ë„£ì„ ìˆ˜ ì—†ë‹¤.
+                //ëª¨ë“  ëŒ€ì‚¬ê°€ ì¢…ë£Œë˜ë©´ í™”ë©´ì— ê²€ì€ìƒ‰ í™”ë©´ìœ¼ë¡œ í˜ì´ë“œ ì•„ì›ƒëœë‹¤.
                 StartCoroutine(GameManager.Instance.uiManager.fadeInOutObj.FadeOut());
-                //ÇÚµåÆùÀÇ Àâ±â °íÁ¤ »óÅÂ°¡ ÇØÁ¦ÇÑ´Ù.
-                //2½ºÅ×ÀÌÁö·Î ³Ñ¾î°¡¸ç ·Îµù È­¸éÀÌ ³ªÅ¸³­´Ù.
+                //í•¸ë“œí°ì˜ ì¡ê¸° ê³ ì • ìƒíƒœê°€ í•´ì œí•œë‹¤.
+                //2ìŠ¤í…Œì´ì§€ë¡œ ë„˜ì–´ê°€ë©° ë¡œë”© í™”ë©´ì´ ë‚˜íƒ€ë‚œë‹¤.
                 GameManager.Instance.isStage1Clear = true;
 
                 break;
@@ -253,10 +252,10 @@ public class StageManager : MonoBehaviour
     private void RightHandSnapturn(InputAction.CallbackContext callback)
     {
         Vector2 input = callback.ReadValue<Vector2>();
-        if (Mathf.Abs(input.x) > 0.5f) // ½º³ÀÅÏ ÀÔ·Â ±âÁØ (XÃà ÀÔ·ÂÀÌ 0.5 ÀÌ»óÀÏ °æ¿ì)
+        if (Mathf.Abs(input.x) > 0.5f) // ìŠ¤ëƒ…í„´ ì…ë ¥ ê¸°ì¤€ (Xì¶• ì…ë ¥ì´ 0.5 ì´ìƒì¼ ê²½ìš°)
         {
             isSnapTurned = true;
-            Debug.Log("½º³ÀÅÏ ½ÇÇà °¨Áö");
+            Debug.Log("ìŠ¤ëƒ…í„´ ì‹¤í–‰ ê°ì§€");
         }
     }
     private void LeftHandMove(InputAction.CallbackContext callback)
@@ -265,31 +264,31 @@ public class StageManager : MonoBehaviour
         if (input != Vector2.zero)
         {
             isPlayerMoved = true;
-            Debug.Log("ÄÁÆ®·Ñ·¯ ÀÌµ¿ ÀÔ·Â °¨Áö");
+            Debug.Log("ì»¨íŠ¸ë¡¤ëŸ¬ ì´ë™ ì…ë ¥ ê°ì§€");
         }
     }
     private void GripButtonPressed(InputAction.CallbackContext callback)
     {
         isGripButtonPress = true;
-        Debug.Log("±×¸³ ¹öÆ° ´­¸²");
+        Debug.Log("ê·¸ë¦½ ë²„íŠ¼ ëˆŒë¦¼");
     }
 
     private void GripButtonReleased(InputAction.CallbackContext callback)
     {
         isGripButtonPress = false;
-        Debug.Log("±×¸³ ¹öÆ° ÇØÁ¦");
+        Debug.Log("ê·¸ë¦½ ë²„íŠ¼ í•´ì œ");
     }
     private void OpenCan(InputAction.CallbackContext callback)
     {
         if (isTouchDrink && isGripButtonPress)
         {
-            Debug.Log("Äµ ¶Ñ²± ¿­±â");
+            Debug.Log("ìº” ëšœê»‘ ì—´ê¸°");
             isCanOpen = true;
         }
     }
     private void InventoryOpen(InputAction.CallbackContext callback)
     {
-        Debug.Log("ÀÎº¥Åä¸® ¿­±â");
+        Debug.Log("ì¸ë²¤í† ë¦¬ ì—´ê¸°");
         isInventoryOpen = true;
     }
 }
