@@ -8,6 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Book : MonoBehaviour
 {
+
     private EndlessBook endlessBook;
     [SerializeField]
     private InputActionReference l_Ref;
@@ -16,6 +17,7 @@ public class Book : MonoBehaviour
 
     private XRGrabInteractable xRGrabInteractable;
     public int currentPage;
+    public int unLockCount = 1;
     private bool isInteract = false;
     private bool isDissolveChanging = false;
     private void Awake()
@@ -40,6 +42,11 @@ public class Book : MonoBehaviour
 
     public void OnSelectEnter()
     {
+        if (unLockCount == 1)
+        {
+            SetActivatePage(unLockCount);
+            unLockCount++;
+        }
         StartCoroutine(OnSelectEnterCoroutine());
     }
     public void OnSelectExit()
@@ -94,7 +101,7 @@ public class Book : MonoBehaviour
         {
             float a = endlessBook.GetPageData(page).material.GetFloat("_Dissolve");
             yield return new WaitWhile(() => endlessBook.IsTurningPages);
-            endlessBook.GetPageData(page).material.SetFloat("_Dissolve", Mathf.Lerp(a, a - 0.2f, 0.02f));
+            endlessBook.GetPageData(page).material.SetFloat("_Dissolve", Mathf.Lerp(a, a - 0.1f, 0.0f));
             if (a < 0.01)
             {
                 isDissolveChanging = false;

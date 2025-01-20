@@ -9,7 +9,9 @@ public enum StageNumber
     Stage2,
     Stage3,
     Stage4,
-    Stage5
+    Stage5,
+    HappyEnding,
+    BadEnding
 }
 
 public class SaveLoadManager : SingletonManager<SaveLoadManager>

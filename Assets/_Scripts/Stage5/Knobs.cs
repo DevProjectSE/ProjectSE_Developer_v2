@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using EPOOutline;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,7 +13,6 @@ public class Knobs : MonoBehaviour
     public bool isHovering { get; set; }
     public InputActionReference r_Trigger;
     public InputActionReference l_Trigger;
-
     private void OnEnable()
     {
         r_Trigger.action.performed += OnOff;
