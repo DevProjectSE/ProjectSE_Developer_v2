@@ -6052,7 +6052,8 @@ MonoBehaviour:
   - {fileID: 6853349038159095008}
   - {fileID: 8564490358095987312}
   trashCan: {fileID: 1985735650487722613}
-  doorKnob: {fileID: 5882161866188092208}
+  toiletDoorKnob: {fileID: 5882161866188092208}
+  openDoor: {fileID: 0}
 --- !u!1 &5522180873607907286
 GameObject:
   m_ObjectHideFlags: 0
@@ -10121,9 +10122,10 @@ GameObject:
   - component: {fileID: 7274254177370566651}
   - component: {fileID: 5265422291885301066}
   - component: {fileID: 3066703028499075509}
+  - component: {fileID: 3876244668100068554}
   m_Layer: 7
   m_Name: left_elbow_item
-  m_TagString: Untagged
+  m_TagString: RobotLeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10258,18 +10260,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7523845570925026097}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
@@ -10494,6 +10484,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.06, y: 0.04, z: 0.04}
   m_Center: {x: -0.025, y: 0.001, z: 0}
+--- !u!114 &3876244668100068554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8564490358095987312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505599121cd7c2d4d87a596056b0142b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Keys:
+  - {fileID: 11400000, guid: 0030f363dc124ee429abb9bdeeb8074d, type: 2}
 --- !u!1 &8769303187624738048
 GameObject:
   m_ObjectHideFlags: 0
