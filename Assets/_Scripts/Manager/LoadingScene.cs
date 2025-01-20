@@ -25,6 +25,8 @@ public class LoadingScene : MonoBehaviour
         op.allowSceneActivation = false;
         while (!op.isDone)
         {
+            Debug.Log(nextScene);
+            Debug.Log("진입");
             yield return null;
             if (op.progress < 0.9f)
             {
@@ -32,8 +34,11 @@ public class LoadingScene : MonoBehaviour
             }
             else
             {
-                if (op.progress > 0.9f)
+                Debug.Log("대기 끝");
+                Debug.Log(op.progress);
+                if (op.progress >= 0.9f)
                 {
+                    Debug.Log("허가");
                     op.allowSceneActivation = true;
                     yield break;
                 }

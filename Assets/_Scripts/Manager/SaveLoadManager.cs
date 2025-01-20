@@ -30,11 +30,13 @@ public class SaveLoadManager : SingletonManager<SaveLoadManager>
 
                 break;
             case StageNumber.Stage3:
+
                 break;
             case StageNumber.Stage4:
-                LoadingScene.LoadScene("KimChanYoung_Stage5");
+
                 break;
             case StageNumber.Stage5:
+
                 break;
 
         }
