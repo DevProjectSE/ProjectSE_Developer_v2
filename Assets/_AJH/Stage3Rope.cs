@@ -6,8 +6,16 @@ public class Stage3Rope : MonoBehaviour
 {
     public GameObject knife;
 
-    private void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
+            //print("충돌함" + other.gameObject.name);   
         
+        if (other.gameObject.CompareTag("Knife"))
+        {
+            //print("충돌함2");
+            Destroy(gameObject);
+        }
     }
+
+
 }

@@ -46,10 +46,10 @@ namespace UnityEngine.XR.Content.Interaction
 
         JointLimits m_OpenDoorLimits;
         JointLimits m_ClosedDoorLimits;
-        bool m_Closed = false;
+        //public bool m_Closed = false;
         float m_LastHandleValue = 1.0f;
 
-        bool m_Locked = true;
+        public bool m_Locked = true;
 
         GameObject m_KeySocket;
         IXRSelectInteractable m_Key;
@@ -74,30 +74,30 @@ namespace UnityEngine.XR.Content.Interaction
             m_ClosedDoorLimits.min = 0.0f;
             m_ClosedDoorLimits.max = 0.0f;
             m_DoorJoint.limits = m_ClosedDoorLimits;
-            m_KeyKnob.SetActive(true);
-            m_Closed = true;
+            //m_KeyKnob.SetActive(true);
+            //m_Closed = false;
         }
 
         void Update()
         {
             if (Input.GetKeyUp(KeyCode.Escape))
             {
-                m_Closed = false ;
+                m_Locked = false ;
                 Destroy(key);
             }
 
             // If the door is open, keep track of the hinge joint and see if it enters a state where it should close again
-            if (!m_Closed)
-            {
-                if (m_LastHandleValue < m_HandleCloseValue)
-                    return;
+            //if (!m_Closed)
+            //{
+            //    if (m_LastHandleValue < m_HandleCloseValue)
+            //        return;
 
-                if (Mathf.Abs(m_DoorJoint.angle) < m_HingeCloseAngle)
-                {
-                    m_DoorJoint.limits = m_ClosedDoorLimits;
-                    m_Closed = true;
-                }
-            }
+            //    if (Mathf.Abs(m_DoorJoint.angle) < m_HingeCloseAngle)
+            //    {
+            //        m_DoorJoint.limits = m_ClosedDoorLimits;
+            //        m_Closed = false;
+            //    }
+            //}
 
             if (m_KnobInteractor != null && m_KnobInteractorAttachTransform != null)
             {
@@ -131,14 +131,14 @@ namespace UnityEngine.XR.Content.Interaction
         {
             m_LastHandleValue = handleValue;
 
-            if (!m_Closed || m_Locked)
+            if (/*!m_Closed ||*/ m_Locked)
                 return;
 
-            if (handleValue < m_HandleOpenValue)
-            {
-                m_DoorJoint.limits = m_OpenDoorLimits;
-                m_Closed = false;
-            }
+            //if (handleValue < m_HandleOpenValue)
+            //{
+            //    m_DoorJoint.limits = m_OpenDoorLimits;
+            //    m_Closed = false;
+            //}
         }
 
         public void KeyDropUpdate(SelectEnterEventArgs args)
@@ -177,7 +177,5 @@ namespace UnityEngine.XR.Content.Interaction
             m_KnobInteractorAttachTransform = null;
         }
     }
-
-
-    
+   
 }

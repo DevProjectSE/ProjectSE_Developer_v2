@@ -5,7 +5,10 @@ using UnityEngine;
 public class Stage3Lock : MonoBehaviour
 {
     public GameObject inputPassword;
-    public int[] Passwoard;
+    public int Passwoard;
+    public bool isOpen=false;
+
+
     private void Awake()
     {
         inputPassword.SetActive(false);
