@@ -22,7 +22,7 @@ public class Book : MonoBehaviour
     {
         endlessBook = GetComponent<EndlessBook>();
         xRGrabInteractable = GetComponent<XRGrabInteractable>();
-
+        endlessBook.SetState(EndlessBook.StateEnum.ClosedFront);
     }
     private void OnEnable()
     {
@@ -69,7 +69,7 @@ public class Book : MonoBehaviour
     {
         xRGrabInteractable.enabled = false;
         yield return new WaitWhile(() => isDissolveChanging);
-        yield return new WaitUntil(() => currentPage == endlessBook.CurrentPageNumber);
+        // yield return new WaitUntil(() => currentPage == endlessBook.CurrentPageNumber);
         endlessBook.TurnToPage(1, EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime, 1f);
         yield return new WaitWhile(() => endlessBook.IsTurningPages);
         endlessBook.SetState(EndlessBook.StateEnum.ClosedFront);
