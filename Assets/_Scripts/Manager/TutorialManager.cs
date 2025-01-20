@@ -10,7 +10,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Inputs;
 using UnityEngine.XR.OpenXR.Input;
 
-public class StageManager : MonoBehaviour
+public class TutorialManager : MonoBehaviour
 {
     public enum STAGE { STAGE1, STAGE2, STAGE3, STAGE4, STAGE5, STAGE6 };
     public STAGE stage;
@@ -214,10 +214,11 @@ public class StageManager : MonoBehaviour
                 yield return new WaitUntil(() => isGetThePhone);
                 GameManager.Instance.uiManager.miniMainQuestUiObj.SetActive(false);
                 //아이템 사용 버튼을 누르면 대사가 출력된다.
+                yield return new WaitUntil(() => isGetThePhone && isGripButtonPress);
                 secondTutorialDialog.gameObject.SetActive(true);
                 yield return new WaitUntil(() => secondTutorialDialog.isDialogsEnd == true);
 
-                //이때 핸드폰 사용하는 도중에 인벤토리에 핸드폰을 넣을 수 없다.
+                //이때 핸드폰 사용하는 도중에 인벤토리에 핸드폰을 넣을 수 없다. ->Select 상태에서 Exit상태로 변경이 불가능하다.
                 //모든 대사가 종료되면 화면에 검은색 화면으로 페이드 아웃된다.
                 StartCoroutine(GameManager.Instance.uiManager.fadeInOutObj.FadeOut());
                 //핸드폰의 잡기 고정 상태가 해제한다.
@@ -225,28 +226,7 @@ public class StageManager : MonoBehaviour
                 GameManager.Instance.isStage1Clear = true;
 
                 break;
-            case STAGE.STAGE2:
-
-                break;
-            case STAGE.STAGE3:
-
-                break;
-            case STAGE.STAGE4:
-
-                break;
-            case STAGE.STAGE5:
-
-                break;
-            case STAGE.STAGE6:
-
-                break;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void RightHandSnapturn(InputAction.CallbackContext callback)

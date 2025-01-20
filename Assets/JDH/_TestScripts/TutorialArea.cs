@@ -8,7 +8,7 @@ public class TutorialArea : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            FindObjectOfType<StageManager>().isTutorialArea = true;
+            FindObjectOfType<TutorialManager>().isTutorialArea = true;
             Debug.Log("플레이어가 튜토리얼 시작 지점에 도착했습니다.");
         }
     }
@@ -16,7 +16,7 @@ public class TutorialArea : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            FindObjectOfType<StageManager>().isTutorialArea = false;
+            FindObjectOfType<TutorialManager>().isTutorialArea = false;
             Debug.Log("플레이어가 튜토리얼 시작 지점에서 나갔습니다.");
         }
     }

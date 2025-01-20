@@ -52,7 +52,7 @@ namespace MikeNspired.UnityXRHandPoser
             isActive = !isActive;
             Debug.Log($"Inventory Active State: {isActive}"); // 상태 확인 로그
             ToggleInventoryItems(isActive, hand);
-            PlayAudio(isActive);
+            //PlayAudio(isActive);
         }
 
         private void PlayAudio(bool state)
@@ -71,6 +71,7 @@ namespace MikeNspired.UnityXRHandPoser
                 if (!state)
                 {
                     itemSlot.DisableSlot();
+                    itemSlot.gameObject.SetActive(false);
                 }
                 else
                 {
