@@ -25,8 +25,11 @@ public class FlashLight : MonoBehaviour
     private int lightState = 0;
     public bool canToggleLight = false;
 
-    //public InputActionProperty leftButtonAction;
-    //public InputActionProperty rightButtonAction;
+    public InputActionReference leftSecondaryButton;
+    public InputActionReference rightSecondaryButton;
+
+    public InputActionProperty leftButtonAction;
+    public InputActionProperty rightButtonAction;
 
     private void Awake()
     {
@@ -38,8 +41,8 @@ public class FlashLight : MonoBehaviour
     private void Start()
     {
 
-        leftActivateAction.action.performed += ctx =>ToggleLight();
-        rightActivateAction.action.performed += ctx => ToggleLight();
+        //leftActivateAction.action.performed += ctx =>ToggleLight();
+        //rightActivateAction.action.performed += ctx => ToggleLight();
 
     }
 
@@ -70,15 +73,18 @@ public class FlashLight : MonoBehaviour
 
     private void OnEnable()
     {
+        leftSecondaryButton.action.performed += GrapFlash;
+        rightSecondaryButton.action.performed += GrapFlash;
+
         if (leftActivateAction != null)
         {
-            leftActivateAction.action.performed += ctx => ToggleLight();
+            //leftActivateAction.action.performed += ctx => ToggleLight();
 
         }
 
         if (rightActivateAction != null)
         {
-            rightActivateAction.action.performed += ctx=>  ToggleLight();
+            //rightActivateAction.action.performed += ctx=>  ToggleLight();
 
         }
     }
@@ -87,14 +93,14 @@ public class FlashLight : MonoBehaviour
     {
         if (leftActivateAction != null)
         {
-            leftActivateAction.action.performed -= ctx => ToggleLight();
+            //leftActivateAction.action.performed -= ctx => ToggleLight();
         }
         if (leftActivateAction != null)
         {
-            rightActivateAction.action.performed -= ctx => ToggleLight();
+            //rightActivateAction.action.performed -= ctx => ToggleLight();
         }
     }
-    public void ToggleLight()
+    private void GrapFlash(InputAction.CallbackContext callback)
     {
         if(!canToggleLight)
         {
