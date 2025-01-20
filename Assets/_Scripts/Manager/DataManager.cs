@@ -3,77 +3,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-
-public enum StageNumber
-{
-    Stage1 = 1,
-    Stage2,
-    Stage3,
-    Stage4,
-    Stage5
-}
+using UnityEngine.SceneManagement;
 
 public class DataTable
 {
-    public bool isStage_1_Clear;
-    public bool isStage_2_Clear;
-    public bool isStage_3_Clear;
-    public bool isStage_5_Clear;
+    [Header("스테이지 클리어 여부")]
+    [Tooltip("스테이지1 클리어 여부")] public bool isStage1Clear;
+    [Tooltip("스테이지2 클리어 여부")] public bool isStage2Clear;
+    [Tooltip("스테이지3 클리어 여부")] public bool isStage3Clear;
+    [Tooltip("스테이지4 클리어 여부")] public bool isStage4Clear;
+    [Tooltip("스테이지5 클리어 여부")] public bool isStage5Clear;
 
-    public Vector3 stage_1_StartPos;
-    public Vector3 stage_2_StartPos;
-    public Vector3 stage_3_StartPos;
-    public Vector3 stage_4_StartPos;
-    public Vector3 stage_5_StartPos;
+    [Header("엔딩 분기점")]
+    [SerializeField, Tooltip("해피엔딩")] public bool isHappyEnding;
+    [SerializeField, Tooltip("배드엔딩")] public bool isBadEnding;
 
     public int currentStage;
 }
 
-public class DataManager : MonoBehaviour
+public class DataManager : SingletonManager<DataManager>
 {
     public DataTable dataTable;
-    StageNumber stageNumber;
 
-    public void StageLoad()
+    protected override void Awake()
     {
-        switch (stageNumber)
-        {
-            case StageNumber.Stage1:
-
-                break;
-            case StageNumber.Stage2:
-                break;
-            case StageNumber.Stage3:
-                break;
-            case StageNumber.Stage4:
-                break;
-            case StageNumber.Stage5:
-                break;
-
-        }
+        base.Awake();
     }
+
 
     public void Stage1()
     {
-        GameManager.Instance.Player.transform.position = dataTable.stage_1_StartPos;
+
     }
 
     public void Stage2()
     {
-        GameManager.Instance.Player.transform.position = dataTable.stage_2_StartPos;
+
     }
 
     public void Stage3()
     {
-        GameManager.Instance.Player.transform.position = dataTable.stage_3_StartPos;
+
     }
 
     public void Stage4()
     {
-        GameManager.Instance.Player.transform.position = dataTable.stage_4_StartPos;
+
     }
     public void Stage5()
     {
-        GameManager.Instance.Player.transform.position = dataTable.stage_5_StartPos;
     }
 }

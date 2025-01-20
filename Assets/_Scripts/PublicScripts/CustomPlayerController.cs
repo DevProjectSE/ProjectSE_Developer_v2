@@ -15,13 +15,15 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 using Unity.VisualScripting;
 using EPOOutline;
 using System;
+using System.Runtime.InteropServices;
+using System.Reflection;
 
 public class CustomPlayerController : MonoBehaviour
 {
     // [SerializeField]
     // private InputActionReference activePrimaryX;
     [SerializeField]
-    private InputActionReference rightControllerAction;
+    private InputActionReference r_CtrlAction;
     [SerializeField]
     private Transform l_Controller;
     [SerializeField]
@@ -52,14 +54,14 @@ public class CustomPlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        rightControllerAction.action.performed += DownUpAction;
+        r_CtrlAction.action.performed += DownUpAction;
 
         // activePrimaryX.action.performed += Primary;
     }
 
     private void OnDisable()
     {
-        rightControllerAction.action.performed -= DownUpAction;
+        r_CtrlAction.action.performed -= DownUpAction;
         // activePrimaryX.action.performed -= Primary;
     }
 
@@ -113,38 +115,6 @@ public class CustomPlayerController : MonoBehaviour
     }
 
     #region 콜백
-    private void Primary(InputAction.CallbackContext context)
-    {
-        float value = context.ReadValue<float>();
-        Debug.Log("하이");
-    }
-    private void SitDown(InputAction.CallbackContext context)
-    {
-        // if (isSit == true) return;
-        float valuey = context.ReadValue<Vector2>().y;
-        if (cam.transform.localPosition.y < -2) return;
-        if (valuey <= -0.35f)
-        {
-            camOffset.position =
-            new Vector3(camOffset.position.x, camOffset.position.y - 2, camOffset.position.z);
-            // isSit = true;
-        }
-    }
-
-    private void StandUp(InputAction.CallbackContext context)
-    {
-
-        // if (isSit == false) return;
-        float valuey = context.ReadValue<Vector2>().y;
-        if (valuey >= 0.35f)
-        {
-            camOffset.position =
-            new Vector3(camOffset.position.x, camOffset.position.y + 2, camOffset.position.z);
-            // isSit = false;
-
-        }
-    }
-
     private void DownUpAction(InputAction.CallbackContext context)
     {
         float value = context.ReadValue<Vector2>().y;
@@ -169,6 +139,7 @@ public class CustomPlayerController : MonoBehaviour
         l_Controller.GetComponent<XRBaseController>().enabled = true;
         r_Controller.GetComponent<XRBaseController>().enabled = true;
         tunnelingVignette.SetActive(true);
+        r_CtrlAction.action.performed += DownUpAction;
     }
     public void CtrlRelease()
     {
@@ -176,6 +147,21 @@ public class CustomPlayerController : MonoBehaviour
         l_Controller.GetComponent<XRBaseController>().enabled = false;
         r_Controller.GetComponent<XRBaseController>().enabled = false;
         tunnelingVignette.SetActive(false);
+        r_CtrlAction.action.performed -= DownUpAction;
     }
 
+    public void UIOpen()
+    {
+        locomotionSystem.enabled = false;
+        tunnelingVignette.SetActive(false);
+        Debug.Log($"구독해제전 {r_CtrlAction.action}");
+        r_CtrlAction.action.performed -= DownUpAction;
+        Debug.Log($"구독해제후 {r_CtrlAction.action}");
+    }
+    public void UIClose()
+    {
+        locomotionSystem.enabled = true;
+        tunnelingVignette.SetActive(true);
+        r_CtrlAction.action.performed += DownUpAction;
+    }
 }

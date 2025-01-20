@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : SingletonManager<GameManager>
 {
-    public static GameManager Instance;
 
     [Header("스테이지 클리어 여부")]
     [Tooltip("스테이지1 클리어 여부")] public bool isStage1Clear;
@@ -13,29 +13,24 @@ public class GameManager : MonoBehaviour
     [Tooltip("스테이지4 클리어 여부")] public bool isStage4Clear;
     [Tooltip("스테이지5 클리어 여부")] public bool isStage5Clear;
 
-    [Header("엔딩 분기점")]
-    [SerializeField, Tooltip("해피엔딩")] public bool isHappyEnding;
-    [SerializeField, Tooltip("배드엔딩")] public bool isBadEnding;
-
     [Header("Player Object")]
     public GameObject Player;
 
     [Header("Manager")]
     public UIManager uiManager;
 
-    private void Awake()
+    public DataManager dataManager;
+
+    protected override void Awake()
     {
-        Instance = this;
+        base.Awake();
     }
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        SceneManager.sceneLoaded += (x, y) =>
+        {
+            Player = FindAnyObjectByType<Player>().gameObject;
+        };
     }
 }
