@@ -12,11 +12,10 @@ public class StageFourth : MonoBehaviour
     private bool isWallBreakClear { get; set; }
     public List<Stain> stains;
     public List<GameObject> stageFourtItem;
-
     public TrashCan_Active trashCan;
-
-    public XRKnob doorKnob;
-
+    public XRKnob toiletDoorKnob;
+    //TODO : 리팩할 때 참고 : 로봇 조합 시 열리는 문
+    public OpenDoor openDoor;
     private void Awake()
     {
         if (trashCan == null)
@@ -59,7 +58,7 @@ public class StageFourth : MonoBehaviour
     {
         isLockerClear = true;
         stageFourtItem[2].gameObject.SetActive(true);
-        doorKnob.enabled = true;
+        toiletDoorKnob.enabled = true;
     }
 
     public void WallBreakClear()

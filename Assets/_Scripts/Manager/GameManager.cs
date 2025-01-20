@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Manager")]
     public UIManager uiManager;
-
     public DataManager dataManager;
 
     private void Awake()

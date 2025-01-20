@@ -14,6 +14,7 @@ public enum StageNumber
 
 public class SaveLoadManager : SingletonManager<SaveLoadManager>
 {
+
     protected override void Awake()
     {
         base.Awake();
@@ -24,19 +25,21 @@ public class SaveLoadManager : SingletonManager<SaveLoadManager>
         switch (stageNumber)
         {
             case StageNumber.Stage1:
-
+                DataManager.Instance.dataTable.currentStage = 1;
                 break;
             case StageNumber.Stage2:
-
+                DataManager.Instance.dataTable.currentStage = 2;
                 break;
             case StageNumber.Stage3:
-
+                DataManager.Instance.dataTable.currentStage = 3;
                 break;
             case StageNumber.Stage4:
-
+                LoadingScene.LoadScene("KimChanYoung_Stage4");
+                DataManager.Instance.dataTable.currentStage = 4;
                 break;
             case StageNumber.Stage5:
-
+                LoadingScene.LoadScene("KimChanYoung_Stage5");
+                DataManager.Instance.dataTable.currentStage = 5;
                 break;
 
         }
