@@ -25,7 +25,7 @@ public class TutorialCoke : MonoBehaviour
     {
         if (other.CompareTag("Hand"))
         {
-            //손에 닿았을 경우
+            //손에 닿았을 경우 =>인식 안됨.
             FindObjectOfType<StageManager>().isTouchDrink = true;
             Debug.Log("음료가 손에 닿았습니다.");
         }
