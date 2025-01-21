@@ -18,6 +18,8 @@ public class TutorialManager : MonoBehaviour
     [Header("Stage1_DialogSystem")]
     public DialogSystem firstTutorialDialog;
     public DialogSystem secondTutorialDialog;
+    public DialogSystem thirdTutorialDialog;
+
     [Header("Stage1_Tutorial_Sprites")]
     public Sprite viewTutorialImg;
     public Sprite movingTutorialImg;
@@ -32,8 +34,9 @@ public class TutorialManager : MonoBehaviour
     public InputActionReference leftGripButton;
     public InputActionReference rightGripButton;
 
+    public InputActionReference leftPrimaryButton;
     public InputActionReference leftSecondaryButton;
-    public InputActionReference rightSecondaryButton;
+    public InputActionReference rightPrimaryButton;
 
     [Header("튜토리얼 동작 확인 플래그")]
     private bool isSnapTurned = false; // 스냅턴 실행 여부 플래그
@@ -41,6 +44,7 @@ public class TutorialManager : MonoBehaviour
 
     public bool isTutorialArea = false; //튜토리얼 진행 가능 위치에 존재하는지 확인하는 플래그
     public bool isSitdown = false;  //앉았는지 확인하는 플래그
+    private float previousY = 0f; // 이전 프레임의 Y값 저장
 
     public bool isTouchDrink = false;    //콜라가 손에 닿아있는지 확인하는 플래그
     private bool isGripButtonPress = false; //그립 버튼을 눌렀는지 확인하는 플래그
@@ -49,6 +53,11 @@ public class TutorialManager : MonoBehaviour
     public bool throwCokecan = false;   //쓰레기 버리기 여부 플래그
 
     public bool isInventoryOpen = false;    //인벤토리 실행여부 확인 플래그
+
+    private bool isCalling = false; //전화벨이 울리는 상태인지 확인하는 플래그
+    private Coroutine hapticCoroutine; // 실행 중인 코루틴을 저장할 변수
+
+    public bool isPhoneGrip = false;
     public bool isGetThePhone = false;  //전화를 받았는지 확인하는 플래그
 
     [Header("햅틱")]
@@ -57,8 +66,10 @@ public class TutorialManager : MonoBehaviour
 
     private void OnEnable()
     {
+        //출력 이후로 모두 옮기기
         rightJoystick.action.performed += RightHandSnapturn;
         leftJoystick.action.performed += LeftHandMove;
+        rightJoystick.action.performed += RightHandSitdown;
 
         leftGripButton.action.performed += GripButtonPressed;
         leftGripButton.action.canceled += GripButtonReleased;
@@ -66,20 +77,24 @@ public class TutorialManager : MonoBehaviour
         rightGripButton.action.canceled += GripButtonReleased;
 
         leftSecondaryButton.action.performed += InventoryOpen;
-        rightSecondaryButton.action.performed += OpenCan;
+        leftPrimaryButton.action.performed += UsedItem;
+        rightPrimaryButton.action.performed += UsedItem;
 
     }
     private void OnDisable()
     {
         rightJoystick.action.performed -= RightHandSnapturn;
         leftJoystick.action.performed -= LeftHandMove;
+        rightJoystick.action.performed -= RightHandSitdown;
 
         leftGripButton.action.performed -= GripButtonPressed;
         leftGripButton.action.canceled -= GripButtonReleased;
         rightGripButton.action.performed -= GripButtonPressed;
         rightGripButton.action.canceled -= GripButtonReleased;
+
         leftSecondaryButton.action.performed -= InventoryOpen;
-        rightSecondaryButton.action.performed -= OpenCan;
+        leftPrimaryButton.action.performed -= UsedItem;
+        rightPrimaryButton.action.performed -= UsedItem;
     }
     // Start is called before the first frame update
     IEnumerator Start()
@@ -89,7 +104,7 @@ public class TutorialManager : MonoBehaviour
         {
             case STAGE.STAGE1:
                 //오브젝트를 쭉 훑어본 후 플레이어의 위치로 카메라가 이동하며 이후 플레이어가 움직일 수 있다.
-                GameManager.Instance.Player.GetComponentInChildren<InputActionManager>().enabled = false;
+                GameManager.Instance.Player.GetComponentInChildren<CustomPlayerController>().CtrlRelease();
                 //대사 내용 출력 이후 플레이어 캐릭터 조작 활성화
                 firstTutorialDialog.gameObject.SetActive(true);
                 yield return new WaitUntil(() => firstTutorialDialog.isDialogsEnd == true);
@@ -194,11 +209,9 @@ public class TutorialManager : MonoBehaviour
                 //핸드폰 아이템을 사용하기 전까지 반복된다. 핸드폰과 유저 사이의 거리 상관 없이, 핸드폰의 음량은 동일하다.
                 //화면 중앙 하단에 [핸드폰을 받으세요] 텍스트 2초간 출력
                 GameManager.Instance.uiManager.mainQuestUiObj.SetActive(true);
-                //햅틱은 메서드로 뺄 것
-                leftXRController.SendHapticImpulse(0.5f, 2f);
-                rightXRController.SendHapticImpulse(0.5f, 2f);
+                isCalling = true;
+                SetCallingState(isCalling);
                 yield return new WaitForSeconds(2f);
-
                 GameManager.Instance.uiManager.ChanageAllTutorialUI(GameManager.Instance.uiManager.controllerQuestText, GameManager.Instance.uiManager.controllerQuestImg,
                     "Y 버튼을 눌러서 인벤토리를 여세요", objectActiveTutorialImg);
                 //이후 폰트와 텍스트 크기가 75%로 축소된 후 좌측 상단으로 이동하여 고정된다.
@@ -211,12 +224,15 @@ public class TutorialManager : MonoBehaviour
                 GameManager.Instance.uiManager.controllerTutoObj.SetActive(false);
                 //음료수를 마실 때와 같은 방법으로 핸드폰 상호작용
                 //아이템 사용 버튼을 누르면 전화벨 소리와 햅틱 반응 종료, 좌측 상단에 있던 지시사항 UI비활성화
-                yield return new WaitUntil(() => isGetThePhone);
+                yield return new WaitUntil(() => isPhoneGrip && isGripButtonPress);
                 GameManager.Instance.uiManager.miniMainQuestUiObj.SetActive(false);
-                //아이템 사용 버튼을 누르면 대사가 출력된다.
-                yield return new WaitUntil(() => isGetThePhone && isGripButtonPress);
                 secondTutorialDialog.gameObject.SetActive(true);
                 yield return new WaitUntil(() => secondTutorialDialog.isDialogsEnd == true);
+                //아이템 사용 버튼을 누르면 대사가 출력된다.
+                yield return new WaitUntil(() => isPhoneGrip && isGetThePhone);
+                isCalling = false;
+                thirdTutorialDialog.gameObject.SetActive(true);
+                yield return new WaitUntil(() => thirdTutorialDialog.isDialogsEnd == true);
 
                 //이때 핸드폰 사용하는 도중에 인벤토리에 핸드폰을 넣을 수 없다. ->Select 상태에서 Exit상태로 변경이 불가능하다.
                 //모든 대사가 종료되면 화면에 검은색 화면으로 페이드 아웃된다.
@@ -225,8 +241,11 @@ public class TutorialManager : MonoBehaviour
                 //2스테이지로 넘어가며 로딩 화면이 나타난다.
                 GameManager.Instance.isStage1Clear = true;
 
+                //Scene 이동
+                
                 break;
         }
+
     }
 
     private void RightHandSnapturn(InputAction.CallbackContext callback)
@@ -238,6 +257,26 @@ public class TutorialManager : MonoBehaviour
             Debug.Log("스냅턴 실행 감지");
         }
     }
+    private void RightHandSitdown(InputAction.CallbackContext callback)
+    {
+        Vector2 input = callback.ReadValue<Vector2>();
+        float currentY = input.y;
+
+        // 이전 Y값과 비교하여 감소하는 경우를 감지
+        if (currentY < previousY)
+        {
+            isSitdown = true;
+            Debug.Log("앉기 실행");
+        }
+        else
+        {
+            isSitdown = false;
+        }
+
+        // 현재 Y값을 다음 프레임의 이전 Y값으로 저장
+        previousY = currentY;
+    }
+
     private void LeftHandMove(InputAction.CallbackContext callback)
     {
         Vector2 input = callback.ReadValue<Vector2>();
@@ -258,12 +297,18 @@ public class TutorialManager : MonoBehaviour
         isGripButtonPress = false;
         Debug.Log("그립 버튼 해제");
     }
-    private void OpenCan(InputAction.CallbackContext callback)
+    private void UsedItem(InputAction.CallbackContext callback)
     {
         if (isTouchDrink && isGripButtonPress)
         {
             Debug.Log("캔 뚜껑 열기");
             isCanOpen = true;
+        }
+        else if(isPhoneGrip && isGripButtonPress)
+        {
+            Debug.Log("핸드폰 사용");
+            isGetThePhone = true;
+
         }
     }
     private void InventoryOpen(InputAction.CallbackContext callback)
@@ -271,4 +316,41 @@ public class TutorialManager : MonoBehaviour
         Debug.Log("인벤토리 열기");
         isInventoryOpen = true;
     }
+    /// <summary>
+    /// isCalling 상태를 설정하고, 상태에 따라 햅틱 피드백을 시작하거나 중지합니다.
+    /// </summary>
+    /// <param name="state">true이면 햅틱 피드백 시작, false이면 중지</param>
+    public void SetCallingState(bool state)
+    {
+        isCalling = state;
+
+        if (isCalling && hapticCoroutine == null)
+        {
+            // isCalling이 true이고 코루틴이 실행 중이 아니면 코루틴 시작
+            hapticCoroutine = StartCoroutine(HapticFeedbackLoop());
+        }
+        else if (!isCalling && hapticCoroutine != null)
+        {
+            // isCalling이 false이고 코루틴이 실행 중이면 코루틴 종료
+            StopCoroutine(hapticCoroutine);
+            hapticCoroutine = null;
+        }
+    }
+
+    /// <summary>
+    /// isCalling이 true인 동안 햅틱 피드백을 반복적으로 보냅니다.
+    /// </summary>
+    private IEnumerator HapticFeedbackLoop()
+    {
+        while (isCalling)
+        {
+            // 왼쪽 및 오른쪽 컨트롤러에 햅틱 피드백 전송 (강도: 0.5, 지속 시간: 0.2초)
+            leftXRController.SendHapticImpulse(0.5f, 0.2f);
+            rightXRController.SendHapticImpulse(0.5f, 0.2f);
+
+            // 다음 햅틱 피드백까지 대기 (0.5초 간격)
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
 }
+
