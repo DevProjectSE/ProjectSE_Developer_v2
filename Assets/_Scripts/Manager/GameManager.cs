@@ -31,13 +31,16 @@ public class GameManager : MonoBehaviour
 
         SceneManager.sceneLoaded += (x, y) =>
         {
-            if (Player != null)
+            if (SceneManager.GetActiveScene().name != "LoadingScene")
             {
-                Player = null;
-            }
-            if (Player == null)
-            {
-                Player = FindAnyObjectByType<Player>().gameObject;
+                if (Player != null)
+                {
+                    Player = null;
+                }
+                if (Player == null)
+                {
+                    Player = FindAnyObjectByType<Player>().gameObject;
+                }
             }
         };
     }

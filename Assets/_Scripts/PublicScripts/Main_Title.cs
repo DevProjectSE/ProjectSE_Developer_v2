@@ -53,7 +53,7 @@ public class Main_Title : MonoBehaviour
     }
     private void NewGameClick()
     {
-
+        SaveLoadManager.Instance.StageLoad(StageNumber.Stage1);
     }
     private void StageSelectClick()
     {

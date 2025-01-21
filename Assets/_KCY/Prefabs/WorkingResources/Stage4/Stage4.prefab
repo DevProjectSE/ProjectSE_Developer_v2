@@ -4450,6 +4450,7 @@ GameObject:
   - component: {fileID: 914150123837404412}
   - component: {fileID: 4929994034093971979}
   - component: {fileID: 6601287331269686913}
+  - component: {fileID: 118626856630584520}
   m_Layer: 7
   m_Name: Key
   m_TagString: Untagged
@@ -4974,6 +4975,20 @@ MonoBehaviour:
     fillPass:
       shader: {fileID: 0}
       serializedProperties: []
+--- !u!114 &118626856630584520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4083976537980367114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9e33e45d517e94b98a0ffc2f198427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInventory: 1
+  canDistanceGrab: 1
 --- !u!1 &4498055703561377077
 GameObject:
   m_ObjectHideFlags: 0
@@ -6738,6 +6753,7 @@ GameObject:
   - component: {fileID: 3349693943926328851}
   - component: {fileID: 26289101525056208}
   - component: {fileID: 2876854745796167646}
+  - component: {fileID: 6843021598759707893}
   m_Layer: 7
   m_Name: HandMop_SM_rag
   m_TagString: Handmop
@@ -7128,6 +7144,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.11851062, y: 0.027508814, z: 0.18256621}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6843021598759707893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6050275375665389625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9e33e45d517e94b98a0ffc2f198427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInventory: 1
+  canDistanceGrab: 1
 --- !u!1 &6126510769737804570
 GameObject:
   m_ObjectHideFlags: 0
@@ -7769,6 +7799,7 @@ GameObject:
   - component: {fileID: 1507501567900896320}
   - component: {fileID: 3378669907854994529}
   - component: {fileID: 2276763361304251977}
+  - component: {fileID: 7412014897901587152}
   m_Layer: 7
   m_Name: Hammer
   m_TagString: Untagged
@@ -8172,6 +8203,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3048b4fe89a824f88a63e7566b1efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7412014897901587152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6853349038159095008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9e33e45d517e94b98a0ffc2f198427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInventory: 1
+  canDistanceGrab: 1
 --- !u!1 &6910476246341176816
 GameObject:
   m_ObjectHideFlags: 0
@@ -10123,6 +10168,7 @@ GameObject:
   - component: {fileID: 5265422291885301066}
   - component: {fileID: 3066703028499075509}
   - component: {fileID: 3876244668100068554}
+  - component: {fileID: 956832299293496323}
   m_Layer: 7
   m_Name: left_elbow_item
   m_TagString: RobotLeftArm
@@ -10498,6 +10544,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Keys:
   - {fileID: 11400000, guid: 0030f363dc124ee429abb9bdeeb8074d, type: 2}
+--- !u!114 &956832299293496323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8564490358095987312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9e33e45d517e94b98a0ffc2f198427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInventory: 1
+  canDistanceGrab: 1
 --- !u!1 &8769303187624738048
 GameObject:
   m_ObjectHideFlags: 0

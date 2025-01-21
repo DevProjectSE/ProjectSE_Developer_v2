@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,9 +32,11 @@ public class SaveLoadManager : SingletonManager<SaveLoadManager>
                 DataManager.Instance.dataTable.currentStage = 1;
                 break;
             case StageNumber.Stage2:
+                LoadingScene.LoadScene("Stage2_AJH");
                 DataManager.Instance.dataTable.currentStage = 2;
                 break;
             case StageNumber.Stage3:
+                LoadingScene.LoadScene("Stage3_AJH");
                 DataManager.Instance.dataTable.currentStage = 3;
                 break;
             case StageNumber.Stage4:
