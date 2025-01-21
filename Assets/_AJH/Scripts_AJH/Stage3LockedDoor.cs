@@ -49,10 +49,13 @@ namespace UnityEngine.XR.Content.Interaction
         //public bool m_Closed = false;
         float m_LastHandleValue = 1.0f;
 
-        public bool m_Locked = true;
+        public bool Locked = true;
 
         GameObject m_KeySocket;
         IXRSelectInteractable m_Key;
+
+        public GameObject Keypad;
+        public NumberKeyPad numberKeyPad;
 
         XRBaseInteractor m_KnobInteractor;
         Transform m_KnobInteractorAttachTransform;
@@ -69,24 +72,27 @@ namespace UnityEngine.XR.Content.Interaction
 
         void Start()
         {
+            numberKeyPad = Keypad. GetComponent<NumberKeyPad>();
             m_OpenDoorLimits = m_DoorJoint.limits;
             m_ClosedDoorLimits = m_OpenDoorLimits;
             m_ClosedDoorLimits.min = 0.0f;
             m_ClosedDoorLimits.max = 0.0f;
             m_DoorJoint.limits = m_ClosedDoorLimits;
-            //m_KeyKnob.SetActive(true);
+            m_KeyKnob.SetActive(true);
             //m_Closed = false;
+
         }
 
         void Update()
         {
-            if (Input.GetKeyUp(KeyCode.Escape))
+            if (numberKeyPad.isUnlocked == true)
             {
-                m_Locked = false ;
-                Destroy(key);
+                Locked = false;
+
             }
 
-            // If the door is open, keep track of the hinge joint and see if it enters a state where it should close again
+
+            //If the door is open, keep track of the hinge joint and see if it enters a state where it should close again
             //if (!m_Closed)
             //{
             //    if (m_LastHandleValue < m_HandleCloseValue)
@@ -131,7 +137,7 @@ namespace UnityEngine.XR.Content.Interaction
         {
             m_LastHandleValue = handleValue;
 
-            if (/*!m_Closed ||*/ m_Locked)
+            if (/*!m_Closed ||*/ Locked)
                 return;
 
             //if (handleValue < m_HandleOpenValue)
@@ -152,15 +158,15 @@ namespace UnityEngine.XR.Content.Interaction
 
         public void KeyUpdate(float keyValue)
         {
-            if (!m_Locked && keyValue > m_KeyLockValue)
+            if (!Locked && keyValue > m_KeyLockValue)
             {
-                m_Locked = true;
+                Locked = true;
                 m_OnLock.Invoke();
             }
 
-            if (m_Locked && keyValue < m_KeyUnlockValue)
+            if (Locked && keyValue < m_KeyUnlockValue)
             {
-                m_Locked = false;
+                Locked = false;
                 m_OnUnlock.Invoke();
             }
         }
@@ -177,5 +183,6 @@ namespace UnityEngine.XR.Content.Interaction
             m_KnobInteractorAttachTransform = null;
         }
     }
-   
+
 }
+
