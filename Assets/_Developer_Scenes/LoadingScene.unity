@@ -476,6 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 738c2a5660fdb8a4e8187ce4b1b02f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadingText: {fileID: 1550879972}
 --- !u!1 &1237447131
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,7 +610,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Loding...
+  m_text: Loding
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 792870b4e9d9b0d4e9d89c16776d541e, type: 2}
   m_sharedMaterial: {fileID: 944375995005926434, guid: 792870b4e9d9b0d4e9d89c16776d541e,

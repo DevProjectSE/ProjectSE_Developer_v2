@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadingScene : MonoBehaviour
 {
     public static string nextScene;
-
+    public TextMeshProUGUI loadingText;
     private void Start()
     {
         StartCoroutine(LoadScene());
+        StartCoroutine(LoadingTextCoroutine());
     }
 
     public static void LoadScene(string sceneName)
@@ -25,24 +27,25 @@ public class LoadingScene : MonoBehaviour
         op.allowSceneActivation = false;
         while (!op.isDone)
         {
-            Debug.Log(nextScene);
-            Debug.Log("진입");
-            yield return null;
-            if (op.progress < 0.9f)
+            if (op.progress >= 0.9f)
             {
-                Debug.Log("대기중");
+                op.allowSceneActivation = true;
+                yield break;
             }
-            else
-            {
-                Debug.Log("대기 끝");
-                Debug.Log(op.progress);
-                if (op.progress >= 0.9f)
-                {
-                    Debug.Log("허가");
-                    op.allowSceneActivation = true;
-                    yield break;
-                }
-            }
+
+        }
+    }
+
+    private IEnumerator LoadingTextCoroutine()
+    {
+        while (true)
+        {
+            loadingText.text = "Loading.";
+            yield return new WaitForSeconds(1f);
+            loadingText.text = "Loading..";
+            yield return new WaitForSeconds(1f);
+            loadingText.text = "Loading...";
+            yield return new WaitForSeconds(1f);
         }
     }
 }
