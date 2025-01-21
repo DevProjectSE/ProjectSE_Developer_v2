@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Main_Title : MonoBehaviour
@@ -59,6 +60,10 @@ public class Main_Title : MonoBehaviour
                 break;
             }
             i++;
+        }
+        if (SceneManager.GetActiveScene().name != "TitleScene")
+        {
+            titlePanel.SetActive(false);
         }
 
     }
