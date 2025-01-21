@@ -6,6 +6,7 @@ public class Stage3Rope : MonoBehaviour
 {
     public GameObject knife;
 
+    
     void OnTriggerEnter(Collider other)
     {
             //print("충돌함" + other.gameObject.name);   
@@ -14,6 +15,8 @@ public class Stage3Rope : MonoBehaviour
         {
             //print("충돌함2");
             Destroy(gameObject);
+            Stage3Item.Instance.ropeNum --;
+            print(Stage3Item.Instance.ropeNum); 
         }
     }
 

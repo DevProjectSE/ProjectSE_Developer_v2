@@ -47,9 +47,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - Book
+  - Backpack
+  - Homework
   m_SortingLayers:
   - name: Default
     uniqueID: 0
