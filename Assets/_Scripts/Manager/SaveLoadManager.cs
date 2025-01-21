@@ -27,6 +27,7 @@ public class SaveLoadManager : SingletonManager<SaveLoadManager>
         switch (stageNumber)
         {
             case StageNumber.Stage1:
+                LoadingScene.LoadScene("Stage1_JDH");
                 DataManager.Instance.dataTable.currentStage = 1;
                 break;
             case StageNumber.Stage2:
