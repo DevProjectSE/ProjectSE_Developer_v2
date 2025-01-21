@@ -34,6 +34,6 @@ public class OpenDoor : MonoBehaviour
     protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-            SaveLoadManager.Instance.StageLoad(StageNumber.Stage5);
+            SceneLoadManager.Instance.StageLoad(StageNumber.Stage5);
     }
 }
