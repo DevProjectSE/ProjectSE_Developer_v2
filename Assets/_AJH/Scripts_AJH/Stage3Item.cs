@@ -6,29 +6,24 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Stage3Item : MonoBehaviour
 {
-    public GameObject Knife;
-    public GameObject Diary;
-    public GameObject book;
-    public GameObject backpack;
-    public GameObject homework;
 
-    public GameObject flashLight;
+    public static Stage3Item Instance { get; private set; }
 
-    public GameObject[] rope;
+    public int ropeNum = 4;
+    public int stageState = 0;
 
-    public bool isKnife;
-    public bool isDiary;
-    public bool isBook;
-    public bool isBackpack;
-    public bool isHomework;
+    public GameObject[] lockPad1;
 
-    public InputActionReference rightJoystick;
-    public InputActionReference leftJoystick;
-    public InputActionReference leftGripButton;
-    public InputActionReference rightGripButton;
-    public InputActionReference rightPrimaryButton;
-
-    public XRBaseController leftXRController;
-    public XRBaseController rightXRController;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
 }
