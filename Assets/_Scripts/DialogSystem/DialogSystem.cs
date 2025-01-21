@@ -100,20 +100,36 @@ public class DialogSystem : MonoBehaviour
 
     private IEnumerator OnTypingText()
     {
-        int index = 0;
+        string fullText = dialogs[currentDialogIndexNum].dialogue; // 전체 대사
+        string displayedText = ""; // 현재 출력 중인 텍스트
+        int charIndex = 0; // 출력 중인 문자 인덱스
         isTypingEffect = true;
 
-        // 타이핑 효과 재생
-        while (index < dialogs[currentDialogIndexNum].dialogue.Length)
+        while (charIndex < fullText.Length)
         {
-            speakers[currentDialogIndexNum].textDialogue.text = dialogs[currentDialogIndexNum].dialogue.Substring(0, index + 1);
-            index++;
+            // RichText 태그 처리
+            if (fullText[charIndex] == '<') // 태그 시작
+            {
+                int endTagIndex = fullText.IndexOf('>', charIndex);
+                if (endTagIndex != -1) // 유효한 태그라면
+                {
+                    displayedText += fullText.Substring(charIndex, endTagIndex - charIndex + 1);
+                    charIndex = endTagIndex + 1;
+                    continue; // 태그 처리 후 다음 문자로 넘어감
+                }
+            }
+
+            // 일반 문자 추가
+            displayedText += fullText[charIndex];
+            speakers[currentDialogIndexNum].textDialogue.text = displayedText;
+            charIndex++;
             yield return new WaitForSeconds(typingSpeed);
         }
 
         isTypingEffect = false;
         speakers[currentDialogIndexNum].objectArrow.SetActive(true); // 대사 완료 커서 활성화
     }
+
 
     public void EndDialog()
     {
@@ -122,13 +138,14 @@ public class DialogSystem : MonoBehaviour
             SetActiveObjects(speaker, false);
         }
 
-        GameManager.Instance.Player.GetComponentInChildren<InputActionManager>().enabled = true;
+        GameManager.Instance.Player.GetComponentInChildren<CustomPlayerController>().CtrlActivation();
         isDialogsEnd = true;
         Debug.Log("모든 대사가 완료되었습니다.");
 
         // 이 오브젝트를 비활성화하여 대화 종료를 알림
         this.gameObject.SetActive(false);
     }
+
 }
 
 [System.Serializable]
