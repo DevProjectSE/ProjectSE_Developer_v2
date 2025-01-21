@@ -7003,6 +7003,7 @@ GameObject:
   - component: {fileID: 5065594523327681552}
   - component: {fileID: 3358688853923454570}
   - component: {fileID: 1413792445876647434}
+  - component: {fileID: 2146590201889775090}
   m_Layer: 0
   m_Name: Key_Bunch
   m_TagString: Untagged
@@ -7484,6 +7485,20 @@ MonoBehaviour:
     fillPass:
       shader: {fileID: 0}
       serializedProperties: []
+--- !u!114 &2146590201889775090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2839795718977199965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9e33e45d517e94b98a0ffc2f198427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInventory: 1
+  canDistanceGrab: 1
 --- !u!1 &2851313237537135222
 GameObject:
   m_ObjectHideFlags: 0
@@ -9253,6 +9268,7 @@ GameObject:
   - component: {fileID: 6130846148750022402}
   - component: {fileID: 1717023436390983297}
   - component: {fileID: 1962762933190157163}
+  - component: {fileID: 7898082285698590116}
   m_Layer: 7
   m_Name: Main Knob_Item
   m_TagString: Untagged
@@ -9689,6 +9705,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7898082285698590116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3500067860581928744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9e33e45d517e94b98a0ffc2f198427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInventory: 1
+  canDistanceGrab: 1
 --- !u!1 &3555838786037298982
 GameObject:
   m_ObjectHideFlags: 0
@@ -13358,6 +13388,7 @@ GameObject:
   - component: {fileID: 7905795210643915351}
   - component: {fileID: 9014636227725742186}
   - component: {fileID: 4045451692460002887}
+  - component: {fileID: 234472866122877362}
   m_Layer: 11
   m_Name: Yejins_Phone
   m_TagString: Untagged
@@ -13849,6 +13880,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.070084885, y: 0.14368333, z: 0.006549492}
   m_Center: {x: 5.136915e-11, y: 7.9083726e-11, z: -0.00047165272}
+--- !u!114 &234472866122877362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5031348441432036135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9e33e45d517e94b98a0ffc2f198427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInventory: 1
+  canDistanceGrab: 1
 --- !u!1 &5115994308538307973
 GameObject:
   m_ObjectHideFlags: 0
@@ -22234,6 +22279,7 @@ GameObject:
   - component: {fileID: 4723801162773464339}
   - component: {fileID: 9145432813066890285}
   - component: {fileID: 8567291865327249953}
+  - component: {fileID: 2449926494737081960}
   m_Layer: 7
   m_Name: rear_elbow_jtem
   m_TagString: RobotRearArm
@@ -22786,6 +22832,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Keys:
   - {fileID: 11400000, guid: 5422074d9fbd6d144acf8217cd307fc1, type: 2}
+--- !u!114 &2449926494737081960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8654149760741395613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9e33e45d517e94b98a0ffc2f198427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInventory: 1
+  canDistanceGrab: 1
 --- !u!1 &8654885894672154476
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class SingletonManager<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T instance;
-    public static T Instance { get { return Instance; } }
+    public static T Instance { get { return instance; } }
 
     protected virtual void Awake()
     {
@@ -16,7 +16,7 @@ public abstract class SingletonManager<T> : MonoBehaviour where T : MonoBehaviou
         }
         else
         {
-            DestroyImmediate(this);
+            DestroyImmediate(gameObject);
         }
     }
 }

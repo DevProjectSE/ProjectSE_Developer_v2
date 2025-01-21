@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
-
+[Serializable]
 public class DataTable
 {
     [Header("스테이지 클리어 여부")]
@@ -29,7 +29,6 @@ public class DataManager : SingletonManager<DataManager>
     {
         base.Awake();
     }
-
 
     public void Stage1()
     {
