@@ -24,6 +24,7 @@ public class TutorialManager : MonoBehaviour
     public Sprite objectActiveTutorialImg;
     public Sprite putTutorialImg;
     public Sprite sitdownTutorialImg;
+    public Sprite inventoryTutorialImg;
 
     public InputActionReference rightJoystick;
     public InputActionReference leftJoystick;
@@ -207,7 +208,7 @@ public class TutorialManager : MonoBehaviour
         SetCallingState(isCalling);
         yield return new WaitForSeconds(2f);
         GameManager.Instance.uiManager.ChanageAllTutorialUI(GameManager.Instance.uiManager.controllerQuestText, GameManager.Instance.uiManager.controllerQuestImg,
-            "Y 버튼을 눌러서 인벤토리를 여세요", objectActiveTutorialImg);
+            "Y 버튼을 눌러서 인벤토리를 여세요", inventoryTutorialImg);
         //이후 폰트와 텍스트 크기가 75%로 축소된 후 좌측 상단으로 이동하여 고정된다.
         GameManager.Instance.uiManager.mainQuestUiObj.SetActive(false);
         GameManager.Instance.uiManager.miniMainQuestUiObj.SetActive(true);
@@ -234,6 +235,7 @@ public class TutorialManager : MonoBehaviour
         //핸드폰의 잡기 고정 상태가 해제한다.
         //2스테이지로 넘어가며 로딩 화면이 나타난다.
         //Scene 이동
+        yield return new WaitForSeconds(3f);
         SceneLoadManager.Instance.StageLoad(StageNumber.Stage2);
     }
 
