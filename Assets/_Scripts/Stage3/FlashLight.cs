@@ -14,7 +14,7 @@ public class FlashLight : MonoBehaviour
     [SerializeField]
     private InputActionReference rightActivateAction;
 
-    public SpriteMask spriteMask;
+    //public SpriteMask spriteMask;
     private Light lightComponent; //사용하는 빛
 
     public Color basicColor = Color.white;
@@ -56,7 +56,7 @@ public class FlashLight : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, rayDistance))
         {
-            spriteMask.transform.position = hit.point;
+            //spriteMask.transform.position = hit.point;
             // 광선이 오브젝트에 닿았을 경우
             if (lightState == 2 && hit.collider.gameObject == targetObject)
             {
