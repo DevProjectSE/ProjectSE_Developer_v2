@@ -14,6 +14,9 @@ public class StageFourth : MonoBehaviour
     public List<GameObject> stageFourtItem;
     public TrashCan_Active trashCan;
     public XRKnob toiletDoorKnob;
+    public MeshRenderer glassRenderer;
+    public Material cleanedGlassMat;
+
     //TODO : 리팩할 때 참고 : 로봇 조합 시 열리는 문
     public OpenDoor openDoor;
     private void Awake()
@@ -48,6 +51,7 @@ public class StageFourth : MonoBehaviour
         trashCan.GrabActivate(true);
         stageFourtItem[0].layer = LayerMask.NameToLayer("Object");
         stageFourtItem[0].GetComponent<XRGrabInteractable>().enabled = false;
+        glassRenderer.material = cleanedGlassMat;
         //ToDo : 유리 교체
     }
     public void TrashCanClear()
