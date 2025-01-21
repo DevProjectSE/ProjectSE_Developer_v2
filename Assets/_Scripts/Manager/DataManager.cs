@@ -9,21 +9,9 @@ using UnityEngine.Assertions.Must;
 [Serializable]
 public class DataTable
 {
-    // [Header("스테이지 클리어 여부")]
-    // [Tooltip("스테이지1 클리어 여부")] public bool isStage1Clear;
-    // [Tooltip("스테이지2 클리어 여부")] public bool isStage2Clear;
-    // [Tooltip("스테이지3 클리어 여부")] public bool isStage3Clear;
-    // [Tooltip("스테이지4 클리어 여부")] public bool isStage4Clear;
-    // [Tooltip("스테이지5 클리어 여부")] public bool isStage5Clear;
-    // [Tooltip("스테이지6 클리어 여부")] public bool isStage6Clear;
-    // [Tooltip("스테이지7 클리어 여부")] public bool isStage7Clear;
-
-    // [Header("엔딩 분기점")]
-    // [SerializeField, Tooltip("해피엔딩")] public bool isHappyEnding;
-    // [SerializeField, Tooltip("배드엔딩")] public bool isBadEnding;
     public List<bool> isStageEnter;
-
     public int currentStage;
+    public List<Material> bookMats;
 }
 
 public class DataManager : SingletonManager<DataManager>
@@ -35,6 +23,14 @@ public class DataManager : SingletonManager<DataManager>
     {
         base.Awake();
         path = Application.persistentDataPath + "/";
+        try
+        {
+            LoadData();
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning(e.Message);
+        }
     }
     public void SaveData(StageNumber stageNumber)
     {
@@ -78,6 +74,13 @@ public class DataManager : SingletonManager<DataManager>
         File.WriteAllText(path + fileName, saveFile);
         Debug.Log("SaveComplete");
     }
+
+    public void LoadData()
+    {
+        string loadFile = File.ReadAllText(path + fileName);
+        dataTable = JsonUtility.FromJson<DataTable>(loadFile);
+    }
+
     public void Stage1()
     {
 

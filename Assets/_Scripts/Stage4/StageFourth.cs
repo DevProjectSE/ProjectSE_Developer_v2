@@ -31,6 +31,7 @@ public class StageFourth : MonoBehaviour
     private void Start()
     {
         trashCan.GrabActivate(false);
+
     }
 
     public void StainClear()

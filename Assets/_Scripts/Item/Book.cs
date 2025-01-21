@@ -4,6 +4,7 @@ using echo17.EndlessBook;
 using EPOOutline;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class Book : MonoBehaviour
@@ -32,6 +33,10 @@ public class Book : MonoBehaviour
         r_Ref.action.performed += R;
         xRGrabInteractable.enabled = true;
         GetComponent<Outlinable>().OutlineLayer = 0;
+        if (SceneManager.GetActiveScene().name == "KimChanYoung_Stage4")
+        {
+            SetActivatePage(5);
+        }
     }
     private void OnDisable()
     {
@@ -93,6 +98,7 @@ public class Book : MonoBehaviour
 
     private IEnumerator DissolveCoroutine(int page)
     {
+        yield return new WaitUntil(() => isInteract);
         isDissolveChanging = true;
         yield return new WaitWhile(() => endlessBook.IsTurningPages);
         endlessBook.TurnToPage(page, EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime, 1f);
@@ -101,7 +107,7 @@ public class Book : MonoBehaviour
         {
             float a = endlessBook.GetPageData(page).material.GetFloat("_Dissolve");
             yield return new WaitWhile(() => endlessBook.IsTurningPages);
-            endlessBook.GetPageData(page).material.SetFloat("_Dissolve", Mathf.Lerp(a, a - 0.1f, 0.0f));
+            endlessBook.GetPageData(page).material.SetFloat("_Dissolve", Mathf.Lerp(a, a - 0.1f, 0.01f));
             if (a < 0.01)
             {
                 isDissolveChanging = false;

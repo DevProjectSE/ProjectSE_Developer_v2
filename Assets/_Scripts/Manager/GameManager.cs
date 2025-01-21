@@ -16,6 +16,7 @@ public class GameManager : SingletonManager<GameManager>
     protected override void Awake()
     {
         base.Awake();
+
     }
     private void Start()
     {
