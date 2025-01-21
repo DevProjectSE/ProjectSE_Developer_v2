@@ -18,6 +18,8 @@ public class StageFifth : MonoBehaviour
     public GameObject key_Rooftop;
 
     public XRKnob safeBox_Door_Knob;
+    public Yejins_Phone yejins_Phone;
+    public OpenDoor_Stage5 openDoor_Stage5;
     private void Start()
     {
         robotArm_Mat.SetFloat("_Dissolve", 1);

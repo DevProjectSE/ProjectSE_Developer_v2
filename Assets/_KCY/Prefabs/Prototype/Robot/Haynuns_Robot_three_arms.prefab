@@ -2440,6 +2440,7 @@ Transform:
   m_Children:
   - {fileID: 2694011794452914369}
   - {fileID: 5497760064467288197}
+  - {fileID: 9054106425287449617}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
 --- !u!95 &8182947880651031647
@@ -3635,8 +3636,9 @@ MonoBehaviour:
   xRLockSocketInteractor: {fileID: 6825184029955663729}
   leftArm: {fileID: 8909276196718447266}
   rearArm: {fileID: 1533829141899598575}
-  rearArmAttach: {fileID: 6556566364484327540}
+  rearArmAttach: {fileID: 9054106425287449617}
   robotArm: {fileID: 0}
+  rearKey: {fileID: 11400000, guid: 5422074d9fbd6d144acf8217cd307fc1, type: 2}
 --- !u!1 &5352029871844694259
 GameObject:
   m_ObjectHideFlags: 0
@@ -3733,6 +3735,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5481005575520987679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9054106425287449617}
+  m_Layer: 0
+  m_Name: RearArmAttach
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9054106425287449617
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5481005575520987679}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.23035397, y: -0.7305896, z: -0.19328992, w: 0.61303747}
+  m_LocalPosition: {x: 0.003, y: -0.01, z: -0.03}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3454458264724199041}
+  m_LocalEulerAnglesHint: {x: 0, y: -100, z: -35}
 --- !u!1 &6089429919091277111
 GameObject:
   m_ObjectHideFlags: 0

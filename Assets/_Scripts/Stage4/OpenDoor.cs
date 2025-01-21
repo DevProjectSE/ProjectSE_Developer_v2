@@ -7,17 +7,16 @@ using UnityEngine.SceneManagement;
 public class OpenDoor : MonoBehaviour
 {
     public BoxCollider boxCollider;
-
-    private void Awake()
+    protected virtual void Awake()
     {
         boxCollider.enabled = false;
     }
-    private void Start()
+    protected virtual void Start()
     {
         StartCoroutine(OpenningDoor());
         boxCollider.enabled = true;
     }
-    private IEnumerator OpenningDoor()
+    protected virtual IEnumerator OpenningDoor()
     {
         float t = 0.01f;
         while (true)
@@ -32,7 +31,7 @@ public class OpenDoor : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
             SaveLoadManager.Instance.StageLoad(StageNumber.Stage5);

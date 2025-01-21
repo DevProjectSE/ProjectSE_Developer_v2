@@ -32,24 +32,24 @@ public class Main_Title : MonoBehaviour
     private void OnEnable()
     {
         menuAction.action.performed += MenuAction;
-        r_SecondaryKey.action.performed += MenuCloseAction;
     }
     private void OnDisable()
     {
         menuAction.action.performed -= MenuAction;
-        r_SecondaryKey.action.performed -= MenuCloseAction;
     }
     private void MenuAction(InputAction.CallbackContext context)
     {
+        //TODO : 겜매가 있어야 작동하는데, 01/21기준 겜매 싱글턴 작업 미완료
         GameManager.Instance.Player.
         GetComponentInChildren<CustomPlayerController>().UIOpen();
         titlePanel.SetActive(true);
+        r_SecondaryKey.action.performed += MenuCloseAction;
     }
-
     private void MenuCloseAction(InputAction.CallbackContext context)
     {
         GameManager.Instance.Player.GetComponentInChildren<CustomPlayerController>().UIClose();
         titlePanel.SetActive(false);
+        r_SecondaryKey.action.performed -= MenuCloseAction;
     }
     private void NewGameClick()
     {

@@ -9,7 +9,9 @@ public enum StageNumber
     Stage2,
     Stage3,
     Stage4,
-    Stage5
+    Stage5,
+    HappyEnding,
+    BadEnding
 }
 
 public class SaveLoadManager : SingletonManager<SaveLoadManager>
@@ -25,6 +27,7 @@ public class SaveLoadManager : SingletonManager<SaveLoadManager>
         switch (stageNumber)
         {
             case StageNumber.Stage1:
+                LoadingScene.LoadScene("Stage1_JDH");
                 DataManager.Instance.dataTable.currentStage = 1;
                 break;
             case StageNumber.Stage2:

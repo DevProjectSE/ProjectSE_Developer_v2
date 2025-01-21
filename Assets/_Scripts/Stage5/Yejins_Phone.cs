@@ -88,6 +88,8 @@ public class Yejins_Phone : MonoBehaviour
         PrimaryKeyOff();
         GripActionOff();
         phoneScreen_Mat.SetTexture("_BaseMap", defaultTexture);
+        //TODO : @겜매에서 가져오도록 후처리@
+        FindAnyObjectByType<StageFifth>().openDoor_Stage5.enabled = true;
     }
 
     private IEnumerator Phone()
