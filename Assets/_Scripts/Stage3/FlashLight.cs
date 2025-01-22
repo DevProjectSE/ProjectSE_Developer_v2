@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -15,14 +17,13 @@ public class FlashLight : MonoBehaviour
     private InputActionReference rightActivateAction;
 
     //public SpriteMask spriteMask;
-    private Light lightComponent; //»ç¿ëÇÏ´Â ºû
+    private Light lightComponent; //ì‚¬ìš©í•˜ëŠ” ë¹›
 
     public Color basicColor = Color.white;
     public Color UVColor = Color.blue;
-    
 
-    public float rayDistance = 50f; //°Å¸®
-    public GameObject[] targetObject; //º¸ÀÌ°ÔÇÒ ´ë»ó
+    public float rayDistance = 50f; //ê±°ë¦¬
+    public GameObject[] targetObject; //ë³´ì´ê²Œí•  ëŒ€ìƒ
 
     private int lightState = 0;
     public bool canToggleLight = false;
@@ -37,7 +38,7 @@ public class FlashLight : MonoBehaviour
     {
         lightComponent = flashLight.GetComponent<Light>();
         flashLight.SetActive(false);
-        
+
     }
 
     private void Start()
@@ -55,19 +56,20 @@ public class FlashLight : MonoBehaviour
         RaycastHit hit;
         foreach (GameObject target in targetObject)
         {
+            if (target == null) continue;
             if (Physics.Raycast(ray, out hit, rayDistance))
             {
                 //spriteMask.transform.position = hit.point;
-                // ±¤¼±ÀÌ ¿ÀºêÁ§Æ®¿¡ ´ê¾ÒÀ» °æ¿ì
+                // ê´‘ì„ ì´ ì˜¤ë¸Œì íŠ¸ì— ë‹¿ì•˜ì„ ê²½ìš°
                 if (lightState == 2 && hit.collider.gameObject == target)
                 {
-                    // ¿ÀºêÁ§Æ®¸¦ º¸ÀÌ°Ô ÇÑ´Ù
+                    // ì˜¤ë¸Œì íŠ¸ë¥¼ ë³´ì´ê²Œ í•œë‹¤
                     target.GetComponent<Renderer>().enabled = true;
                 }
             }
             else
             {
-                // ±¤¼±ÀÌ ¿ÀºêÁ§Æ®¿¡ ´êÁö ¾ÊÀ¸¸é ¿ÀºêÁ§Æ®¸¦ ¼û±ä´Ù
+                // ê´‘ì„ ì´ ì˜¤ë¸Œì íŠ¸ì— ë‹¿ì§€ ì•Šìœ¼ë©´ ì˜¤ë¸Œì íŠ¸ë¥¼ ìˆ¨ê¸´ë‹¤
                 target.GetComponent<Renderer>().enabled = false;
             }
         }
@@ -76,7 +78,6 @@ public class FlashLight : MonoBehaviour
 
     private void OnEnable()
     {
-     
 
         if (leftActivateAction != null)
         {
@@ -86,7 +87,7 @@ public class FlashLight : MonoBehaviour
 
         if (rightActivateAction != null)
         {
-            rightActivateAction.action.performed += ctx=>  ToggleLight();
+            rightActivateAction.action.performed += ctx => ToggleLight();
 
         }
     }
@@ -104,30 +105,38 @@ public class FlashLight : MonoBehaviour
     }
     private void ToggleLight()
     {
-        if(!canToggleLight)
+        try
         {
-            return; 
-        }
+            if (!canToggleLight)
+            {
+                return;
+            }
 
-        if (lightState == 0)
-        {
+            if (lightState == 0)
+            {
 
-            flashLight.SetActive(true);
-            lightComponent.color = basicColor;
-            lightState = 1;
+                flashLight.SetActive(true);
+
+                lightComponent.color = basicColor;
+                lightState = 1;
+            }
+            else if (lightState == 1)
+            {
+                lightComponent.color = UVColor;
+                lightState = 2;
+            }
+            else if (lightState == 2)
+            {
+                flashLight.SetActive(false);
+                lightState = 0;
+            }
+
         }
-        else if (lightState == 1)
+        catch (Exception e)
         {
-            lightComponent.color = UVColor;
-            lightState = 2;
-        }
-        else if (lightState == 2)
-        {
-            flashLight.SetActive(false);
-            lightState = 0;
+            Debug.LogWarning(e.Message);
         }
     }
-
     public void OnSelectEntered()
     {
         canToggleLight = true;
