@@ -5505,7 +5505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataTable:
-    isStageEnter: 01000000000000
+    isStageEnter: 0001000000000000
     currentStage: 1
     bookMats: []
 --- !u!4 &1083425383

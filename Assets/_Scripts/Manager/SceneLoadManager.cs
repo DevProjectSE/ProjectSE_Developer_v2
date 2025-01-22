@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public enum StageNumber
 {
+    Title = 0,
     Stage1 = 1,
     Stage2,
     Stage3,

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MakeBarrier : MonoBehaviour
 {
+    //used Dialog Object
+    public DialogSystem usedDialogObj;
+
     public Collider barrierObj;
 
     public Light lightSource;
@@ -19,7 +22,7 @@ public class MakeBarrier : MonoBehaviour
         {
             print("부딪힘");
             barrierObj.isTrigger = false;
-
+            usedDialogObj.gameObject.SetActive(true);   //대사 오브젝트 활성화 되면서 대사 스크립트 실행
             StartCoroutine(ChangeBrightnessCoroutine());
 
             
@@ -58,6 +61,6 @@ public class MakeBarrier : MonoBehaviour
         lightSource.intensity = targetIntensity;
         RenderSettings.ambientIntensity = targetIntensity;
         lightSource.transform.rotation = Quaternion.Euler(targetAngle, 0, 0);
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }
