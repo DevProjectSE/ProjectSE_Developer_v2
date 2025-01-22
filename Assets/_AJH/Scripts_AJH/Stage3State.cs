@@ -22,10 +22,10 @@ public class EnterState : IState
         //¼ÕÀüµî È¹µæ½Ã
 
         Debug.Log("±³Å¹ ÀÚ¹°¼è ÇØÃ¼");
-        Stage3Manager.Instance.stage3Step++;
-        if (Stage3Manager.Instance.stage3Step == 1)
+        Stage3StateManager.Instance.stage3Step++;
+        if (Stage3StateManager.Instance.stage3Step == 1)
         {
-            Stage3Manager.Instance.TransitionToState(new PlayingSate1());
+            Stage3StateManager.Instance.TransitionToState(new PlayingSate1());
         }
     }
 
@@ -46,10 +46,10 @@ public class PlayingSate1 : IState
     {
         //¼ÕÀüµî È¹µæ½Ã
         Debug.Log("¼ÕÀüµî È¹µæ");
-        Stage3Manager.Instance.stage3Step++;
-        if (Stage3Manager.Instance.stage3Step == 2)
+        Stage3StateManager.Instance.stage3Step++;
+        if (Stage3StateManager.Instance.stage3Step == 2)
         {
-            Stage3Manager.Instance.TransitionToState(new PlayingSate2());
+            Stage3StateManager.Instance.TransitionToState(new PlayingSate2());
         }
     }
 
@@ -70,10 +70,10 @@ public class PlayingSate2 : IState
     {
         //¼ÕÀüµî È¹µæ½Ã
         Debug.Log("ÀÏ±âÀå È¹µæ ");
-        Stage3Manager.Instance.stage3Step++;
-        if (Stage3Manager.Instance.stage3Step == 3)
+        Stage3StateManager.Instance.stage3Step++;
+        if (Stage3StateManager.Instance.stage3Step == 3)
         {
-            Stage3Manager.Instance.TransitionToState(new PlayingSate3());
+            Stage3StateManager.Instance.TransitionToState(new PlayingSate3());
         }
     }
 
@@ -94,10 +94,10 @@ public class PlayingSate3 : IState
     {
         //¼ÕÀüµî È¹µæ½Ã
         Debug.Log("¹öÆ° ¾ÏÈ£ ¿Ï·á");
-        Stage3Manager.Instance.stage3Step++;
-        if (Stage3Manager.Instance.stage3Step == 4)
+        Stage3StateManager.Instance.stage3Step++;
+        if (Stage3StateManager.Instance.stage3Step == 4)
         {
-            Stage3Manager.Instance.TransitionToState(new PlayingSate4());
+            Stage3StateManager.Instance.TransitionToState(new PlayingSate4());
         }
     }
 
@@ -118,10 +118,10 @@ public class PlayingSate4 : IState
     {
         //¼ÕÀüµî È¹µæ½Ã
         Debug.Log("»ç¹°ÇÔ ¾ÏÈ£ Ç®±â ¿Ï·á 4");
-        Stage3Manager.Instance.stage3Step++;
-        if (Stage3Manager.Instance.stage3Step == 5)
+        Stage3StateManager.Instance.stage3Step++;
+        if (Stage3StateManager.Instance.stage3Step == 5)
         {
-            Stage3Manager.Instance.TransitionToState(new PlayingSate5());
+            Stage3StateManager.Instance.TransitionToState(new PlayingSate5());
         }
     } 
 
@@ -143,10 +143,10 @@ public class PlayingSate5 : IState
     {
         //¼ÕÀüµî È¹µæ½Ã
         Debug.Log("Ã¥°¡¹æ Á¶ÇÕ ¿Ï·á 5");
-        Stage3Manager.Instance.stage3Step++;
-        if (Stage3Manager.Instance.stage3Step == 6)
+        Stage3StateManager.Instance.stage3Step++;
+        if (Stage3StateManager.Instance.stage3Step == 6)
         {
-            Stage3Manager.Instance.TransitionToState(new PlayingSate6());
+            Stage3StateManager.Instance.TransitionToState(new PlayingSate6());
         }
     }
 
@@ -167,10 +167,10 @@ public class PlayingSate6 : IState
     {
         //¼ÕÀüµî È¹µæ½Ã
         Debug.Log("Ä®·Î ·ÎÇÁÀÚ¸®±â ¿Ï·á7");
-        Stage3Manager.Instance.stage3Step++;
-        if (Stage3Manager.Instance.stage3Step == 7)
+        Stage3StateManager.Instance.stage3Step++;
+        if (Stage3StateManager.Instance.stage3Step == 7)
         {
-            Stage3Manager.Instance.TransitionToState(new PlayingSate7());
+            Stage3StateManager.Instance.TransitionToState(new PlayingSate7());
         }
     }
 
@@ -190,10 +190,10 @@ public class PlayingSate7 : IState
     {
         //¼ÕÀüµî È¹µæ½Ã
         Debug.Log("·Îº¿ È¹µæ ¿Ï·á");
-        Stage3Manager.Instance.stage3Step++;
-        if (Stage3Manager.Instance.stage3Step == 8)
+        Stage3StateManager.Instance.stage3Step++;
+        if (Stage3StateManager.Instance.stage3Step == 8)
         {
-            Stage3Manager.Instance.TransitionToState(new PlayingSateEnd());
+            Stage3StateManager.Instance.TransitionToState(new PlayingSateEnd());
         }
     }
 

@@ -88,7 +88,7 @@ namespace UnityEngine.XR.Content.Interaction
             if (numberKeyPad.isUnlocked == true)
             {
                 Locked = false;
-
+                Stage3ItemManager.Instance.stageState++;
             }
 
 
