@@ -22,7 +22,7 @@ public class FlashLight : MonoBehaviour
     
 
     public float rayDistance = 50f; //거리
-    public GameObject targetObject; //보이게할 대상
+    public GameObject[] targetObject; //보이게할 대상
 
     private int lightState = 0;
     public bool canToggleLight = false;
@@ -53,23 +53,24 @@ public class FlashLight : MonoBehaviour
 
         Ray ray = new Ray(flashLight.transform.position, flashLight.transform.forward);
         RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, rayDistance))
+        foreach (GameObject target in targetObject)
         {
-            //spriteMask.transform.position = hit.point;
-            // 광선이 오브젝트에 닿았을 경우
-            if (lightState == 2 && hit.collider.gameObject == targetObject)
+            if (Physics.Raycast(ray, out hit, rayDistance))
             {
-                // 오브젝트를 보이게 한다
-                targetObject.GetComponent<Renderer>().enabled = true;
+                //spriteMask.transform.position = hit.point;
+                // 광선이 오브젝트에 닿았을 경우
+                if (lightState == 2 && hit.collider.gameObject == target)
+                {
+                    // 오브젝트를 보이게 한다
+                    target.GetComponent<Renderer>().enabled = true;
+                }
+            }
+            else
+            {
+                // 광선이 오브젝트에 닿지 않으면 오브젝트를 숨긴다
+                target.GetComponent<Renderer>().enabled = false;
             }
         }
-        else
-        {
-            // 광선이 오브젝트에 닿지 않으면 오브젝트를 숨긴다
-            targetObject.GetComponent<Renderer>().enabled = false;
-        }
-
 
     }
 
