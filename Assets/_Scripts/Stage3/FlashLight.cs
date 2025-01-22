@@ -17,6 +17,7 @@ public class FlashLight : MonoBehaviour
     private InputActionReference rightActivateAction;
 
     //public SpriteMask spriteMask;
+    [SerializeField]
     private Light lightComponent; //사용하는 빛
 
     public Color basicColor = Color.white;
@@ -38,7 +39,6 @@ public class FlashLight : MonoBehaviour
     {
         lightComponent = flashLight.GetComponent<Light>();
         flashLight.SetActive(false);
-
     }
 
     private void Start()
@@ -134,8 +134,9 @@ public class FlashLight : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.LogWarning(e.Message);
+            Debug.LogError(e.Message);
         }
+
     }
     public void OnSelectEntered()
     {

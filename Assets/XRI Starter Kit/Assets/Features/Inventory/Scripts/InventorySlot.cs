@@ -44,7 +44,6 @@ public class InventorySlot : MonoBehaviour
     private XRInteractionManager interactionManager;
     private InventoryManager inventoryManager;
 
-
     private bool isBusy, isDisabling;
     private TransformStruct startingTransformFromHand;
     private Vector3 goalSizeToFitInSlot;
@@ -117,7 +116,6 @@ public class InventorySlot : MonoBehaviour
         StopAllCoroutines();
         OnEnable();
     }
-
 
     private void OnEnable()
     {
@@ -220,7 +218,6 @@ public class InventorySlot : MonoBehaviour
         yield break;
     }
 
-
     private IEnumerator DisableAfterAnimation(float seconds)
     {
         isDisabling = true;
@@ -290,7 +287,6 @@ public class InventorySlot : MonoBehaviour
         item.transform.localPosition = Vector3.zero;
         item.gameObject.SetActive(false);
 
-
         yield return new WaitForSeconds(Time.fixedDeltaTime);
 
         SetupNewMeshClone(item);
@@ -329,7 +325,6 @@ public class InventorySlot : MonoBehaviour
         }
         interactionManager.SelectEnter(interactor, interactable);
     }
-
 
     private void SetupNewMeshClone(XRBaseInteractable itemHandIsHolding)
     {
@@ -522,7 +517,6 @@ public class InventorySlot : MonoBehaviour
 
     }
 }
-
 
 public static class BoundsExtension
 {

@@ -15,7 +15,8 @@ public class Book : MonoBehaviour
     private InputActionReference l_Ref;
     [SerializeField]
     private InputActionReference r_Ref;
-
+    [SerializeField]
+    private Animator anim;
     private XRGrabInteractable xRGrabInteractable;
     public int currentPage;
     public int unLockCount = 1;
@@ -29,6 +30,7 @@ public class Book : MonoBehaviour
     }
     private void OnEnable()
     {
+        anim.enabled = true;
         l_Ref.action.performed += L;
         r_Ref.action.performed += R;
         xRGrabInteractable.enabled = true;
@@ -40,6 +42,7 @@ public class Book : MonoBehaviour
     }
     private void OnDisable()
     {
+        anim.enabled = false;
         l_Ref.action.performed -= L;
         r_Ref.action.performed -= R;
         GetComponent<Outlinable>().enabled = false;
@@ -62,32 +65,32 @@ public class Book : MonoBehaviour
 
     private void L(InputAction.CallbackContext context)
     {
-        if (isInteract == false && isDissolveChanging) return;
+        // if (isInteract == false && isDissolveChanging) return;
         endlessBook.TurnBackward(0.5f);
     }
     private void R(InputAction.CallbackContext context)
     {
-        if (isInteract == false && isDissolveChanging) return;
+        // if (isInteract == false && isDissolveChanging) return;
         endlessBook.TurnForward(0.5f);
     }
     private IEnumerator OnSelectEnterCoroutine()
     {
-        yield return new WaitWhile(() => isInteract);
+        // yield return new WaitWhile(() => isInteract);
         endlessBook.TurnToPage(currentPage, EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime, 1f, 0.5f);
         yield return new WaitWhile(() => endlessBook.IsTurningPages);
         isInteract = true;
     }
     private IEnumerator OnSelectExitCoroutine()
     {
-        xRGrabInteractable.enabled = false;
-        yield return new WaitWhile(() => isDissolveChanging);
+        // xRGrabInteractable.enabled = false;
+        // yield return new WaitWhile(() => isDissolveChanging);
         // yield return new WaitUntil(() => currentPage == endlessBook.CurrentPageNumber);
-        endlessBook.TurnToPage(1, EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime, 1f);
-        yield return new WaitWhile(() => endlessBook.IsTurningPages);
-        endlessBook.SetState(EndlessBook.StateEnum.ClosedFront);
-        yield return new WaitUntil(() => endlessBook.CurrentState == EndlessBook.StateEnum.ClosedFront);
+        // endlessBook.TurnToPage(1, EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime, 1f);
+        // yield return new WaitWhile(() => endlessBook.IsTurningPages);
+        // endlessBook.SetState(EndlessBook.StateEnum.ClosedFront);
+        // yield return new WaitUntil(() => endlessBook.CurrentState == EndlessBook.StateEnum.ClosedFront);
+        yield return null;
         //TODO : 인벤토리 들어가는 처리
-        gameObject.SetActive(false);
     }
 
     #region 페이지 활성화시킬 시 호출
