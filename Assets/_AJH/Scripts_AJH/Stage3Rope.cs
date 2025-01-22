@@ -15,8 +15,15 @@ public class Stage3Rope : MonoBehaviour
         {
             //print("Ãæµ¹ÇÔ2");
             Destroy(gameObject);
-            Stage3Item.Instance.ropeNum --;
-            print(Stage3Item.Instance.ropeNum); 
+            Stage3ItemManager.Instance.ropeNum --;
+            print(Stage3ItemManager.Instance.ropeNum); 
+            if (Stage3ItemManager.Instance.ropeNum ==0)
+            {
+                if(Stage3ItemManager.Instance.stageState == 6)
+                {
+                    Stage3ItemManager.Instance.stageState++;
+                }
+            }
         }
     }
 
