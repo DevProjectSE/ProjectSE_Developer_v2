@@ -12,7 +12,7 @@ public class GameManager : SingletonManager<GameManager>
     [Header("Manager")]
     public UIManager uiManager;
     public DataManager dataManager;
-
+    public List<Material> diary_Mats;
     protected override void Awake()
     {
         base.Awake();
@@ -35,5 +35,10 @@ public class GameManager : SingletonManager<GameManager>
                 }
             }
         };
+    }
+
+    public void DiaryMat_Activate(int page)
+    {
+        diary_Mats[page - 1].SetFloat("_Dissolve", 0);
     }
 }

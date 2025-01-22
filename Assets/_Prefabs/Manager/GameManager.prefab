@@ -44,11 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261bc639ea3c21d49bc3919e09ea054d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStage1Clear: 0
-  isStage2Clear: 0
-  isStage3Clear: 0
-  isStage4Clear: 0
-  isStage5Clear: 0
   Player: {fileID: 0}
   uiManager: {fileID: 0}
   dataManager: {fileID: 0}
+  diary_Mats:
+  - {fileID: 2100000, guid: 12f7bdeef3cb5c34e984083f8ded8ce4, type: 2}
+  - {fileID: 2100000, guid: 1b330ae2c95a7114d929bbd8b5b0fe59, type: 2}
+  - {fileID: 2100000, guid: bb7511f0559481c44a50856c09b8e0fb, type: 2}
+  - {fileID: 2100000, guid: af743ea3c3a72494dbb93c20c847eaaf, type: 2}
+  - {fileID: 2100000, guid: 98e03e39c368d9c428e965d74827e81a, type: 2}
+  - {fileID: 2100000, guid: 6c2d687187323b74b920bc30e2612149, type: 2}
+  - {fileID: 2100000, guid: 6bc66bf44e553154ab991aeb7e278973, type: 2}
+  - {fileID: 2100000, guid: 88b271d7817293443bc54ada7c7aed17, type: 2}
+  - {fileID: 2100000, guid: aeced1a8f58b6db43b0b076c899313e4, type: 2}
+  - {fileID: 2100000, guid: 8e1329d3bb9d7ad40ae2e741d8a1b2af, type: 2}

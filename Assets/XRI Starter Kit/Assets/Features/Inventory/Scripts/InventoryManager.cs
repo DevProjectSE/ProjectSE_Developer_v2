@@ -21,8 +21,8 @@ namespace MikeNspired.UnityXRHandPoser
 
             foreach (var itemSlot in inventorySlots)
                 itemSlot.StartCoroutine(itemSlot.CreateStartingItemAndDisable());
-            
-            openMenuInputLeftHand.GetInputAction().performed += x => ToggleInventoryAtController(false);
+
+            openMenuInputLeftHand.GetInputAction().performed += x => ToggleInventoryAtController(isActive);
         }
 
         private void OnValidate()
@@ -32,14 +32,14 @@ namespace MikeNspired.UnityXRHandPoser
         private void OnEnable()
         {
             openMenuInputLeftHand.EnableAction();
-        } 
+        }
 
         private void OnDisable()
-        { 
+        {
             openMenuInputLeftHand.DisableAction();
         }
-        
-        private void ToggleInventoryAtController(bool isRightHand)
+
+        public void ToggleInventoryAtController(bool isRightHand)
         {
             if (isRightHand)
                 TurnOnInventory(rightController.gameObject);
@@ -62,7 +62,6 @@ namespace MikeNspired.UnityXRHandPoser
             else
                 disableAudio.Play();
         }
-
 
         private void ToggleInventoryItems(bool state, GameObject hand)
         {
