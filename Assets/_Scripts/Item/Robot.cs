@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR.Content.Interaction;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -17,6 +18,11 @@ public class Robot : MonoBehaviour
     private void Awake()
     {
         xRLockSocketInteractor.selectEntered.AddListener(OnLeftArmAdded);
+        if (SceneManager.GetActiveScene().name == "Stage5_Complete")
+        {
+            xRLockSocketInteractor.selectEntered.RemoveListener(OnLeftArmAdded);
+            xRLockSocketInteractor.selectEntered.AddListener(OnRearArmAdded);
+        }
     }
     private void OnLeftArmAdded(SelectEnterEventArgs args)
     {

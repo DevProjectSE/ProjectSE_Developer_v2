@@ -146,8 +146,8 @@ public class InventorySlot : MonoBehaviour
         XRBaseInteractable itemInHand = null;
         if (controller.hasSelection)
         {
-            itemInHand = controller.selectTarget;
-
+            // itemInHand = controller.selectTarget;
+            itemInHand = (XRBaseInteractable)controller.GetOldestInteractableSelected();
             var itemData = itemInHand.GetComponent<InteractableItemData>();
             if (!itemData || !itemData.canInventory)
             {
@@ -168,7 +168,9 @@ public class InventorySlot : MonoBehaviour
         XRBaseInteractable itemHandIsHolding = null;
         if (controller.hasSelection)
         {
-            itemHandIsHolding = controller.selectTarget;
+            // itemHandIsHolding = controller.selectTarget;
+            itemHandIsHolding = (XRBaseInteractable)controller.GetOldestInteractableSelected();
+
         }
 
         if (itemHandIsHolding)
@@ -234,7 +236,9 @@ public class InventorySlot : MonoBehaviour
 
     private void DisableItemInHand(XRDirectInteractor controller)
     {
-        var itemHandIsHolding = controller.selectTarget;
+        // var itemHandIsHolding = controller.selectTarget;
+        var itemHandIsHolding = (XRBaseInteractable)controller.GetOldestInteractableSelected();
+
         if (!itemHandIsHolding)
         {
             return;
@@ -314,7 +318,8 @@ public class InventorySlot : MonoBehaviour
         {
             return;
         }
-        interactionManager.SelectExit(interactor, interactable);
+        //TODO (IXRSelectInteractor) 테스트중
+        interactionManager.SelectExit((IXRSelectInteractor)interactor, interactable);
     }
 
     private void GrabNewItem(XRBaseInteractor interactor, XRBaseInteractable interactable)
@@ -323,7 +328,8 @@ public class InventorySlot : MonoBehaviour
         {
             return;
         }
-        interactionManager.SelectEnter(interactor, interactable);
+        //TODO (IXRSelectInteractor) 테스트중
+        interactionManager.SelectEnter((IXRSelectInteractor)interactor, interactable);
     }
 
     private void SetupNewMeshClone(XRBaseInteractable itemHandIsHolding)
@@ -371,7 +377,7 @@ public class InventorySlot : MonoBehaviour
             bounds = GetBoundsOfAllMeshes(boundCenterTransform.transform);
             boundCenterTransform.transform.localScale *= 0.9f;
         }
-        inventorySize.enabled = false;
+        // inventorySize.enabled = false;
 
         goalSizeToFitInSlot = boundCenterTransform.transform.localScale;
 

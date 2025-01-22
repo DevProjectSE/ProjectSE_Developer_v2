@@ -39,11 +39,11 @@ public class SceneLoadManager : SingletonManager<SceneLoadManager>
                 DataManager.Instance.SaveData(stageNumber);
                 break;
             case StageNumber.Stage4:
-                LoadingScene.LoadScene("KimChanYoung_Stage4");
+                LoadingScene.LoadScene("Stage4_Complete");
                 DataManager.Instance.SaveData(stageNumber);
                 break;
             case StageNumber.Stage5:
-                LoadingScene.LoadScene("KimChanYoung_Stage5");
+                LoadingScene.LoadScene("Stage5_Complete");
                 DataManager.Instance.SaveData(stageNumber);
                 break;
             case StageNumber.BadEnding:

@@ -13,10 +13,12 @@ public class OpenDoor_Stage5 : OpenDoor
             if (FindAnyObjectByType<StageFifth>().yejins_Phone.takeOnPhone)
             {
                 //TODO : 해피엔딩씬로드
+                SceneLoadManager.Instance.StageLoad(StageNumber.HappyEnding);
             }
             else
             {
                 //TODO : 배드엔딩로드
+                SceneLoadManager.Instance.StageLoad(StageNumber.BadEnding);
             }
         }
     }

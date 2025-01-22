@@ -52,7 +52,8 @@ public class StageFourth : MonoBehaviour
         stageFourtItem[0].layer = LayerMask.NameToLayer("Object");
         stageFourtItem[0].GetComponent<XRGrabInteractable>().enabled = false;
         glassRenderer.material = cleanedGlassMat;
-        //ToDo : 유리 교체
+        GameManager.Instance.DiaryMat_Activate(7);
+        GameManager.Instance.DiaryMat_Activate(8);
     }
     public void TrashCanClear()
     {

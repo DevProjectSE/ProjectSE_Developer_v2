@@ -238,7 +238,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DetailScale: 1
     - _DierctionEdgeWidthScale: 10
-    - _Dissolve: -0.0019952047
+    - _Dissolve: 0.65
     - _Distortion: 0.2
     - _DrawOrder: 0
     - _DstBlend: 0

@@ -63,6 +63,7 @@ public class Main_Title : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name != "TitleScene")
         {
+            Debug.Log("a");
             titlePanel.SetActive(false);
         }
 

@@ -42,6 +42,7 @@ public class StageFifth : MonoBehaviour
             if (a < 0 && b < 0)
             {
                 robotArm.GetComponent<XRGrabInteractable>().enabled = true;
+                GameManager.Instance.DiaryMat_Activate(10);
                 StopAllCoroutines();
             }
             if (a != 0)
@@ -50,6 +51,7 @@ public class StageFifth : MonoBehaviour
                 robotArm_Mat.SetFloat("_Dissolve", b - 0.002f);
             yield return null;
         }
+
     }
 
     public void NumberKeyPadClear()

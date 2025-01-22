@@ -5,6 +5,7 @@ using EPOOutline;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class Book : MonoBehaviour
@@ -35,9 +36,10 @@ public class Book : MonoBehaviour
         r_Ref.action.performed += R;
         xRGrabInteractable.enabled = true;
         GetComponent<Outlinable>().OutlineLayer = 0;
-        if (SceneManager.GetActiveScene().name == "KimChanYoung_Stage4")
+        if (SceneManager.GetActiveScene().name == "Stage4_Complete")
         {
-            SetActivatePage(5);
+            GameManager.Instance.DiaryMat_Activate(5);
+            GameManager.Instance.DiaryMat_Activate(6);
         }
     }
     private void OnDisable()
@@ -48,13 +50,15 @@ public class Book : MonoBehaviour
         GetComponent<Outlinable>().enabled = false;
     }
 
+    public void RepeatActivePage(int page)
+    {
+        for (int i = 1; i < page + 1; i++)
+        {
+            SetActivatePage(i);
+        }
+    }
     public void OnSelectEnter()
     {
-        if (unLockCount == 1)
-        {
-            SetActivatePage(unLockCount);
-            unLockCount++;
-        }
         StartCoroutine(OnSelectEnterCoroutine());
     }
     public void OnSelectExit()
@@ -76,6 +80,15 @@ public class Book : MonoBehaviour
     private IEnumerator OnSelectEnterCoroutine()
     {
         // yield return new WaitWhile(() => isInteract);
+        int i = 1;
+        foreach (Material mat in GameManager.Instance.diary_Mats)
+        {
+            if (mat.GetFloat("_Dissolve") < 0.01)
+            {
+                currentPage = i;
+            }
+            i++;
+        }
         endlessBook.TurnToPage(currentPage, EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime, 1f, 0.5f);
         yield return new WaitWhile(() => endlessBook.IsTurningPages);
         isInteract = true;
@@ -96,6 +109,7 @@ public class Book : MonoBehaviour
     #region 페이지 활성화시킬 시 호출
     public void SetActivatePage(int page)
     {
+        if (endlessBook.GetPageData(page).material.GetFloat("_Dissolve") < 0.01) return;
         StartCoroutine(DissolveCoroutine(page));
     }
 
