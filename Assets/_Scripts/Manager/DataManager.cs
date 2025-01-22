@@ -11,7 +11,7 @@ public class DataTable
 {
     public List<bool> isStageEnter;
     public int currentStage;
-    public List<Material> bookMats;
+    public List<float> diaryPage_Dissolve;
 }
 
 public class DataManager : SingletonManager<DataManager>

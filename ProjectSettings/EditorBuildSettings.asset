@@ -11,24 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_External/GameDesigner_Scenes/Stage5_Complete.unity
     guid: 21f2e0a86e2e41f47b179b12fe4d1503
-  - enabled: 0
-    path: Assets/JDH/TitleScene.unity
-    guid: b4cef6fb7423b8e47986e3b6acbb11be
-  - enabled: 0
-    path: Assets/JDH/Stage1_JDH.unity
-    guid: 13fb5542e0cc4334094963f4eb681f11
-  - enabled: 0
-    path: Assets/_AJH/Scenes_AJH/Stage2_AJH.unity
-    guid: 87fcb6219030e2a44b014d0dec2d9eaf
-  - enabled: 0
-    path: Assets/_AJH/Scenes_AJH/Stage3_AJH.unity
-    guid: d8ce9a4b50dc2b341b1df35f4a484b0c
-  - enabled: 1
-    path: Assets/_External/GameDesigner_Scenes/Stage6_Bad.unity
-    guid: 45cfe277c67dc8a4bb02951efd71a4bb
-  - enabled: 1
-    path: Assets/_External/GameDesigner_Scenes/Stage6_Happy.unity
-    guid: 76ed485f34ee2ab4ab916148fbe8b0d6
   - enabled: 1
     path: Assets/_Developer_Scenes/LoadingScene.unity
     guid: 8faee27aa5466b04da7e63956a3502cd

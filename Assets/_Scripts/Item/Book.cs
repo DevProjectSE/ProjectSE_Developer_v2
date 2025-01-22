@@ -102,6 +102,13 @@ public class Book : MonoBehaviour
         // yield return new WaitWhile(() => endlessBook.IsTurningPages);
         // endlessBook.SetState(EndlessBook.StateEnum.ClosedFront);
         // yield return new WaitUntil(() => endlessBook.CurrentState == EndlessBook.StateEnum.ClosedFront);
+        if (SceneManager.GetActiveScene().name == "Stage4_Complete")
+        {
+            if (GameManager.Instance.diary_Mats[6].GetFloat("_Dissolve") < 0.01f)
+            {
+                FindAnyObjectByType<StageFourth>().dialog[2].SetActive(true);
+            }
+        }
         yield return null;
         //TODO : 인벤토리 들어가는 처리
     }

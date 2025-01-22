@@ -35,6 +35,8 @@ public class StageFifth : MonoBehaviour
 
     private IEnumerator DissolveCoroutine()
     {
+        robotArm.GetComponent<BoxCollider>().enabled = true;
+        robotArm.GetComponent<Rigidbody>().useGravity = true;
         while (true)
         {
             float a = teacher_Mat.GetFloat("_Dissolve");
