@@ -137,9 +137,9 @@ public class DialogSystem : MonoBehaviour
         {
             SetActiveObjects(speaker, false);
         }
+        isDialogsEnd = true;
 
         GameManager.Instance.Player.GetComponentInChildren<CustomPlayerController>().CtrlActivation();
-        isDialogsEnd = true;
         Debug.Log("모든 대사가 완료되었습니다.");
 
         // 이 오브젝트를 비활성화하여 대화 종료를 알림

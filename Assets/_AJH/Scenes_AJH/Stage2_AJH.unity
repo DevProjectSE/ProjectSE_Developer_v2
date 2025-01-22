@@ -632,8 +632,8 @@ MonoBehaviour:
     Name: "\uC608\uC9C4"
     dialogue: "\uBC8C\uC368 \uD574\uAC00 \uC9C0\uACE0 \uC788\uB294\uAC83 \uAC19\uB124\r\n"
   isAutoStart: 1
-  typingSpeed: 0.1
-  dialogDelay: 2
+  typingSpeed: 0.05
+  dialogDelay: 1.5
   isDialogsEnd: 0
 --- !u!1 &366208480
 GameObject:
@@ -666,6 +666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2924359556f2b14daf8dd7e2eef6e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usedDialogObj: {fileID: 268053002}
   barrierObj: {fileID: 2047077318}
   lightSource: {fileID: 1586340456}
   targetIntensity: 0
@@ -1269,6 +1270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2924359556f2b14daf8dd7e2eef6e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usedDialogObj: {fileID: 699633953}
   barrierObj: {fileID: 1961429588}
   lightSource: {fileID: 1586340456}
   targetIntensity: 0
@@ -1597,8 +1599,8 @@ MonoBehaviour:
     Name: "\uC608\uC9C4"
     dialogue: "\uC800\uAE30, \uD558\uC724\uC774\uC758 \uBC18\uC774 \uBCF4\uC778\uB2E4.\r\n"
   isAutoStart: 1
-  typingSpeed: 0.1
-  dialogDelay: 2
+  typingSpeed: 0.05
+  dialogDelay: 1.5
   isDialogsEnd: 0
 --- !u!1 &799502871
 GameObject:
@@ -1880,6 +1882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2924359556f2b14daf8dd7e2eef6e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usedDialogObj: {fileID: 1423777350}
   barrierObj: {fileID: 163604608}
   lightSource: {fileID: 1586340456}
   targetIntensity: 0.1
@@ -2389,13 +2392,13 @@ MonoBehaviour:
   - dialogIndex: 1
     Name: "\uC608\uC9C4"
     dialogue: "\uBCF5\uB3C4\uAC00 \uC544\uAE4C\uBCF4\uB2E4 \uB354 \uC5B4\uB450\uC6CC\uC84C\uC5B4\r\n"
-  - dialogIndex: 1
+  - dialogIndex: 2
     Name: "\uC608\uC9C4"
     dialogue: "\uADF8\uB798\uB3C4 \uBD84\uBA85 \uD558\uC724\uC774\uAC00 \uD559\uAD50\uC5D0
       \uC788\uC744\uAC70\uC57C, \uCC3E\uC544\uBCF4\uC790\r\n"
   isAutoStart: 1
-  typingSpeed: 0.1
-  dialogDelay: 2
+  typingSpeed: 0.05
+  dialogDelay: 1.5
   isDialogsEnd: 0
 --- !u!1 &1586340455
 GameObject:
@@ -60349,28 +60352,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5436645371046751842
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8156220321763916072}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300036, guid: 9bde7338ed7c8a141b7a2e71c75febbe, type: 3}
 --- !u!23 &5444742032780607499
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -72135,6 +72116,7 @@ GameObject:
   - component: {fileID: 4826095565697013895}
   - component: {fileID: 8798969917608030986}
   - component: {fileID: 4996914686221528738}
+  - component: {fileID: 8798969917608030987}
   m_Layer: 0
   m_Name: Square_pot
   m_TagString: Untagged
@@ -89663,7 +89645,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8803860094907139949}
-  - component: {fileID: 5436645371046751842}
   m_Layer: 0
   m_Name: Downed_Pot
   m_TagString: Untagged
@@ -96489,6 +96470,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6308779324856771102}
+  m_Mesh: {fileID: 4300034, guid: 9bde7338ed7c8a141b7a2e71c75febbe, type: 3}
+--- !u!64 &8798969917608030987
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6308779324856771102}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300034, guid: 9bde7338ed7c8a141b7a2e71c75febbe, type: 3}
 --- !u!4 &8802601042492045892
 Transform:

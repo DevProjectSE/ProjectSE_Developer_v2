@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/_External/GameDesigner_Scenes/Stage6_Bad.unity
     guid: 45cfe277c67dc8a4bb02951efd71a4bb
   - enabled: 0
-    path: Assets/_External/GameDesigner_Scenes/Stage6_Happy.unity
+    path: Assets/JDH/Stage6_Happy_JDH.unity
     guid: 76ed485f34ee2ab4ab916148fbe8b0d6
   - enabled: 0
     path: Assets/_Developer_Scenes/LoadingScene.unity
