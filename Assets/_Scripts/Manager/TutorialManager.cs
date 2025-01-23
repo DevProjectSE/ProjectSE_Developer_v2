@@ -62,6 +62,18 @@ public class TutorialManager : MonoBehaviour
     public XRBaseController leftXRController;
     public XRBaseController rightXRController;
 
+    [Header("사운드")]
+    public AudioSource audioSource;
+    public AudioSource playerPhoneAudioSource;
+    [Header("오디오 클립")]
+    public AudioClip canOpenSound;
+    public AudioClip drinkSound;
+    public AudioClip canFall;
+
+    [Header("핸드폰 사운드 클립")]
+    public AudioClip callingPhone;
+    public AudioClip callingEnd;
+
     private void OnEnable()
     {
         //출력 이후로 모두 옮기기
@@ -155,6 +167,7 @@ public class TutorialManager : MonoBehaviour
 
         GameManager.Instance.uiManager.ChanageAllTutorialUI(GameManager.Instance.uiManager.controllerQuestText, GameManager.Instance.uiManager.controllerQuestImg,
             "그립 버튼을 눌러서 음료수를 잡으세요.", gripTutorialImg);
+
         //1초뒤 아이템 잡기 설명 UI출력 
         yield return new WaitForSeconds(1f);
         GameManager.Instance.uiManager.controllerTutoObj.SetActive(true);
@@ -166,15 +179,21 @@ public class TutorialManager : MonoBehaviour
         //음료수를 잡으면 1초뒤 아이템을 사용하는 키를 알려주는 UI 활성화 
         yield return new WaitForSeconds(1f);
         GameManager.Instance.uiManager.controllerTutoObj.SetActive(true);
-
+        audioSource.clip = canOpenSound; //오디오 클립 교체
         //컨트롤러를 이용하여 캔 뚜껑을 따면 UI 비활성화 
         yield return new WaitUntil(() => isCanOpen);
         GameManager.Instance.uiManager.controllerTutoObj.SetActive(false);
+        yield return null;
+        audioSource.clip = drinkSound; //오디오 클립 교체
 
         //음료수를 지정된 구역 내(헤드셋 부근)로 위치시키면 음료수를 마시는 효과음 재생.
         //효과음이 종료되면 좌측 상단에 있는 퀘스트 UI 비활성화 ->캐릭터 상태 변화 X
         yield return new WaitUntil(() => isCokeDrink);
+        audioSource.PlayOneShot(drinkSound, 1.0f); //특정 클립 한번 만 재생
         GameManager.Instance.uiManager.mainQuestUiObj.SetActive(false);
+
+        yield return null;
+        audioSource.clip = canFall; //오디오 클립 교체
 
         GameManager.Instance.uiManager.ChangeTutorialText(GameManager.Instance.uiManager.questText,
             "[페트병을 쓰레기통으로 버리세요]");
@@ -189,6 +208,8 @@ public class TutorialManager : MonoBehaviour
         //이후 폰트와 텍스트 박스의 크기를 원래 크기의 75%로 축소한 후 우측 상단으로 고정 
         GameManager.Instance.uiManager.miniMainQuestUiObj.SetActive(true);
         yield return new WaitUntil(() => throwCokecan);
+        audioSource.PlayOneShot(canFall, 1.0f); //특정 클립 한번 만 재생
+        playerPhoneAudioSource.clip = callingPhone;
         yield return new WaitForSeconds(1f);
         //아이템 오브젝트의 상호작용이 완료되면 1초뒤 텍스트와 우측 상단 UI 비활성화
         GameManager.Instance.uiManager.miniMainQuestUiObj.SetActive(false);
@@ -198,7 +219,7 @@ public class TutorialManager : MonoBehaviour
             "[핸드폰을 받으세요]");
         GameManager.Instance.uiManager.ChangeTutorialText(GameManager.Instance.uiManager.miniQuestText,
             "[핸드폰을 받으세요]");
-
+        playerPhoneAudioSource.Play();//반복재생
         yield return new WaitForSeconds(3f);
         //아이템 사용을 마치고 3초 뒤 전화벨 소리 재생, 이때 모든 컨트롤러는 전화벨이 울리는 주기에 맞춰 햅틱 반응
         //핸드폰 아이템을 사용하기 전까지 반복된다. 핸드폰과 유저 사이의 거리 상관 없이, 핸드폰의 음량은 동일하다.
@@ -220,6 +241,13 @@ public class TutorialManager : MonoBehaviour
         //음료수를 마실 때와 같은 방법으로 핸드폰 상호작용
         //아이템 사용 버튼을 누르면 전화벨 소리와 햅틱 반응 종료, 좌측 상단에 있던 지시사항 UI비활성화
         yield return new WaitUntil(() => isPhoneGrip && isGripButtonPress);
+        playerPhoneAudioSource.loop = false;
+        playerPhoneAudioSource.Stop();
+        yield return null;
+        playerPhoneAudioSource.clip = callingEnd;
+        yield return null;
+        playerPhoneAudioSource.PlayOneShot(callingEnd, 1.0f);
+
         GameManager.Instance.uiManager.miniMainQuestUiObj.SetActive(false);
         secondTutorialDialog.gameObject.SetActive(true);
         yield return new WaitUntil(() => secondTutorialDialog.isDialogsEnd == true);
@@ -294,6 +322,7 @@ public class TutorialManager : MonoBehaviour
         {
             Debug.Log("캔 뚜껑 열기");
             isCanOpen = true;
+            audioSource.PlayOneShot(canOpenSound, 1.0f); //특정 클립 한번 만 재생
         }
         else if (isPhoneGrip && isGripButtonPress)
         {
