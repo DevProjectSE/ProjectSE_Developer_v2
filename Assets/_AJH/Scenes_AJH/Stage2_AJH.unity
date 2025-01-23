@@ -1135,6 +1135,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 563842200}
+  - component: {fileID: 563842202}
+  - component: {fileID: 563842201}
   m_Layer: 0
   m_Name: Opem_Door
   m_TagString: Untagged
@@ -1151,7 +1153,7 @@ Transform:
   m_GameObject: {fileID: 563842199}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.06, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1162,6 +1164,40 @@ Transform:
   - {fileID: 5795979423625875705}
   m_Father: {fileID: 2232893138463636856}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &563842201
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563842199}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 7.307602, y: 9.372834, z: 4.4316235}
+  m_Center: {x: -3.153801, y: 4.186418, z: -2.2858763}
+--- !u!114 &563842202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563842199}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a31d2d2f8c7f91c429ec52514f6e4403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxCollider: {fileID: 563842201}
 --- !u!1 &572432775
 GameObject:
   m_ObjectHideFlags: 0
@@ -2518,6 +2554,74 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1605081933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1605081936}
+  - component: {fileID: 1605081935}
+  - component: {fileID: 1605081934}
+  m_Layer: 0
+  m_Name: Triger_NextStage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1605081934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605081933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb05a076c4a54cd4baa9b0cf61ed5a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OpenDoor: {fileID: 563842199}
+  stage2LastDoor: {fileID: 563842202}
+--- !u!65 &1605081935
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605081933}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 13.793777, y: 9.762766, z: 4.583662}
+  m_Center: {x: -1.3223343, y: 4.381383, z: 1.791831}
+--- !u!4 &1605081936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605081933}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -211.96, y: -0.5970397, z: -25.13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1639033935
 GameObject:
   m_ObjectHideFlags: 0
@@ -100367,3 +100471,4 @@ SceneRoots:
   - {fileID: 39826544}
   - {fileID: 406244096}
   - {fileID: 1639033936}
+  - {fileID: 1605081936}

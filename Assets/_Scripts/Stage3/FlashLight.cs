@@ -19,15 +19,15 @@ public class FlashLight : MonoBehaviour
 
     //public SpriteMask spriteMask;
     [SerializeField]
-    private Light lightComponent;
+    private Light lightComponent; 
 
     public Color basicColor = Color.white;
     public Color UVColor = Color.blue;
 
-    public float rayDistance = 50f;
-    public GameObject[] targetObject;
+    public float rayDistance = 50f; 
+    public GameObject[] targetObject; 
 
-    private int lightState = 0;
+    public int lightState = 0;
     public bool canToggleLight = false;
 
     //public InputActionReference leftSecondaryButton;
@@ -46,8 +46,7 @@ public class FlashLight : MonoBehaviour
     {
         foreach (GameObject target in targetObject)
         {
-            if (target != null)
-                target.GetComponent<Renderer>().enabled = false;
+            target.transform.GetChild(0).gameObject.SetActive(false);
         }
 
         leftActivateAction.action.performed += ctx => ToggleLight();
@@ -62,24 +61,31 @@ public class FlashLight : MonoBehaviour
         RaycastHit hit;
         foreach (GameObject target in targetObject)
         {
+            bool isHit = false;
+
             if (target == null) continue;
             if (Physics.Raycast(ray, out hit, rayDistance))
             {
+                if (hit.collider.gameObject == target)
+                {
+                    isHit = true; // raycast가 target에 닿았으면 isHit을 true로 설정
+                }
+
                 //spriteMask.transform.position = hit.point;
 
-                if (lightState == 2 && hit.collider.gameObject == target)
+                if (lightState == 1 && isHit)
                 {
 
-                    target.GetComponent<Renderer>().enabled = true;
+                    target.transform.GetChild(0).gameObject.SetActive(true);
+                }
+                else
+                {
+                    target.transform.GetChild(0).gameObject.SetActive(false);
                 }
             }
-            else
-            {
-
-                target.GetComponent<Renderer>().enabled = false;
-            }
+            
         }
-
+    
     }
 
     private void OnEnable()
@@ -123,21 +129,24 @@ public class FlashLight : MonoBehaviour
 
                 flashLight.SetActive(true);
 
-                lightComponent.color = basicColor;
+                lightComponent.color = UVColor;
                 lightState = 1;
+                return;
             }
             else if (lightState == 1)
             {
-                lightComponent.color = UVColor;
+                lightComponent.color = basicColor;
                 lightState = 2;
+                return; 
             }
             else if (lightState == 2)
             {
                 flashLight.SetActive(false);
                 lightState = 0;
+                return;
             }
 
-        }
+    }
         catch (Exception e)
         {
             Debug.LogError(e.Message);
