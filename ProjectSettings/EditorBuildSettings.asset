@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_External/GameDesigner_Scenes/Stage4_Complete.unity
+    path: Assets/_Developer_Scenes/CompleteScene/Stage4_Complete.unity
     guid: 73516f3358f37524a818cd85cdc7752b
   - enabled: 1
-    path: Assets/_External/GameDesigner_Scenes/Stage5_Complete.unity
+    path: Assets/_Developer_Scenes/CompleteScene/Stage5_Complete.unity
     guid: 21f2e0a86e2e41f47b179b12fe4d1503
   - enabled: 1
     path: Assets/_Developer_Scenes/LoadingScene.unity
