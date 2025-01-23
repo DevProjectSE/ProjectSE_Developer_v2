@@ -17,6 +17,7 @@ TagManager:
   - Knife
   - RobotLeftArm
   - RobotRearArm
+  - NewBattery
   layers:
   - Default
   - TransparentFX

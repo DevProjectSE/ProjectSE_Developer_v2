@@ -99,9 +99,9 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 0.3
-  m_Range: 10
-  m_SpotAngle: 41.653645
-  m_InnerSpotAngle: 28.794266
+  m_Range: 50
+  m_SpotAngle: 35
+  m_InnerSpotAngle: 25
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 7930078993721880960}
   - component: {fileID: 1040563696648902963}
   - component: {fileID: 3325903055568359713}
+  - component: {fileID: 6661325106800657174}
   m_Layer: 7
   m_Name: FlashLight_BatteryLess
   m_TagString: Untagged
@@ -680,18 +681,6 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2935487844995781049}
         m_TargetAssemblyTypeName: UnityEngine.Light, UnityEngine
         m_MethodName: set_intensity
@@ -735,6 +724,18 @@ MonoBehaviour:
   m_Lock:
     m_RequiredKeys:
     - {fileID: 11400000, guid: 09c2f8103a055c84c9dc6ef265a8edb9, type: 2}
+--- !u!114 &6661325106800657174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5527781105280655838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e065b2a3c463714089cb58b2f0ea810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7832257762175530223
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,31 +788,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4936601180081293698}
     m_Modifications:
-    - target: {fileID: 2149616219688247980, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
+    - target: {fileID: 1695983628714480014, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
         type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 2280296850054911368, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3101302883200401685, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.14956811
-      objectReference: {fileID: 0}
-    - target: {fileID: 3101302883200401685, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.14956811
-      objectReference: {fileID: 0}
-    - target: {fileID: 3101302883200401685, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.14956811
-      objectReference: {fileID: 0}
+      propertyPath: soketColl
+      value: 
+      objectReference: {fileID: 388272521017925453}
     - target: {fileID: 3101302883200401685, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -862,96 +843,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4342322183406325839, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342322183406325839, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342322183406325839, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5614637458425346401, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5614637458425346401, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5614637458425346401, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 4333571619338444726}
-    - target: {fileID: 5614637458425346401, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5614637458425346401, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Destroy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5614637458425346401, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: BatterySocketDestroyer, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5614637458425346401, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7062018258917770861, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7062018258917770861, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 126
-      objectReference: {fileID: 0}
-    - target: {fileID: 7062018258917770861, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7062018258917770861, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
     - target: {fileID: 7638219608828495676, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
         type: 3}
       propertyPath: m_Name
       value: Old_Batteries
       objectReference: {fileID: 0}
-    - target: {fileID: 7638219608828495676, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 9141433228204399581, guid: 8da5d3b4eead05142b40e1614a7ec9f4, type: 3}
-    - {fileID: 8220299190683977562, guid: 8da5d3b4eead05142b40e1614a7ec9f4, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7638219608828495676, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4333571619338444726}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8da5d3b4eead05142b40e1614a7ec9f4, type: 3}
 --- !u!4 &3409407942362654330 stripped
 Transform:
@@ -959,22 +859,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 313753338575710063}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7951884404350034003 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7638219608828495676, guid: 8da5d3b4eead05142b40e1614a7ec9f4,
-    type: 3}
-  m_PrefabInstance: {fileID: 313753338575710063}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4333571619338444726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7951884404350034003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54e2542c3a82efb4db82f006b694bfd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soketColl: {fileID: 388272521017925453}
