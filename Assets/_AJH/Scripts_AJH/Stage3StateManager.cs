@@ -11,26 +11,16 @@ public class Stage3StateManager : MonoBehaviour
     public IState currentState;
 
     public int stage3Step = 0;
-    /*
-    * 
-    * // 입장 = 0 //
-    * 문잡기 = 1//
-    * 교탁에 진입 = 2// 
-    * // 손전등획득 = 3 //
-    * 하윤이 책상근처 진입 = 4// 
-    * // 일기장 획득 =5 //
-    * 일기장 인벤토리 수납 = 6//
-    * // 교과서 획득 = 7 //
-    * 일기장 인벤토리 수납 = 8//
-    * // 숙제 유인물 아이템 획득 = 9 //
-    * 일기장 인벤토리 수납 = 10 //
-    * // 가방 획득 = 11 //
-    * 물건 배치 완료 = 12
-    * 줄오브젝트 앞에 서면 = 13
-    * // 로봇 아이템 획득 = 14 //
-    * 일기장 수납 = 15//
-    * 마무리 = 16
-    */
+
+    public bool isTouchDoor = false; //1
+    public bool isCheckTeachersdesk = false; //2
+    public bool isCheckHaYunsDesk = false; //4
+
+    public bool isDariyInInventory1 = false; //6
+    public bool isDariyInInventory2 = false; //8
+    public bool isDariyInInventory3 = false; //10
+    public bool isDariyInInventory4 = false; //15
+    public bool isSettingHaYunsObject = false; //12
 
 
     private void Awake()
