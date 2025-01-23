@@ -23,7 +23,7 @@ public class HappyEnding : MonoBehaviour
         FirstEndingScript.gameObject.SetActive(true);
         yield return new WaitUntil(() => FirstEndingScript.isDialogsEnd);
         LastEndingScript.gameObject.SetActive(true);
-        yield return new WaitUntil(() => FirstEndingScript.isDialogsEnd);
+        yield return new WaitUntil(() => LastEndingScript.isDialogsEnd);
         //Title 로고 출력
         EndingTitle.gameObject.SetActive(true);
         yield return new WaitForSeconds(3f);
