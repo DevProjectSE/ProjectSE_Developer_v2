@@ -10,6 +10,8 @@ public class F_Light_BatteryChange : MonoBehaviour
     private void Awake()
     {
         xRLockSocketInteractor = GetComponent<XRLockSocketInteractor>();
+        if (GetComponent<FlashLight>().targetObject[0] == null)
+            GetComponent<FlashLight>().targetObject[0] = FindAnyObjectByType<InvisibleText>().gameObject;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,5 +24,10 @@ public class F_Light_BatteryChange : MonoBehaviour
                 addEventCount++;
             }
         }
+    }
+
+    private void Start()
+    {
+
     }
 }
