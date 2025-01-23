@@ -19,13 +19,13 @@ public class FlashLight : MonoBehaviour
 
     //public SpriteMask spriteMask;
     [SerializeField]
-    private Light lightComponent; 
+    private Light lightComponent;
 
     public Color basicColor = Color.white;
     public Color UVColor = Color.blue;
 
-    public float rayDistance = 50f; 
-    public GameObject[] targetObject; 
+    public float rayDistance = 50f;
+    public GameObject[] targetObject;
 
     private int lightState = 0;
     public bool canToggleLight = false;
@@ -46,7 +46,8 @@ public class FlashLight : MonoBehaviour
     {
         foreach (GameObject target in targetObject)
         {
-            target.GetComponent<Renderer>().enabled = false;
+            if (target != null)
+                target.GetComponent<Renderer>().enabled = false;
         }
 
         leftActivateAction.action.performed += ctx => ToggleLight();
@@ -65,16 +66,16 @@ public class FlashLight : MonoBehaviour
             if (Physics.Raycast(ray, out hit, rayDistance))
             {
                 //spriteMask.transform.position = hit.point;
-               
+
                 if (lightState == 2 && hit.collider.gameObject == target)
                 {
-                    
+
                     target.GetComponent<Renderer>().enabled = true;
                 }
             }
             else
             {
-                
+
                 target.GetComponent<Renderer>().enabled = false;
             }
         }

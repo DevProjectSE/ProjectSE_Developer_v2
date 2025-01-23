@@ -19,6 +19,9 @@ public class StageFourth : MonoBehaviour
 
     //TODO : 리팩할 때 참고 : 로봇 조합 시 열리는 문
     public OpenDoor openDoor;
+
+    public List<GameObject> dialog;
+
     private void Awake()
     {
         if (trashCan == null)
@@ -54,6 +57,7 @@ public class StageFourth : MonoBehaviour
         glassRenderer.material = cleanedGlassMat;
         GameManager.Instance.DiaryMat_Activate(7);
         GameManager.Instance.DiaryMat_Activate(8);
+        dialog[1].SetActive(true);
     }
     public void TrashCanClear()
     {
