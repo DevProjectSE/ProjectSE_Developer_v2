@@ -8,21 +8,21 @@ using UnityEngine.XR.Interaction.Toolkit.Inputs;
 public class DialogSystem : MonoBehaviour
 {
     [SerializeField]
-    private Speaker[] speakers; // SpeakerÀÇ Dialog ¹è¿­
+    private Speaker[] speakers; // Speakerì˜ Dialog ë°°ì—´
     [SerializeField]
-    private Dialog[] dialogs; // ÇöÀç ºĞ±âÀÇ ´ë»ç ¸ñ·Ï ¹è¿­
+    private Dialog[] dialogs; // í˜„ì¬ ë¶„ê¸°ì˜ ëŒ€ì‚¬ ëª©ë¡ ë°°ì—´
 
     [SerializeField]
-    private bool isAutoStart = true; // ÀÚµ¿ ½ÃÀÛ ¿©ºÎ
+    private bool isAutoStart = true; // ìë™ ì‹œì‘ ì—¬ë¶€
     [SerializeField]
-    private float typingSpeed = 0.1f; // ÅØ½ºÆ® Å¸ÀÌÇÎ È¿°ú ¼Óµµ
+    private float typingSpeed = 0.1f; // í…ìŠ¤íŠ¸ íƒ€ì´í•‘ íš¨ê³¼ ì†ë„
     [SerializeField]
-    private float dialogDelay = 2f; // ´ÙÀ½ ´ë»ç·Î ³Ñ¾î°¡±â Àü ´ë±â ½Ã°£
+    private float dialogDelay = 2f; // ë‹¤ìŒ ëŒ€ì‚¬ë¡œ ë„˜ì–´ê°€ê¸° ì „ ëŒ€ê¸° ì‹œê°„
 
-    private int currentDialogIndex = -1; // ÇöÀç ´ë»ç ¼ø¹ø
-    private int currentDialogIndexNum = 0; // ÇöÀç ¼³¸íÀ» ÇÏ´Â dialogIndexÀÇ ¹è¿­ ¼ø¹ø
-    private bool isTypingEffect = false; // ÅØ½ºÆ® Å¸ÀÌÇÎ È¿°ú Àç»ı ÁßÀÎÁö È®ÀÎÇÏ´Â º¯¼ö
-    public bool isDialogsEnd = false;  // ´ëÈ­°¡ Á¾·áµÇ¾ú´ÂÁö È®ÀÎÇÏ´Â º¯¼ö
+    private int currentDialogIndex = -1; // í˜„ì¬ ëŒ€ì‚¬ ìˆœë²ˆ
+    private int currentDialogIndexNum = 0; // í˜„ì¬ ì„¤ëª…ì„ í•˜ëŠ” dialogIndexì˜ ë°°ì—´ ìˆœë²ˆ
+    private bool isTypingEffect = false; // í…ìŠ¤íŠ¸ íƒ€ì´í•‘ íš¨ê³¼ ì¬ìƒ ì¤‘ì¸ì§€ í™•ì¸í•˜ëŠ” ë³€ìˆ˜
+    public bool isDialogsEnd = false;  // ëŒ€í™”ê°€ ì¢…ë£Œë˜ì—ˆëŠ”ì§€ í™•ì¸í•˜ëŠ” ë³€ìˆ˜
 
     private void Start()
     {
@@ -35,7 +35,7 @@ public class DialogSystem : MonoBehaviour
     }
 
     /// <summary>
-    /// Speaker UI ¿ä¼Ò¸¦ ÃÊ±âÈ­ÇÕ´Ï´Ù.
+    /// Speaker UI ìš”ì†Œë¥¼ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
     /// </summary>
     private void InitializeSpeakers()
     {
@@ -46,24 +46,24 @@ public class DialogSystem : MonoBehaviour
             speaker.textDialogue.gameObject.SetActive(false);
             speaker.objectArrow.SetActive(false);
 
-            // ÀÌ¸§ ÃÊ±âÈ­
+            // ì´ë¦„ ì´ˆê¸°í™”
             speaker.textName.text = "";
             speaker.textDialogue.text = "";
         }
 
-        currentDialogIndex = -1; // ´ëÈ­ ½ÃÀÛÀ» À§ÇÑ ÃÊ±âÈ­
-        isDialogsEnd = false;    // ´ëÈ­ Á¾·á »óÅÂ ÃÊ±âÈ­
+        currentDialogIndex = -1; // ëŒ€í™” ì‹œì‘ì„ ìœ„í•œ ì´ˆê¸°í™”
+        isDialogsEnd = false;    // ëŒ€í™” ì¢…ë£Œ ìƒíƒœ ì´ˆê¸°í™”
     }
 
     public IEnumerator AutoPlayDialog()
     {
         while (currentDialogIndex + 1 < dialogs.Length)
         {
-            SetNextDialog(); // ´ÙÀ½ ´ë»ç ¼³Á¤
-            yield return new WaitForSeconds(dialogDelay + typingSpeed * dialogs[currentDialogIndexNum].dialogue.Length); // ´ë±â
+            SetNextDialog(); // ë‹¤ìŒ ëŒ€ì‚¬ ì„¤ì •
+            yield return new WaitForSeconds(dialogDelay + typingSpeed * dialogs[currentDialogIndexNum].dialogue.Length); // ëŒ€ê¸°
         }
 
-        // ¸ğµç ´ë»ç°¡ ³¡³­ ÈÄ Ã³¸®
+        // ëª¨ë“  ëŒ€ì‚¬ê°€ ëë‚œ í›„ ì²˜ë¦¬
         EndDialog();
     }
 
@@ -71,18 +71,18 @@ public class DialogSystem : MonoBehaviour
     {
         if (currentDialogIndex >= 0)
         {
-            SetActiveObjects(speakers[currentDialogIndexNum], false); // ÀÌÀü ´ëÈ­ ºñÈ°¼ºÈ­
+            SetActiveObjects(speakers[currentDialogIndexNum], false); // ì´ì „ ëŒ€í™” ë¹„í™œì„±í™”
         }
 
-        // ´ÙÀ½ ´ë»ç¸¦ ÁøÇà
+        // ë‹¤ìŒ ëŒ€ì‚¬ë¥¼ ì§„í–‰
         currentDialogIndex++;
         currentDialogIndexNum = dialogs[currentDialogIndex].dialogIndex;
         SetActiveObjects(speakers[currentDialogIndexNum], true);
 
-        // ÀÌ¸§ ¾÷µ¥ÀÌÆ®
+        // ì´ë¦„ ì—…ë°ì´íŠ¸
         speakers[currentDialogIndexNum].textName.text = dialogs[currentDialogIndex].Name;
 
-        // ´ë»ç Å¸ÀÌÇÎ È¿°ú ½ÇÇà
+        // ëŒ€ì‚¬ íƒ€ì´í•‘ íš¨ê³¼ ì‹¤í–‰
         StartCoroutine(OnTypingText());
     }
 
@@ -94,32 +94,32 @@ public class DialogSystem : MonoBehaviour
 
         if (!visible)
         {
-            speaker.objectArrow.SetActive(false); // Ä¿¼­´Â Ç×»ó ÃÊ±âÈ­
+            speaker.objectArrow.SetActive(false); // ì»¤ì„œëŠ” í•­ìƒ ì´ˆê¸°í™”
         }
     }
 
     private IEnumerator OnTypingText()
     {
-        string fullText = dialogs[currentDialogIndexNum].dialogue; // ÀüÃ¼ ´ë»ç
-        string displayedText = ""; // ÇöÀç Ãâ·Â ÁßÀÎ ÅØ½ºÆ®
-        int charIndex = 0; // Ãâ·Â ÁßÀÎ ¹®ÀÚ ÀÎµ¦½º
+        string fullText = dialogs[currentDialogIndexNum].dialogue; // ì „ì²´ ëŒ€ì‚¬
+        string displayedText = ""; // í˜„ì¬ ì¶œë ¥ ì¤‘ì¸ í…ìŠ¤íŠ¸
+        int charIndex = 0; // ì¶œë ¥ ì¤‘ì¸ ë¬¸ì ì¸ë±ìŠ¤
         isTypingEffect = true;
 
         while (charIndex < fullText.Length)
         {
-            // RichText ÅÂ±× Ã³¸®
-            if (fullText[charIndex] == '<') // ÅÂ±× ½ÃÀÛ
+            // RichText íƒœê·¸ ì²˜ë¦¬
+            if (fullText[charIndex] == '<') // íƒœê·¸ ì‹œì‘
             {
                 int endTagIndex = fullText.IndexOf('>', charIndex);
-                if (endTagIndex != -1) // À¯È¿ÇÑ ÅÂ±×¶ó¸é
+                if (endTagIndex != -1) // ìœ íš¨í•œ íƒœê·¸ë¼ë©´
                 {
                     displayedText += fullText.Substring(charIndex, endTagIndex - charIndex + 1);
                     charIndex = endTagIndex + 1;
-                    continue; // ÅÂ±× Ã³¸® ÈÄ ´ÙÀ½ ¹®ÀÚ·Î ³Ñ¾î°¨
+                    continue; // íƒœê·¸ ì²˜ë¦¬ í›„ ë‹¤ìŒ ë¬¸ìë¡œ ë„˜ì–´ê°
                 }
             }
 
-            // ÀÏ¹İ ¹®ÀÚ Ãß°¡
+            // ì¼ë°˜ ë¬¸ì ì¶”ê°€
             displayedText += fullText[charIndex];
             speakers[currentDialogIndexNum].textDialogue.text = displayedText;
             charIndex++;
@@ -127,9 +127,8 @@ public class DialogSystem : MonoBehaviour
         }
 
         isTypingEffect = false;
-        speakers[currentDialogIndexNum].objectArrow.SetActive(true); // ´ë»ç ¿Ï·á Ä¿¼­ È°¼ºÈ­
+        speakers[currentDialogIndexNum].objectArrow.SetActive(true); // ëŒ€ì‚¬ ì™„ë£Œ ì»¤ì„œ í™œì„±í™”
     }
-
 
     public void EndDialog()
     {
@@ -140,9 +139,9 @@ public class DialogSystem : MonoBehaviour
         isDialogsEnd = true;
 
         GameManager.Instance.Player.GetComponentInChildren<CustomPlayerController>().CtrlActivation();
-        Debug.Log("¸ğµç ´ë»ç°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+        Debug.Log("ëª¨ë“  ëŒ€ì‚¬ê°€ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 
-        // ÀÌ ¿ÀºêÁ§Æ®¸¦ ºñÈ°¼ºÈ­ÇÏ¿© ´ëÈ­ Á¾·á¸¦ ¾Ë¸²
+        // ì´ ì˜¤ë¸Œì íŠ¸ë¥¼ ë¹„í™œì„±í™”í•˜ì—¬ ëŒ€í™” ì¢…ë£Œë¥¼ ì•Œë¦¼
         this.gameObject.SetActive(false);
     }
 
@@ -151,17 +150,17 @@ public class DialogSystem : MonoBehaviour
 [System.Serializable]
 public struct Speaker
 {
-    public Image dialogImage; // ´ëÈ­Ã¢ ÀÌ¹ÌÁö
-    public TextMeshProUGUI textName; // ÀÌ¸§ ÅØ½ºÆ®
-    public TextMeshProUGUI textDialogue; // ´ë»ç ÅØ½ºÆ®
-    public GameObject objectArrow; // Ä¿¼­
+    public Image dialogImage; // ëŒ€í™”ì°½ ì´ë¯¸ì§€
+    public TextMeshProUGUI textName; // ì´ë¦„ í…ìŠ¤íŠ¸
+    public TextMeshProUGUI textDialogue; // ëŒ€ì‚¬ í…ìŠ¤íŠ¸
+    public GameObject objectArrow; // ì»¤ì„œ
 }
 
 [System.Serializable]
 public struct Dialog
 {
-    public int dialogIndex; // ´ë»ç¸¦ Ãâ·ÂÇÒ Speaker ¹è¿­ ¼ø¹ø
-    public string Name; // ÀÌ¸§
+    public int dialogIndex; // ëŒ€ì‚¬ë¥¼ ì¶œë ¥í•  Speaker ë°°ì—´ ìˆœë²ˆ
+    public string Name; // ì´ë¦„
     [TextArea(5, 5)]
-    public string dialogue; // ´ë»ç ³»¿ë
+    public string dialogue; // ëŒ€ì‚¬ ë‚´ìš©
 }

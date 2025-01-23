@@ -15,20 +15,17 @@ public class MakeBarrier : MonoBehaviour
     private float chageSpeed = 5f;
     public float intensitycontrol;
 
-    
     private void OnTriggerExit(Collider ohter)
     {
         if (ohter.CompareTag("Player"))
         {
-            print("ºÎµúÈû");
+            print("ë¶€ë”ªí˜");
             barrierObj.isTrigger = false;
-            usedDialogObj.gameObject.SetActive(true);   //´ë»ç ¿ÀºêÁ§Æ® È°¼ºÈ­ µÇ¸é¼­ ´ë»ç ½ºÅ©¸³Æ® ½ÇÇà
+            usedDialogObj.gameObject.SetActive(true);   //ëŒ€ì‚¬ ì˜¤ë¸Œì íŠ¸ í™œì„±í™” ë˜ë©´ì„œ ëŒ€ì‚¬ ìŠ¤í¬ë¦½íŠ¸ ì‹¤í–‰
             StartCoroutine(ChangeBrightnessCoroutine());
 
-            
         }
     }
-
 
     private void IntensityControl()
     {
@@ -36,14 +33,13 @@ public class MakeBarrier : MonoBehaviour
     }
     private IEnumerator ChangeBrightnessCoroutine()
     {
-        print("ÄÚ·çÆ¾ ½ÃÀÛµÊ");
+        print("ì½”ë£¨í‹´ ì‹œì‘ë¨");
         //float courrentIntensity = lightSource.intensity;
         //float currentAngleX = lightSource.transform.localRotation.eulerAngles.x;
         //float elapsedTime = 0f;
         float courrentIntensity = RenderSettings.ambientIntensity;
         float currentAngleX = lightSource.transform.localRotation.eulerAngles.x;
         float elapsedTime = 0f;
-
 
         while (elapsedTime < chageSpeed)
         {

@@ -16,6 +16,13 @@ public class DataTable
 
 public class DataManager : SingletonManager<DataManager>
 {
+    // #if UNITY_EDITOR
+    //     // 유니티 에디터에서 실행 시 프로젝트 내부 경로 사용
+    //     savePath = Path.Combine(Application.dataPath, "1.Resources/Data/SaveData");
+    //     #else
+    //         // 빌드된 게임에서는 persistentDataPath 사용
+    //         savePath = Path.Combine(Application.persistentDataPath, "SaveData");
+    //     #endif
     public DataTable dataTable = new DataTable();
     private string path;
     private string fileName = "save";
