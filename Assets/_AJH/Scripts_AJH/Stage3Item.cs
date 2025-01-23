@@ -5,19 +5,11 @@ using UnityEngine;
 
 public class Stage3Item : MonoBehaviour
 {
+ 
+
+    protected virtual void OnTriggerEnter(Collider other)
+    {
    
-
-    public void GetKnife()
-    {
-
-    }
-
-    public void GetDiary()
-    {
-        if (Stage3StateManager.Instance.stage3Step == 4)
-        {
-            Stage3StateManager.Instance.stage3Step = 5;
-        }
     }
 
     public void GetFlash()
@@ -25,6 +17,16 @@ public class Stage3Item : MonoBehaviour
         if (Stage3StateManager.Instance.stage3Step == 2)
         {
             Stage3StateManager.Instance.stage3Step = 3;
+            Stage3StateManager.Instance.isGetLight = true;
+        }
+    }
+
+    public void GetDiary()
+    {
+        if (Stage3StateManager.Instance.stage3Step == 4)
+        {
+            Stage3StateManager.Instance.stage3Step = 5;
+            Stage3StateManager.Instance.isGetDiary = true;
         }
     }
 
@@ -33,6 +35,15 @@ public class Stage3Item : MonoBehaviour
         if (Stage3StateManager.Instance.stage3Step == 6)
         {
             Stage3StateManager.Instance.stage3Step = 7;
+            Stage3StateManager.Instance.isGetBook = true;
+        }
+    }
+    public void GetHomework()
+    {
+        if (Stage3StateManager.Instance.stage3Step == 8)
+        {
+            Stage3StateManager.Instance.stage3Step = 9;
+            Stage3StateManager.Instance.isGetHomework=true;
         }
     }
 
@@ -41,23 +52,26 @@ public class Stage3Item : MonoBehaviour
         if (Stage3StateManager.Instance.stage3Step == 10)
         {
             Stage3StateManager.Instance.stage3Step = 11;
+            Stage3StateManager.Instance.isGetBagpack = true;
+        }
+    }
+    public void Setting()
+    {
+        Stage3StateManager.Instance.setNum++;
+        if (Stage3StateManager.Instance.stage3Step == 11 && Stage3StateManager.Instance.setNum == 3)
+        {
+            Stage3StateManager.Instance.stage3Step = 12;
+            Stage3StateManager.Instance.isSettingHaYunsObject = true;
         }
     }
 
-    public void GetHomework()
-    {
-        if (Stage3StateManager.Instance.stage3Step == 8)
-        {
-            Stage3StateManager.Instance.stage3Step = 9;
-        }
-    }
 
     public void GetRobot()
     {
         if (Stage3StateManager.Instance.stage3Step == 13)
         {
             Stage3StateManager.Instance.stage3Step = 14;
-            
+            Stage3StateManager.Instance.isGetRobot = true;
         }
     }
 }

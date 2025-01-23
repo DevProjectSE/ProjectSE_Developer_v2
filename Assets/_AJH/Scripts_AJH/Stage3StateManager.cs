@@ -11,17 +11,23 @@ public class Stage3StateManager : MonoBehaviour
     public IState currentState;
 
     public int stage3Step = 0;
+    public int setNum = 0;
 
-    public bool isTouchDoor = false; //1
-    public bool isCheckTeachersdesk = false; //2
-    public bool isCheckHaYunsDesk = false; //4
-
-    public bool isDariyInInventory1 = false; //6
-    public bool isDariyInInventory2 = false; //8
-    public bool isDariyInInventory3 = false; //10
-    public bool isDariyInInventory4 = false; //15
-    public bool isSettingHaYunsObject = false; //12
-
+    public bool isTouchDoor = false; //0                완료
+    public bool isCheckTeachersdesk = false; //1        완료
+    public bool isGetLight = false; //2                 완료
+    public bool isCheckHaYunsDesk = false; //3          완료
+    public bool isGetDiary=false; //4                   완료
+    public bool isDiaryInInventory1 = false; //5        
+    public bool isGetBook=false; //6                    완료
+    public bool isDiaryInInventory2 = false; //7            
+    public bool isGetHomework = false; //8              완료
+    public bool isDiaryInInventory3 = false; //9        
+    public bool isGetBagpack = false; //10              완료
+    public bool isSettingHaYunsObject = false; //11     완료   
+    public bool isCheckRope = false; //12               완료
+    public bool isGetRobot=false; //13                  완료
+    public bool isDariyInInventory4 = false; //14 
 
     private void Awake()
     {
