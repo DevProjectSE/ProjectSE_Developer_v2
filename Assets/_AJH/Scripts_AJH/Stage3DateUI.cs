@@ -31,7 +31,7 @@ public class Stage3DateUI : MonoBehaviour
     public XRSimpleInteractable xRSimpleInteractable;
 
     public List<XRGripButton> keyPadButtons;
-        
+
     public void KeyPadButtonsActivate()
     {
         foreach (XRGripButton xRGripButton in keyPadButtons)
@@ -117,7 +117,5 @@ public class Stage3DateUI : MonoBehaviour
             Destroy(button);
         }
     }
-
-
 }
 
