@@ -13920,6 +13920,7 @@ GameObject:
   - component: {fileID: 1143108149550344744}
   - component: {fileID: 8202080576775033916}
   - component: {fileID: 811958175573927757}
+  - component: {fileID: 8202080576775033917}
   m_Layer: 0
   m_Name: Fridge_Glass_Shelf_02
   m_TagString: Untagged
@@ -14378,6 +14379,7 @@ GameObject:
   - component: {fileID: 280858803109292029}
   - component: {fileID: 5114694623476429867}
   - component: {fileID: 8933707517730451877}
+  - component: {fileID: 8933707517730451878}
   m_Layer: 0
   m_Name: Fridge_Glass_LargeShelf
   m_TagString: Untagged
@@ -15892,6 +15894,7 @@ GameObject:
   - component: {fileID: 2789126655546615629}
   - component: {fileID: 2240085571059216995}
   - component: {fileID: 5249896106851452647}
+  - component: {fileID: 5249896106851452648}
   m_Layer: 0
   m_Name: Fridge_LargeShelf
   m_TagString: Untagged
@@ -18835,6 +18838,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5249896106851452648
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2313661890542309204}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2960802743394992194, guid: 2a83511a782a6aa4dafed1f5a2bd3803, type: 3}
 --- !u!23 &5255125125383809490
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22602,6 +22627,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795568603739739756}
   m_Mesh: {fileID: 2424760039778917260, guid: 2a83511a782a6aa4dafed1f5a2bd3803, type: 3}
+--- !u!64 &8202080576775033917
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795568603739739756}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2424760039778917260, guid: 2a83511a782a6aa4dafed1f5a2bd3803, type: 3}
 --- !u!4 &8204154299855589300
 Transform:
   m_ObjectHideFlags: 0
@@ -24284,6 +24331,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8933707517730451878
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154107845441969278}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7996387635144070398, guid: 2a83511a782a6aa4dafed1f5a2bd3803, type: 3}
 --- !u!4 &8941330072024162007
 Transform:
   m_ObjectHideFlags: 0
@@ -24480,6 +24549,7 @@ GameObject:
   - component: {fileID: 8672049056620668098}
   - component: {fileID: 3977746188494952966}
   - component: {fileID: 8781560187320256244}
+  - component: {fileID: 9097237212700104269}
   m_Layer: 0
   m_Name: Fridge_Shelf_02
   m_TagString: Untagged
@@ -24487,6 +24557,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &9097237212700104269
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9097237212700104268}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9063548130770276338, guid: 2a83511a782a6aa4dafed1f5a2bd3803, type: 3}
 --- !u!23 &9130681740635378589
 MeshRenderer:
   m_ObjectHideFlags: 0
