@@ -4,11 +4,16 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.Content.Interaction;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class Stage3DateUI : MonoBehaviour
 {
-    public StageFifth stageFifth;
+    public GameObject dateUI;
+    public GameObject homework;
+    public GameObject button;
+
+
     public Button Up1;
     public Button Down1;
     public Button Up2;
@@ -20,100 +25,96 @@ public class Stage3DateUI : MonoBehaviour
     public int startFirstNum;
     public int startSecNum;
 
+    public int collectFirstNumber;
+    public int collectSecondNumber;
+
     public XRSimpleInteractable xRSimpleInteractable;
+
+    public List<XRGripButton> keyPadButtons;
+
+    public void KeyPadButtonsActivate()
+    {
+        foreach (XRGripButton xRGripButton in keyPadButtons)
+        {
+            xRGripButton.enabled = true;
+        }
+    }
 
     private void Awake()
     {
         if (xRSimpleInteractable == null) xRSimpleInteractable = GetComponentInParent<XRSimpleInteractable>();
-        if (stageFifth == null) stageFifth = GetComponentInParent<StageFifth>();
         Up1.onClick.AddListener(FirstNumUp);
         Down1.onClick.AddListener(FirstNumDown);
         Up2.onClick.AddListener(SecNumUp);
         Down2.onClick.AddListener(SecNumDown);
     }
 
+
     private void Start()
     {
-        if (startFirstNum == 0) firstNum.text = "0" + startFirstNum.ToString();
-        else firstNum.text = startFirstNum.ToString();
-        if (startSecNum % 10 != 0) secNum.text = "0" + startSecNum.ToString();
-        else if (startSecNum == 0) secNum.text = "0" + startSecNum.ToString();
-        else secNum.text = startSecNum.ToString();
+        firstNum.text = startFirstNum.ToString();
+        secNum.text = startSecNum.ToString();
+        homework.SetActive(false);
+
     }
-    private void FirstNumUp()
+
+    public void FirstNumUp()
     {
         startFirstNum += 1;
-        if (startFirstNum < 1)
-        {
-            firstNum.text = "0" + startFirstNum.ToString();
-        }
-        else if (startFirstNum == 24)
-        {
-            startFirstNum = 0;
-            firstNum.text = "0" + startFirstNum.ToString();
-        }
-        else
-        {
-            firstNum.text = startFirstNum.ToString();
-        }
+     
+            int number = startFirstNum % 4; 
+            firstNum.text = number.ToString();
+        
+
         ClearCheck();
     }
-    private void FirstNumDown()
+    public void FirstNumDown()
     {
         startFirstNum -= 1;
         if (startFirstNum == -1)
         {
-            startFirstNum = 23;
-        }
-        if (startFirstNum < 10)
-        {
-            firstNum.text = "0" + startFirstNum.ToString();
+            startFirstNum = 3;
         }
         else
         {
-            firstNum.text = startFirstNum.ToString();
+            int number = startFirstNum % 4; 
+            firstNum.text = number.ToString();
         }
+       
+        
+   
         ClearCheck();
     }
-    private void SecNumUp()
+    public void SecNumUp()
     {
-        startSecNum += 10;
-        if (startSecNum == 60)
-        {
-            startSecNum = 0;
-            secNum.text = "0" + startSecNum.ToString();
-        }
-        else
-        {
-            secNum.text = startSecNum.ToString();
-        }
+        startSecNum += 1;
+        int number = startSecNum % 10;
+        secNum.text = number.ToString();
+    
         ClearCheck();
     }
-    private void SecNumDown()
+    public void SecNumDown()
     {
-        startSecNum -= 10;
-        if (startSecNum == -10)
+        startSecNum -= 1;
+        if (startSecNum == -1)
         {
-            startSecNum = 50;
+            startSecNum = 9;
         }
-        if (startSecNum == 0)
-        {
-            secNum.text = "0" + startSecNum.ToString();
-        }
-        else
-        {
-            secNum.text = startSecNum.ToString();
-        }
+
+        int number = startSecNum % 10;
+        secNum.text = number.ToString();
+
         ClearCheck();
     }
 
     private void ClearCheck()
     {
-        if (startFirstNum == 17 && startSecNum == 50)
+        if (startFirstNum == collectFirstNumber && startSecNum == collectSecondNumber)
         {
-            stageFifth.ClockClear();
             xRSimpleInteractable.enabled = false;
-            gameObject.SetActive(false);
+            dateUI.SetActive(false);
+            homework.SetActive(true);
+            Destroy(button);
         }
     }
 }
