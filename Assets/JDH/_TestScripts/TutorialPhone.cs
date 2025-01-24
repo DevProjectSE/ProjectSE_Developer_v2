@@ -7,15 +7,15 @@ public class TutorialPhone : MonoBehaviour
 {
     public void GrabPhone()
     {
-        //¼Õ¿¡ ´ê¾ÒÀ» °æ¿ì =>ÀÎ½Ä ¾ÈµÊ.
+        //ì†ì— ë‹¿ì•˜ì„ ê²½ìš° =>ì¸ì‹ ì•ˆë¨.
         FindObjectOfType<TutorialManager>().isPhoneGrip = true;
-        Debug.Log("ÇÚµåÆùÀ» Àâ¾Ò½À´Ï´Ù.");
+        Debug.Log("í•¸ë“œí°ì„ ì¡ì•˜ìŠµë‹ˆë‹¤.");
     }
     public void CancelGrabPhone()
     {
-        //¼Õ¿¡ ´ê¾ÒÀ» °æ¿ì =>ÀÎ½Ä ¾ÈµÊ.
+        //ì†ì— ë‹¿ì•˜ì„ ê²½ìš° =>ì¸ì‹ ì•ˆë¨.
         FindObjectOfType<TutorialManager>().isPhoneGrip = false;
-        Debug.Log("ÇÚµåÆùÀ» ³õ¾Ò½À´Ï´Ù.");
+        Debug.Log("í•¸ë“œí°ì„ ë†“ì•˜ìŠµë‹ˆë‹¤.");
     }
-    
+
 }

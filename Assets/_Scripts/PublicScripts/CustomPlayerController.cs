@@ -17,6 +17,7 @@ using EPOOutline;
 using System;
 using System.Runtime.InteropServices;
 using System.Reflection;
+using UnityEngine.SceneManagement;
 
 public class CustomPlayerController : MonoBehaviour
 {
@@ -50,6 +51,32 @@ public class CustomPlayerController : MonoBehaviour
         l_Coll.radius = detectRange / 6;
         r_Coll.radius = detectRange / 6;
         if (cam == null) cam = GetComponentInChildren<Camera>();
+        if (SceneManager.GetActiveScene().name == "Stage2_Complete")
+        {
+            transform.localPosition = new Vector3(-6.325f, 0.515f, 8.353f);
+            Debug.Log("a");
+
+        }
+        if (SceneManager.GetActiveScene().name == "Stage3_Complete")
+        {
+            Debug.Log("B");
+            transform.localPosition = new Vector3(-19.25f, 0.13f, -0.23f);
+        }
+        if (SceneManager.GetActiveScene().name == "Stage4_Complete")
+        {
+            Debug.Log("c");
+            transform.localPosition = new Vector3(-16.095f, -0.133f, 6.315f);
+        }
+        if (SceneManager.GetActiveScene().name == "Stage5_Complete")
+        {
+            Debug.Log("D");
+            transform.localPosition = new Vector3(11.368f, 0.5f, 1.306f);
+        }
+        if (SceneManager.GetActiveScene().name == "Stage6_Happy_Complete")
+        {
+            Debug.Log("E");
+            transform.localPosition = new Vector3(0.577f, 1.713f, 2.572f);
+        }
     }
 
     private void OnEnable()

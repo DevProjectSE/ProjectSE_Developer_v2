@@ -18,7 +18,7 @@ public class OpenDoor_Stage5 : OpenDoor
             else
             {
                 //TODO : 배드엔딩로드
-                SceneLoadManager.Instance.StageLoad(StageNumber.BadEnding);
+                SceneLoadManager.Instance.StageLoad(StageNumber.HappyEnding);
             }
         }
     }

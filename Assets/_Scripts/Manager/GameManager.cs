@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : SingletonManager<GameManager>
@@ -26,16 +27,14 @@ public class GameManager : SingletonManager<GameManager>
 
         SceneManager.sceneLoaded += (x, y) =>
         {
+            if (SceneManager.GetActiveScene().name == "Stage1_Complete")
+            {
+                uiManager = FindAnyObjectByType<UIManager>();
+            }
             if (SceneManager.GetActiveScene().name != "LoadingScene")
             {
-                if (Player != null)
-                {
-                    Player = null;
-                }
-                if (Player == null)
-                {
-                    Player = FindAnyObjectByType<Player>().gameObject;
-                }
+
+                Player = FindAnyObjectByType<Player>().gameObject;
                 int i = 0;
                 foreach (bool a in DataManager.Instance.dataTable.isStageEnter)
                 {
@@ -44,6 +43,7 @@ public class GameManager : SingletonManager<GameManager>
                 }
             }
         };
+
     }
 
     public void DiaryMat_Activate(int page)
