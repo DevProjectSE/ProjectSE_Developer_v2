@@ -18,8 +18,10 @@ public class Stage3Rope : MonoBehaviour
             print(Stage3ItemManager.Instance.ropeNum);
             if (Stage3ItemManager.Instance.ropeNum == 0)
             {
-                if (Stage3ItemManager.Instance.stageState == 6)
+                Debug.Log(0);
+                if (Stage3StateManager.Instance.stage3Step == 13)
                 {
+                    Debug.Log("in");
                     Stage3StateManager.Instance.robot.SetActive(true);
                     Stage3StateManager.Instance.cleanLockDoor.enabled = true;
                     Stage3ItemManager.Instance.stageState++;

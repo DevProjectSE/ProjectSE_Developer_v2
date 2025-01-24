@@ -98,5 +98,24 @@ public class Stage3Item : MonoBehaviour
             GameManager.Instance.DiaryMat_Activate(4);
         }
     }
-
+    public void Fourth()
+    {
+        if (Stage3StateManager.Instance.stage3Step == 14)
+        {
+            Stage3StateManager.Instance.stage3Step = 15;
+            Stage3StateManager.Instance.isDiaryInInventory3 = true;
+        }
+    }
+    public void BackPackLoker()
+    {
+        if (Stage3StateManager.Instance.backpackLoker.isUnlocked)
+        {
+            Stage3StateManager.Instance.backpackLokerKnob.enabled = true;
+            Stage3StateManager.Instance.backPack.enabled = true;
+        }
+    }
+    public void DestroySelf()
+    {
+        Destroy(this);
+    }
 }
