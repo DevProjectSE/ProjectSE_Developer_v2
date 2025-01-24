@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class Stage3Item : MonoBehaviour
 {
- 
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-   
+
     }
 
     public void GetFlash()
@@ -29,13 +28,30 @@ public class Stage3Item : MonoBehaviour
             Stage3StateManager.Instance.isGetDiary = true;
         }
     }
-
+    //다이어리 처음으로 인벤수납
+    public void First()
+    {
+        if (Stage3StateManager.Instance.stage3Step == 5)
+        {
+            Stage3StateManager.Instance.stage3Step = 6;
+            Stage3StateManager.Instance.isDiaryInInventory1 = true;
+        }
+    }
     public void GetBook()
     {
         if (Stage3StateManager.Instance.stage3Step == 6)
         {
             Stage3StateManager.Instance.stage3Step = 7;
             Stage3StateManager.Instance.isGetBook = true;
+            GameManager.Instance.DiaryMat_Activate(2);
+        }
+    }
+    public void Second()
+    {
+        if (Stage3StateManager.Instance.stage3Step == 7)
+        {
+            Stage3StateManager.Instance.stage3Step = 8;
+            Stage3StateManager.Instance.isDiaryInInventory2 = true;
         }
     }
     public void GetHomework()
@@ -43,10 +59,18 @@ public class Stage3Item : MonoBehaviour
         if (Stage3StateManager.Instance.stage3Step == 8)
         {
             Stage3StateManager.Instance.stage3Step = 9;
-            Stage3StateManager.Instance.isGetHomework=true;
+            Stage3StateManager.Instance.isGetHomework = true;
+            GameManager.Instance.DiaryMat_Activate(3);
         }
     }
-
+    public void Third()
+    {
+        if (Stage3StateManager.Instance.stage3Step == 9)
+        {
+            Stage3StateManager.Instance.stage3Step = 10;
+            Stage3StateManager.Instance.isDiaryInInventory2 = true;
+        }
+    }
     public void GetBackpack()
     {
         if (Stage3StateManager.Instance.stage3Step == 10)
@@ -65,13 +89,14 @@ public class Stage3Item : MonoBehaviour
         }
     }
 
-
     public void GetRobot()
     {
         if (Stage3StateManager.Instance.stage3Step == 13)
         {
             Stage3StateManager.Instance.stage3Step = 14;
             Stage3StateManager.Instance.isGetRobot = true;
+            GameManager.Instance.DiaryMat_Activate(4);
         }
     }
+
 }

@@ -8,30 +8,30 @@ public class Stage3StateManager : MonoBehaviour
 
     public DialogSystem[] dialogSystems;
 
-    public IState currentState;
+    // public IState currentState;
 
     public int stage3Step = 0;
     public int setNum = 0;
 
-    public bool isTouchDoor = false; //0                ¿Ï·á
-    public bool isCheckTeachersdesk = false; //1        ¿Ï·á
-    public bool isGetLight = false; //2                 ¿Ï·á
-    public bool isCheckHaYunsDesk = false; //3          ¿Ï·á
-    public bool isGetDiary=false; //4                   ¿Ï·á
-    public bool isDiaryInInventory1 = false; //5        
-    public bool isGetBook=false; //6                    ¿Ï·á
+    public bool isTouchDoor = false; //0                ì™„ë£Œ
+    public bool isCheckTeachersdesk = false; //1        ì™„ë£Œ
+    public bool isGetLight = false; //2                 ì™„ë£Œ
+    public bool isCheckHaYunsDesk = false; //3          ì™„ë£Œ
+    public bool isGetDiary = false; //4                   ì™„ë£Œ
+    public bool isDiaryInInventory1 = false; //5        ì™„ë£Œ
+    public bool isGetBook = false; //6                    ì™„ë£Œ
     public bool isDiaryInInventory2 = false; //7            
-    public bool isGetHomework = false; //8              ¿Ï·á
+    public bool isGetHomework = false; //8              ì™„ë£Œ
     public bool isDiaryInInventory3 = false; //9        
-    public bool isGetBagpack = false; //10              ¿Ï·á
-    public bool isSettingHaYunsObject = false; //11     ¿Ï·á   
-    public bool isCheckRope = false; //12               ¿Ï·á
-    public bool isGetRobot=false; //13                  ¿Ï·á
+    public bool isGetBagpack = false; //10              ì™„ë£Œ
+    public bool isSettingHaYunsObject = false; //11     ì™„ë£Œ   
+    public bool isCheckRope = false; //12               ì™„ë£Œ
+    public bool isGetRobot = false; //13                  ì™„ë£Œ
     public bool isDariyInInventory4 = false; //14 
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -43,28 +43,24 @@ public class Stage3StateManager : MonoBehaviour
 
     private void Start()
     {
-        TransitionToState(new EnterState());
+        // TransitionToState(new EnterState());s
     }
 
     private void Update()
     {
-        currentState?.Execute();
-   
+        // currentState?.Execute();
 
         dialogSystems[stage3Step].gameObject.SetActive(true);
-           
+
     }
 
-    
+    // public void TransitionToState(IState newState)
+    // {
+    //     currentState?.Exit();
 
-    public void TransitionToState(IState newState)
-    {
-        currentState?.Exit();
+    //     currentState = newState;
 
-        currentState = newState;
-
-        currentState.Enter();
-    }
-
+    //     currentState.Enter();
+    // }
 
 }
