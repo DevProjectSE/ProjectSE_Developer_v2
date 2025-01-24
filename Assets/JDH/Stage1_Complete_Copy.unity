@@ -5191,6 +5191,38 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6376757406901307872, guid: c7240c427f201894f96e54fe62941438,
+        type: 3}
+      propertyPath: m_text
+      value: "\uB2A6\uC740 \uD558\uAD50 : \uADF8\uB0A0\uC758 \uAE30\uC5B5"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6376757406901307872, guid: c7240c427f201894f96e54fe62941438,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6376757406901307872, guid: c7240c427f201894f96e54fe62941438,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c310ede5233eaac4bbdad0f941288b44,
+        type: 2}
+    - target: {fileID: 6376757406901307872, guid: c7240c427f201894f96e54fe62941438,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6376757406901307872, guid: c7240c427f201894f96e54fe62941438,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1570835054704083802, guid: c310ede5233eaac4bbdad0f941288b44,
+        type: 2}
+    - target: {fileID: 6376757406901307872, guid: c7240c427f201894f96e54fe62941438,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8691262794254149900, guid: c7240c427f201894f96e54fe62941438,
         type: 3}
       propertyPath: m_AnchorMax.y
