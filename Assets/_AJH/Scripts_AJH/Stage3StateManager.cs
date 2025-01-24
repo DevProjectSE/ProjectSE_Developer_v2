@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Content.Interaction;
 
 public class Stage3StateManager : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class Stage3StateManager : MonoBehaviour
     public bool isCheckRope = false; //12               완료
     public bool isGetRobot = false; //13                  완료
     public bool isDariyInInventory4 = false; //14 
+
+    public GameObject robot;
+    public XRKnob cleanLockDoor;
 
     private void Awake()
     {

@@ -6,26 +6,26 @@ public class Stage3Rope : MonoBehaviour
 {
     public GameObject knife;
 
-    
     void OnTriggerEnter(Collider other)
     {
-            //print("Ãæµ¹ÇÔ" + other.gameObject.name);   
-        
+        //print("ì¶©ëŒí•¨" + other.gameObject.name);   
+
         if (other.gameObject.CompareTag("Knife"))
         {
-            //print("Ãæµ¹ÇÔ2");
+            //print("ì¶©ëŒí•¨2");
             Destroy(gameObject);
-            Stage3ItemManager.Instance.ropeNum --;
-            print(Stage3ItemManager.Instance.ropeNum); 
-            if (Stage3ItemManager.Instance.ropeNum ==0)
+            Stage3ItemManager.Instance.ropeNum--;
+            print(Stage3ItemManager.Instance.ropeNum);
+            if (Stage3ItemManager.Instance.ropeNum == 0)
             {
-                if(Stage3ItemManager.Instance.stageState == 6)
+                if (Stage3ItemManager.Instance.stageState == 6)
                 {
+                    Stage3StateManager.Instance.robot.SetActive(true);
+                    Stage3StateManager.Instance.cleanLockDoor.enabled = true;
                     Stage3ItemManager.Instance.stageState++;
                 }
             }
         }
     }
-
 
 }
