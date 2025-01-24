@@ -27,16 +27,20 @@ public class SceneLoadManager : SingletonManager<SceneLoadManager>
     {
         switch (stageNumber)
         {
+            case StageNumber.Title:
+                LoadingScene.LoadScene("Title_Complete");
+                DataManager.Instance.SaveData(stageNumber);
+                break;
             case StageNumber.Stage1:
-                LoadingScene.LoadScene("Stage1_JDH");
+                LoadingScene.LoadScene("Stage1_Complete");
                 DataManager.Instance.SaveData(stageNumber);
                 break;
             case StageNumber.Stage2:
-                LoadingScene.LoadScene("Stage2_AJH");
+                LoadingScene.LoadScene("Stage2_Complete");
                 DataManager.Instance.SaveData(stageNumber);
                 break;
             case StageNumber.Stage3:
-                LoadingScene.LoadScene("Stage3_AJH");
+                LoadingScene.LoadScene("Stage3_Complete");
                 DataManager.Instance.SaveData(stageNumber);
                 break;
             case StageNumber.Stage4:
@@ -48,11 +52,11 @@ public class SceneLoadManager : SingletonManager<SceneLoadManager>
                 DataManager.Instance.SaveData(stageNumber);
                 break;
             case StageNumber.BadEnding:
-                LoadingScene.LoadScene("Stage6_Bad");
+                LoadingScene.LoadScene("Stage6_Bad_Complete");
                 DataManager.Instance.SaveData(stageNumber);
                 break;
             case StageNumber.HappyEnding:
-                LoadingScene.LoadScene("Stage6_Happy");
+                LoadingScene.LoadScene("Stage6_Happy_Complete");
                 DataManager.Instance.SaveData(stageNumber);
                 break;
         }

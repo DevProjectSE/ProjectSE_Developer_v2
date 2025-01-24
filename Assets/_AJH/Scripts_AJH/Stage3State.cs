@@ -1,226 +1,222 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
 
-public interface IState
-{
-    void Enter();
-    void Execute();
-    void Exit();
+// public interface IState
+// {
+//     void Enter();
+//     void Execute();
+//     void Exit();
 
-}
+// }
 
-public class EnterState : IState
-{
-    public void Enter()
-    {
-        Debug.Log("±³½Ç¿¡ µé¾î¿È , 0");
-    }
+// public class EnterState : IState
+// {
+//     public void Enter()
+//     {
+//         Debug.Log("êµì‹¤ì— ë“¤ì–´ì˜´ , 0");
+//     }
 
-    public void Execute()
-    {
-        //¼ÕÀüµî È¹µæ½Ã
+//     public void Execute()
+//     {
+//         //ì†ì „ë“± íšë“ì‹œ
 
-        Debug.Log("±³Å¹ ÀÚ¹°¼è ÇØÃ¼");
-        //Stage3StateManager.Instance.stage3Step++;
-        if (Stage3StateManager.Instance.stage3Step == 1)
-        {
-            Stage3StateManager.Instance.TransitionToState(new PlayingSate1());
-        }
-    }
+//         Debug.Log("êµíƒ ìë¬¼ì‡  í•´ì²´");
+//         //Stage3StateManager.Instance.stage3Step++;
+//         if (Stage3StateManager.Instance.stage3Step == 1)
+//         {
+//             Stage3StateManager.Instance.TransitionToState(new PlayingSate1());
+//         }
+//     }
 
-    public void Exit()
-    {
-        Debug.Log("¼ÕÀüµî È¹µæ °ÔÀÓ ÁøÇà");
-    }
-}
+//     public void Exit()
+//     {
+//         Debug.Log("ì†ì „ë“± íšë“ ê²Œì„ ì§„í–‰");
+//     }
+// }
 
-public class PlayingSate1 : IState
-{
-    public void Enter()
-    {
-        Debug.Log("¼ÕÀüµî È¹µæÇÏ½Ã¿À 1");
-    }
+// public class PlayingSate1 : IState
+// {
+//     public void Enter()
+//     {
+//         Debug.Log("ì†ì „ë“± íšë“í•˜ì‹œì˜¤ 1");
+//     }
 
-    public void Execute()
-    {
-        //¼ÕÀüµî È¹µæ½Ã
-        Debug.Log("¼ÕÀüµî È¹µæ");
-        //Stage3StateManager.Instance.stage3Step++;
-        if (Stage3StateManager.Instance.stage3Step == 2)
-        {
-            Stage3StateManager.Instance.TransitionToState(new PlayingSate2());
-        }
-    }
+//     public void Execute()
+//     {
+//         //ì†ì „ë“± íšë“ì‹œ
+//         Debug.Log("ì†ì „ë“± íšë“");
+//         //Stage3StateManager.Instance.stage3Step++;
+//         if (Stage3StateManager.Instance.stage3Step == 2)
+//         {
+//             Stage3StateManager.Instance.TransitionToState(new PlayingSate2());
+//         }
+//     }
 
-    public void Exit()
-    {
-        Debug.Log("¼ÕÀüµî È¹µæ Á¾·á 2 ");
-    }
-}
+//     public void Exit()
+//     {
+//         Debug.Log("ì†ì „ë“± íšë“ ì¢…ë£Œ 2 ");
+//     }
+// }
 
-public class PlayingSate2 : IState
-{
-    public void Enter()
-    {
-        Debug.Log("ÀÏ±âÀåÀ» È¹µæÇÏ½Ã¿À 2");
-    }
+// public class PlayingSate2 : IState
+// {
+//     public void Enter()
+//     {
+//         Debug.Log("ì¼ê¸°ì¥ì„ íšë“í•˜ì‹œì˜¤ 2");
+//     }
 
-    public void Execute()
-    {
-        //¼ÕÀüµî È¹µæ½Ã
-        Debug.Log("ÀÏ±âÀå È¹µæ ");
-        //Stage3StateManager.Instance.stage3Step++;
-        if (Stage3StateManager.Instance.stage3Step == 3)
-        {
-            Stage3StateManager.Instance.TransitionToState(new PlayingSate3());
-        }
-    }
+//     public void Execute()
+//     {
+//         //ì†ì „ë“± íšë“ì‹œ
+//         Debug.Log("ì¼ê¸°ì¥ íšë“ ");
+//         //Stage3StateManager.Instance.stage3Step++;
+//         if (Stage3StateManager.Instance.stage3Step == 3)
+//         {
+//             Stage3StateManager.Instance.TransitionToState(new PlayingSate3());
+//         }
+//     }
 
-    public void Exit()
-    {
-        Debug.Log("ÀÏ±âÀå È¹µæ Á¾·á 3");
-    }
-}
+//     public void Exit()
+//     {
+//         Debug.Log("ì¼ê¸°ì¥ íšë“ ì¢…ë£Œ 3");
+//     }
+// }
 
-public class PlayingSate3 : IState
-{
-    public void Enter()
-    {
-        Debug.Log("¹öÆ° ¾ÏÈ£ Ç®±â 3");
-    }
+// public class PlayingSate3 : IState
+// {
+//     public void Enter()
+//     {
+//         Debug.Log("ë²„íŠ¼ ì•”í˜¸ í’€ê¸° 3");
+//     }
 
-    public void Execute()
-    {
-        //¼ÕÀüµî È¹µæ½Ã
-        Debug.Log("¹öÆ° ¾ÏÈ£ ¿Ï·á");
-        //Stage3StateManager.Instance.stage3Step++;
-        if (Stage3StateManager.Instance.stage3Step == 4)
-        {
-            Stage3StateManager.Instance.TransitionToState(new PlayingSate4());
-        }
-    }
+//     public void Execute()
+//     {
+//         //ì†ì „ë“± íšë“ì‹œ
+//         Debug.Log("ë²„íŠ¼ ì•”í˜¸ ì™„ë£Œ");
+//         //Stage3StateManager.Instance.stage3Step++;
+//         if (Stage3StateManager.Instance.stage3Step == 4)
+//         {
+//             Stage3StateManager.Instance.TransitionToState(new PlayingSate4());
+//         }
+//     }
 
-    public void Exit()
-    {
-        Debug.Log("¹öÆ° ¾ÏÈ£ Ç®±â ¿Ï·á 4");
-    }
-}
+//     public void Exit()
+//     {
+//         Debug.Log("ë²„íŠ¼ ì•”í˜¸ í’€ê¸° ì™„ë£Œ 4");
+//     }
+// }
 
-public class PlayingSate4 : IState
-{
-    public void Enter()
-    {
-        Debug.Log("»ç¹°ÇÔ ¾ÏÈ£ 4");
-    }
+// public class PlayingSate4 : IState
+// {
+//     public void Enter()
+//     {
+//         Debug.Log("ì‚¬ë¬¼í•¨ ì•”í˜¸ 4");
+//     }
 
-    public void Execute()
-    {
-        //¼ÕÀüµî È¹µæ½Ã
-        Debug.Log("»ç¹°ÇÔ ¾ÏÈ£ Ç®±â ¿Ï·á 4");
-        //Stage3StateManager.Instance.stage3Step++;
-        if (Stage3StateManager.Instance.stage3Step == 5)
-        {
-            Stage3StateManager.Instance.TransitionToState(new PlayingSate5());
-        }
-    } 
+//     public void Execute()
+//     {
+//         //ì†ì „ë“± íšë“ì‹œ
+//         Debug.Log("ì‚¬ë¬¼í•¨ ì•”í˜¸ í’€ê¸° ì™„ë£Œ 4");
+//         //Stage3StateManager.Instance.stage3Step++;
+//         if (Stage3StateManager.Instance.stage3Step == 5)
+//         {
+//             Stage3StateManager.Instance.TransitionToState(new PlayingSate5());
+//         }
+//     }
 
+//     public void Exit()
+//     {
+//         Debug.Log("ì‚¬ë¬¼í•¨ ì•”í˜¸í’€ê¸° ì™„ë£Œ 5  ");
+//     }
+// }
 
-    public void Exit()
-    {
-        Debug.Log("»ç¹°ÇÔ ¾ÏÈ£Ç®±â ¿Ï·á 5  ");
-    }
-}
+// public class PlayingSate5 : IState
+// {
+//     public void Enter()
+//     {
+//         Debug.Log("ì±…ê°€ë°© ì¡°í•© 5");
+//     }
 
-public class PlayingSate5 : IState
-{
-    public void Enter()
-    {
-        Debug.Log("Ã¥°¡¹æ Á¶ÇÕ 5");
-    }
+//     public void Execute()
+//     {
+//         //ì†ì „ë“± íšë“ì‹œ
+//         Debug.Log("ì±…ê°€ë°© ì¡°í•© ì™„ë£Œ 5");
+//         //Stage3StateManager.Instance.stage3Step++;
+//         if (Stage3StateManager.Instance.stage3Step == 6)
+//         {
+//             Stage3StateManager.Instance.TransitionToState(new PlayingSate6());
+//         }
+//     }
 
-    public void Execute()
-    {
-        //¼ÕÀüµî È¹µæ½Ã
-        Debug.Log("Ã¥°¡¹æ Á¶ÇÕ ¿Ï·á 5");
-        //Stage3StateManager.Instance.stage3Step++;
-        if (Stage3StateManager.Instance.stage3Step == 6)
-        {
-            Stage3StateManager.Instance.TransitionToState(new PlayingSate6());
-        }
-    }
+//     public void Exit()
+//     {
+//         Debug.Log("ì±…ê°€ë°© ì¡°í•© ì¢…ë£Œ6");
+//     }
+// }
 
-    public void Exit()
-    {
-        Debug.Log("Ã¥°¡¹æ Á¶ÇÕ Á¾·á6");
-    }
-}
+// public class PlayingSate6 : IState
+// {
+//     public void Enter()
+//     {
+//         Debug.Log("ì¹¼ë¡œ ë¡œí”„ìë¥´ê¸° 6");
+//     }
 
-public class PlayingSate6 : IState
-{
-    public void Enter()
-    {
-        Debug.Log("Ä®·Î ·ÎÇÁÀÚ¸£±â 6");
-    }
+//     public void Execute()
+//     {
+//         //ì†ì „ë“± íšë“ì‹œ
+//         Debug.Log("ì¹¼ë¡œ ë¡œí”„ìë¦¬ê¸° ì™„ë£Œ7");
+//         //Stage3StateManager.Instance.stage3Step++;
+//         if (Stage3StateManager.Instance.stage3Step == 7)
+//         {
+//             Stage3StateManager.Instance.TransitionToState(new PlayingSate7());
+//         }
+//     }
 
-    public void Execute()
-    {
-        //¼ÕÀüµî È¹µæ½Ã
-        Debug.Log("Ä®·Î ·ÎÇÁÀÚ¸®±â ¿Ï·á7");
-        //Stage3StateManager.Instance.stage3Step++;
-        if (Stage3StateManager.Instance.stage3Step == 7)
-        {
-            Stage3StateManager.Instance.TransitionToState(new PlayingSate7());
-        }
-    }
+//     public void Exit()
+//     {
+//         Debug.Log("ì¹¼ë¡œ ë¡œí”„ìë¥´ê¸° ì¢…ë£Œ 7 ");
+//     }
+// }
+// public class PlayingSate7 : IState
+// {
+//     public void Enter()
+//     {
+//         Debug.Log("ë¡œë´‡íšë“ 7 ");
+//     }
 
-    public void Exit()
-    {
-        Debug.Log("Ä®·Î ·ÎÇÁÀÚ¸£±â Á¾·á 7 ");
-    }
-}
-public class PlayingSate7 : IState
-{
-    public void Enter()
-    {
-        Debug.Log("·Îº¿È¹µæ 7 ");
-    }
+//     public void Execute()
+//     {
+//         //ì†ì „ë“± íšë“ì‹œ
+//         Debug.Log("ë¡œë´‡ íšë“ ì™„ë£Œ");
+//         //Stage3StateManager.Instance.stage3Step++;
+//         if (Stage3StateManager.Instance.stage3Step == 8)
+//         {
+//             Stage3StateManager.Instance.TransitionToState(new PlayingSateEnd());
+//         }
+//     }
 
-    public void Execute()
-    {
-        //¼ÕÀüµî È¹µæ½Ã
-        Debug.Log("·Îº¿ È¹µæ ¿Ï·á");
-        //Stage3StateManager.Instance.stage3Step++;
-        if (Stage3StateManager.Instance.stage3Step == 8)
-        {
-            Stage3StateManager.Instance.TransitionToState(new PlayingSateEnd());
-        }
-    }
+//     public void Exit()
+//     {
+//         Debug.Log("ë¡œë´‡ íšë“ ì¢…ë£Œ");
+//     }
+// }
+// public class PlayingSateEnd : IState
+// {
+//     public void Enter()
+//     {
+//         Debug.Log("ìŠ¤í…Œì´ì§€3 í´ë¦¬ì–´ ë‹¤ìŒ ìŠ¤í…Œì´ì§€ë¡œ ì§„ì…í•˜ì‹œì˜¤");
+//     }
 
-    public void Exit()
-    {
-        Debug.Log("·Îº¿ È¹µæ Á¾·á");
-    }
-}
-public class PlayingSateEnd : IState
-{
-    public void Enter()
-    {
-        Debug.Log("½ºÅ×ÀÌÁö3 Å¬¸®¾î ´ÙÀ½ ½ºÅ×ÀÌÁö·Î ÁøÀÔÇÏ½Ã¿À");
-    }
+//     public void Execute()
+//     {
+//         //ì†ì „ë“± íšë“ì‹œ
+//         //Debug.Log("ì²«ë²ˆì§¸ ìƒíƒœ í´ë¦¬ì–´");
+//     }
 
-    public void Execute()
-    {
-        //¼ÕÀüµî È¹µæ½Ã
-        //Debug.Log("Ã¹¹øÂ° »óÅÂ Å¬¸®¾î");
-    }
-
-    public void Exit()
-    {
-        Debug.Log("Á¾·á");
-    }
-}
-
-
-
+//     public void Exit()
+//     {
+//         Debug.Log("ì¢…ë£Œ");
+//     }
+// }
 

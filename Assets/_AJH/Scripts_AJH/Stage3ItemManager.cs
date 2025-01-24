@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Content.Interaction;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class Stage3ItemManager : MonoBehaviour
@@ -19,7 +20,6 @@ public class Stage3ItemManager : MonoBehaviour
     public int ropeNum = 4;
     public int stageState = 0;
 
-
     private void Awake()
     {
         if (Instance == null)
@@ -36,7 +36,5 @@ public class Stage3ItemManager : MonoBehaviour
     {
 
     }
-
-    
 
 }
