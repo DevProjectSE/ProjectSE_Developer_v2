@@ -6123,7 +6123,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Project SE
+  m_text: "\uB2A6\uC740 \uD558\uAD50 : \uADF8\uB0A0\uC758 \uAE30\uC5B5"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c310ede5233eaac4bbdad0f941288b44, type: 2}
   m_sharedMaterial: {fileID: -1570835054704083802, guid: c310ede5233eaac4bbdad0f941288b44,
