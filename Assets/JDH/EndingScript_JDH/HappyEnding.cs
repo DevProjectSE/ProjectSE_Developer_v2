@@ -18,6 +18,8 @@ public class HappyEnding : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator Start()
     {
+        GameManager.Instance.Player.GetComponentInChildren<CustomPlayerController>().CtrlRelease();
+
         //Ending 대사 출력
         yield return null;
         FirstEndingScript.gameObject.SetActive(true);
@@ -28,8 +30,9 @@ public class HappyEnding : MonoBehaviour
         EndingTitle.gameObject.SetActive(true);
         yield return new WaitForSeconds(3f);
         //FadeOut
-        StartCoroutine(fadeInOutObj.FadeIn());
+        StartCoroutine(fadeInOutObj.FadeOut());
         yield return new WaitForSeconds(3f);
+
         //MainTitleScene으로 이동
         SceneLoadManager.Instance.StageLoad(StageNumber.Title);
     }
