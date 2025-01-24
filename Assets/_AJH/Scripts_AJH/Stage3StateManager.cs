@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.Content.Interaction;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Stage3StateManager : MonoBehaviour
 {
@@ -29,9 +31,13 @@ public class Stage3StateManager : MonoBehaviour
     public bool isCheckRope = false; //12               완료
     public bool isGetRobot = false; //13                  완료
     public bool isDariyInInventory4 = false; //14 
-
+    public NumberKeyPad backpackLoker;
+    public XRKnob backpackLokerKnob;
+    public XRGrabInteractable backPack;
     public GameObject robot;
     public XRKnob cleanLockDoor;
+
+    public Stage3ClassDoor stage3ClassDoor;
 
     private void Awake()
     {
@@ -55,7 +61,11 @@ public class Stage3StateManager : MonoBehaviour
         // currentState?.Execute();
 
         dialogSystems[stage3Step].gameObject.SetActive(true);
-
+        if (dialogSystems[15].isDialogsEnd)
+        {
+            dialogSystems[16].gameObject.SetActive(true);
+            stage3ClassDoor.enabled = true;
+        }
     }
 
     // public void TransitionToState(IState newState)

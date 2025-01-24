@@ -6,11 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Developer_Scenes/CompleteScene/Stage2_Complete.unity
+    guid: 023bb99e3e4dd0e44b19d9fbe0593583
+  - enabled: 1
+    path: Assets/_Developer_Scenes/CompleteScene/Stage3_Complete.unity
+    guid: cb0b1e4d20cdab947b00edd13b66d619
+  - enabled: 1
     path: Assets/_Developer_Scenes/CompleteScene/Stage4_Complete.unity
-    guid: 73516f3358f37524a818cd85cdc7752b
+    guid: 006297c3777197f4e885fcc5f03018a4
   - enabled: 1
     path: Assets/_Developer_Scenes/CompleteScene/Stage5_Complete.unity
-    guid: 21f2e0a86e2e41f47b179b12fe4d1503
+    guid: de9becea4f561b844978e325f21f6c18
   - enabled: 1
     path: Assets/_Developer_Scenes/LoadingScene.unity
     guid: 8faee27aa5466b04da7e63956a3502cd
