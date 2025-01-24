@@ -6,6 +6,9 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEngine.Assertions.Must;
+using System.Diagnostics;
+using Debug = UnityEngine.Debug;
+using Unity.VisualScripting;
 [Serializable]
 public class DataTable
 {
@@ -32,20 +35,24 @@ public class DataManager : SingletonManager<DataManager>
         path = Application.persistentDataPath + "/";
         try
         {
+
             LoadData();
         }
         catch (Exception e)
         {
             Debug.LogWarning(e.Message);
         }
+
     }
     public void SaveData(StageNumber stageNumber)
     {
         Debug.Log("SaveDataEnter");
         switch (stageNumber)
         {
+            case StageNumber.Title:
+                dataTable.currentStage = 0;
+                break;
             case StageNumber.Stage1:
-                Debug.Log("Stage1");
                 dataTable.currentStage = 1;
                 dataTable.isStageEnter[0] = true;
                 break;
@@ -56,14 +63,26 @@ public class DataManager : SingletonManager<DataManager>
             case StageNumber.Stage3:
                 dataTable.currentStage = 3;
                 dataTable.isStageEnter[2] = true;
+                foreach (Material mat in GameManager.Instance.diary_Mats)
+                {
+                    mat.SetFloat("_Dissolve", 0.65f);
+                }
                 break;
             case StageNumber.Stage4:
                 dataTable.currentStage = 4;
                 dataTable.isStageEnter[3] = true;
+                for (int i = 0; i < 4; i++)
+                {
+                    dataTable.diaryPage_Dissolve[i] = 0;
+                }
                 break;
             case StageNumber.Stage5:
                 dataTable.currentStage = 5;
                 dataTable.isStageEnter[4] = true;
+                for (int i = 0; i < 8; i++)
+                {
+                    dataTable.diaryPage_Dissolve[i] = 0;
+                }
                 break;
             case StageNumber.BadEnding:
                 dataTable.currentStage = 6;
@@ -86,28 +105,13 @@ public class DataManager : SingletonManager<DataManager>
     {
         string loadFile = File.ReadAllText(path + fileName);
         dataTable = JsonUtility.FromJson<DataTable>(loadFile);
-    }
-
-    public void Stage1()
-    {
-
-    }
-
-    public void Stage2()
-    {
+        // int i = 0;
+        // foreach (Material mat in GameManager.Instance.diary_Mats)
+        // {
+        //     mat.SetFloat("_Dissolve", dataTable.diaryPage_Dissolve[i]);
+        //     i++;
+        // }
 
     }
 
-    public void Stage3()
-    {
-
-    }
-
-    public void Stage4()
-    {
-
-    }
-    public void Stage5()
-    {
-    }
 }

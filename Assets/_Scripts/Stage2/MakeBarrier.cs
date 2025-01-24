@@ -47,7 +47,7 @@ public class MakeBarrier : MonoBehaviour
             RenderSettings.ambientIntensity = Mathf.Lerp(courrentIntensity, targetIntensity, elapsedTime / chageSpeed);
             float angleDifference = Mathf.DeltaAngle(currentAngleX, targetAngle);
             float newAngle = currentAngleX + angleDifference * (elapsedTime / chageSpeed);
-
+            Debug.Log(RenderSettings.ambientIntensity);
             lightSource.transform.rotation = Quaternion.Euler(Mathf.LerpAngle(newAngle, targetAngle, elapsedTime / chageSpeed), 0, 0);
             elapsedTime += Time.deltaTime;
             yield return null;

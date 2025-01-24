@@ -16,6 +16,10 @@ public class GameManager : SingletonManager<GameManager>
     protected override void Awake()
     {
         base.Awake();
+        if (Player == null)
+        {
+            Player = FindAnyObjectByType<Player>().gameObject;
+        }
     }
     private void Start()
     {
@@ -31,6 +35,12 @@ public class GameManager : SingletonManager<GameManager>
                 if (Player == null)
                 {
                     Player = FindAnyObjectByType<Player>().gameObject;
+                }
+                int i = 0;
+                foreach (bool a in DataManager.Instance.dataTable.isStageEnter)
+                {
+                    Player.GetComponentInChildren<Main_Title>().stageBTN[i].interactable = a;
+                    i++;
                 }
             }
         };
