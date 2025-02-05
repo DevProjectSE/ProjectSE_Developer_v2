@@ -35,7 +35,6 @@ public class DataManager : SingletonManager<DataManager>
         path = Path.Combine(Application.persistentDataPath, "SaveData");
         try
         {
-
             LoadData();
         }
         catch (Exception e)
@@ -105,13 +104,6 @@ public class DataManager : SingletonManager<DataManager>
     {
         string loadFile = File.ReadAllText(path + fileName);
         dataTable = JsonUtility.FromJson<DataTable>(loadFile);
-        // int i = 0;
-        // foreach (Material mat in GameManager.Instance.diary_Mats)
-        // {
-        //     mat.SetFloat("_Dissolve", dataTable.diaryPage_Dissolve[i]);
-        //     i++;
-        // }
-
     }
 
 }

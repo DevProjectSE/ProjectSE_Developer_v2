@@ -51,21 +51,14 @@ public class Main_Title : MonoBehaviour
         int i = 0;
         foreach (bool isStageEnter in DataManager.Instance.dataTable.isStageEnter)
         {
-            if (isStageEnter)
-            {
-                stageBTN[i].interactable = true;
-            }
-            else
-            {
-                break;
-            }
+            if (isStageEnter) stageBTN[i].interactable = true;
+            else break;
             i++;
         }
         if (SceneManager.GetActiveScene().name != "Title_Complete")
         {
             titlePanel.SetActive(false);
         }
-
     }
     private void OnEnable()
     {
@@ -77,7 +70,6 @@ public class Main_Title : MonoBehaviour
     }
     private void MenuAction(InputAction.CallbackContext context)
     {
-        //TODO : 겜매가 있어야 작동하는데, 01/21기준 겜매 싱글턴 작업 미완료
         GameManager.Instance.Player.
         GetComponentInChildren<CustomPlayerController>().UIOpen();
         titlePanel.SetActive(true);
@@ -85,7 +77,8 @@ public class Main_Title : MonoBehaviour
     }
     private void MenuCloseAction(InputAction.CallbackContext context)
     {
-        GameManager.Instance.Player.GetComponentInChildren<CustomPlayerController>().UIClose();
+        GameManager.Instance.Player.
+        GetComponentInChildren<CustomPlayerController>().UIClose();
         titlePanel.SetActive(false);
         r_SecondaryKey.action.performed -= MenuCloseAction;
     }
@@ -113,7 +106,6 @@ public class Main_Title : MonoBehaviour
     {
         Application.Quit();
     }
-
     private void ExitNoClick()
     {
         titlePanel.SetActive(true);

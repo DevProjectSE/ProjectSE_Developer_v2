@@ -29,7 +29,6 @@ public class SceneLoadManager : SingletonManager<SceneLoadManager>
         {
             case StageNumber.Title:
                 LoadingScene.LoadScene("Title_Complete");
-
                 DataManager.Instance.SaveData(stageNumber);
                 break;
             case StageNumber.Stage1:
@@ -62,5 +61,4 @@ public class SceneLoadManager : SingletonManager<SceneLoadManager>
                 break;
         }
     }
-
 }
