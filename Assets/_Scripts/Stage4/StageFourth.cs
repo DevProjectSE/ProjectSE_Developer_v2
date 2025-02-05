@@ -16,8 +16,6 @@ public class StageFourth : MonoBehaviour
     public XRKnob toiletDoorKnob;
     public MeshRenderer glassRenderer;
     public Material cleanedGlassMat;
-
-    //TODO : 리팩할 때 참고 : 로봇 조합 시 열리는 문
     public OpenDoor openDoor;
 
     public List<GameObject> dialog;
@@ -78,5 +76,4 @@ public class StageFourth : MonoBehaviour
         isWallBreakClear = true;
         stageFourtItem[3].gameObject.SetActive(true);
     }
-
 }

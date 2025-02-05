@@ -27,9 +27,8 @@ public class KeyInLock : MonoBehaviour
     }
 
     public void OnActive()
-    {   //이미 풀렸으면 이후에는 OnActive 호출 안하도록 처리
+    {
         if (isActived) return;
-        //열쇠를 끝까지 돌렸는지 확인
         if (knob.value <= 0.01f)
         {
             upper_Part_LOD0.transform.position = openHint.position;

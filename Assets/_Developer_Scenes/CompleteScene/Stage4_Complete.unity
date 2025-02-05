@@ -14017,6 +14017,31 @@ PrefabInstance:
       propertyPath: dialog.Array.data[7]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4732246773774672401, guid: 0eedfa8004c114e4197677da6a9ee5f2,
+        type: 3}
+      propertyPath: m_Name
+      value: Tile_Cracked
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805603326041500386, guid: 0eedfa8004c114e4197677da6a9ee5f2,
+        type: 3}
+      propertyPath: stageFourth
+      value: 
+      objectReference: {fileID: 1879679239}
+    - target: {fileID: 4873428970260126777, guid: 0eedfa8004c114e4197677da6a9ee5f2,
+        type: 3}
+      propertyPath: m_Name
+      value: Tile_Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986515208498957945, guid: 0eedfa8004c114e4197677da6a9ee5f2,
+        type: 3}
+      propertyPath: m_Name
+      value: Tile_Shattered
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986515208498957945, guid: 0eedfa8004c114e4197677da6a9ee5f2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5194022555689330940, guid: 0eedfa8004c114e4197677da6a9ee5f2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -14154,12 +14179,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8a5518ee07180624eb3d59a6c91d9ed2, type: 2}
+    - target: {fileID: 8348538685627053310, guid: 0eedfa8004c114e4197677da6a9ee5f2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8351674784381691598, guid: 0eedfa8004c114e4197677da6a9ee5f2,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 809956448502780140, guid: 9872e3eeb92025f47aef01966fcabee7,
         type: 3}
+    - target: {fileID: 8392964874515231029, guid: 0eedfa8004c114e4197677da6a9ee5f2,
+        type: 3}
+      propertyPath: m_Name
+      value: Tile_Fracture Root
+      objectReference: {fileID: 0}
     - target: {fileID: 8564490358095987312, guid: 0eedfa8004c114e4197677da6a9ee5f2,
         type: 3}
       propertyPath: m_IsActive
@@ -14171,7 +14206,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 8a5518ee07180624eb3d59a6c91d9ed2, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7414007306894637178, guid: 0eedfa8004c114e4197677da6a9ee5f2, type: 3}
+    - {fileID: 8348538685627053310, guid: 0eedfa8004c114e4197677da6a9ee5f2, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8564490358095987312, guid: 0eedfa8004c114e4197677da6a9ee5f2,
@@ -14179,6 +14216,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 743572619}
   m_SourcePrefab: {fileID: 100100000, guid: 0eedfa8004c114e4197677da6a9ee5f2, type: 3}
+--- !u!114 &1879679239 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4324568835167954391, guid: 0eedfa8004c114e4197677da6a9ee5f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1879679238}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6175b91135c0e342af1cd20f68aa14c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1885247988
 GameObject:
   m_ObjectHideFlags: 0

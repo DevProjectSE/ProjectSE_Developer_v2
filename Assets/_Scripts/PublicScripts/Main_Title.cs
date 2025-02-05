@@ -25,6 +25,9 @@ public class Main_Title : MonoBehaviour
     #region 스테이지 로드버튼
     public List<Button> stageBTN;
     #endregion
+
+    private bool menuOpenClose = false;
+
     private void Awake()
     {
         newGameBTN.onClick.AddListener(NewGameClick);
@@ -70,17 +73,18 @@ public class Main_Title : MonoBehaviour
     }
     private void MenuAction(InputAction.CallbackContext context)
     {
-        GameManager.Instance.Player.
-        GetComponentInChildren<CustomPlayerController>().UIOpen();
-        titlePanel.SetActive(true);
-        r_SecondaryKey.action.performed += MenuCloseAction;
-    }
-    private void MenuCloseAction(InputAction.CallbackContext context)
-    {
-        GameManager.Instance.Player.
-        GetComponentInChildren<CustomPlayerController>().UIClose();
-        titlePanel.SetActive(false);
-        r_SecondaryKey.action.performed -= MenuCloseAction;
+        if (menuOpenClose == false)
+        {
+            menuOpenClose = true;
+            GetComponentInParent<CustomPlayerController>().UIOpen();
+            titlePanel.SetActive(menuOpenClose);
+        }
+        else
+        {
+            menuOpenClose = false;
+            GetComponentInParent<CustomPlayerController>().UIClose();
+            titlePanel.SetActive(menuOpenClose);
+        }
     }
     private void NewGameClick()
     {
@@ -113,37 +117,35 @@ public class Main_Title : MonoBehaviour
     }
     private void Stage1_LoadBTNClick()
     {
-        SceneLoadManager.Instance.StageLoad(StageNumber.Stage1);
-        stagePanel.SetActive(false);
+        StageSelect(StageNumber.HappyEnding);
     }
     private void Stage2_LoadBTNClick()
     {
-        SceneLoadManager.Instance.StageLoad(StageNumber.Stage2);
-        stagePanel.SetActive(false);
+        StageSelect(StageNumber.HappyEnding);
     }
     private void Stage3_LoadBTNClick()
     {
-        SceneLoadManager.Instance.StageLoad(StageNumber.Stage3);
-        stagePanel.SetActive(false);
+        StageSelect(StageNumber.HappyEnding);
     }
     private void Stage4_LoadBTNClick()
     {
-        SceneLoadManager.Instance.StageLoad(StageNumber.Stage4);
-        stagePanel.SetActive(false);
+        StageSelect(StageNumber.HappyEnding);
     }
     private void Stage5_LoadBTNClick()
     {
-        SceneLoadManager.Instance.StageLoad(StageNumber.Stage5);
-        stagePanel.SetActive(false);
+        StageSelect(StageNumber.HappyEnding);
     }
     private void Stage6_LoadBTNClick()
     {
-        SceneLoadManager.Instance.StageLoad(StageNumber.BadEnding);
-        stagePanel.SetActive(false);
+        StageSelect(StageNumber.HappyEnding);
     }
     private void Stage7_LoadBTNClick()
     {
-        SceneLoadManager.Instance.StageLoad(StageNumber.HappyEnding);
+        StageSelect(StageNumber.HappyEnding);
+    }
+    private void StageSelect(StageNumber stageNumber)
+    {
+        SceneLoadManager.Instance.StageLoad(stageNumber);
         stagePanel.SetActive(false);
     }
 }

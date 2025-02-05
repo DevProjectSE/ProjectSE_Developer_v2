@@ -10,19 +10,18 @@ public class LoadingScene : MonoBehaviour
     public TextMeshProUGUI loadingText;
     private void Start()
     {
-        StartCoroutine(LoadScene());
+        StartCoroutine(LoadSceneCoroutine());
         StartCoroutine(LoadingTextCoroutine());
     }
-
     public static void LoadScene(string sceneName)
     {
         nextScene = sceneName;
         SceneManager.LoadScene("LoadingScene");
     }
-
-    private IEnumerator LoadScene()
+    private IEnumerator LoadSceneCoroutine()
     {
         yield return null;
+        //LoadScene에서 대입된 nextScene을 비동기로 처리
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
         op.allowSceneActivation = false;
         while (!op.isDone)
@@ -32,10 +31,8 @@ public class LoadingScene : MonoBehaviour
                 op.allowSceneActivation = true;
                 yield break;
             }
-
         }
     }
-
     private IEnumerator LoadingTextCoroutine()
     {
         while (true)

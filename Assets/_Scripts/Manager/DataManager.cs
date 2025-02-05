@@ -19,33 +19,23 @@ public class DataTable
 
 public class DataManager : SingletonManager<DataManager>
 {
-    // #if UNITY_EDITOR
-    //     // 유니티 에디터에서 실행 시 프로젝트 내부 경로 사용
-    //     savePath = Path.Combine(Application.dataPath, "1.Resources/Data/SaveData");
-    //         #else
-    //             // 빌드된 게임에서는 persistentDataPath 사용
-    //             savePath = Path.Combine(Application.persistentDataPath, "SaveData");
-    //         #endif
+
     public DataTable dataTable = new DataTable();
     private string path;
-    private string fileName = "save";
+    private string fileName = "JSON_SaveFile";
     protected override void Awake()
     {
         base.Awake();
+#if UNITY_EDITOR
+        path = Path.Combine(Application.dataPath, fileName);
+#else
+        // 빌드된 게임에서는 persistentDataPath 사용
         path = Path.Combine(Application.persistentDataPath, "SaveData");
-        try
-        {
-            LoadData();
-        }
-        catch (Exception e)
-        {
-            Debug.LogWarning(e.Message);
-        }
-
+#endif
+        LoadData();
     }
     public void SaveData(StageNumber stageNumber)
     {
-        Debug.Log("SaveDataEnter");
         switch (stageNumber)
         {
             case StageNumber.Title:
@@ -62,26 +52,14 @@ public class DataManager : SingletonManager<DataManager>
             case StageNumber.Stage3:
                 dataTable.currentStage = 3;
                 dataTable.isStageEnter[2] = true;
-                foreach (Material mat in GameManager.Instance.diary_Mats)
-                {
-                    mat.SetFloat("_Dissolve", 0.65f);
-                }
                 break;
             case StageNumber.Stage4:
                 dataTable.currentStage = 4;
                 dataTable.isStageEnter[3] = true;
-                for (int i = 0; i < 4; i++)
-                {
-                    dataTable.diaryPage_Dissolve[i] = 0;
-                }
                 break;
             case StageNumber.Stage5:
                 dataTable.currentStage = 5;
                 dataTable.isStageEnter[4] = true;
-                for (int i = 0; i < 8; i++)
-                {
-                    dataTable.diaryPage_Dissolve[i] = 0;
-                }
                 break;
             case StageNumber.BadEnding:
                 dataTable.currentStage = 6;
@@ -92,18 +70,27 @@ public class DataManager : SingletonManager<DataManager>
                 dataTable.isStageEnter[6] = true;
                 break;
         }
-        Debug.Log("Save");
-        Debug.Log($"Path : {path + fileName}");
         string saveFile = JsonUtility.ToJson(dataTable);
-        Debug.Log($"Json : {saveFile}");
-        File.WriteAllText(path + fileName, saveFile);
-        Debug.Log("SaveComplete");
+        File.WriteAllText(path, saveFile);
     }
 
     public void LoadData()
     {
-        string loadFile = File.ReadAllText(path + fileName);
-        dataTable = JsonUtility.FromJson<DataTable>(loadFile);
+        string loadFile;
+        try
+        {
+            loadFile = File.ReadAllText(path);
+        }
+        catch
+        {
+            string saveFile = JsonUtility.ToJson(dataTable);
+            File.WriteAllText(path, saveFile);
+        }
+        finally
+        {
+            loadFile = File.ReadAllText(path);
+            dataTable = JsonUtility.FromJson<DataTable>(loadFile);
+        }
     }
 
 }

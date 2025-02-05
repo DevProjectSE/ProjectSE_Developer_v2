@@ -26,11 +26,9 @@ public class Robot : MonoBehaviour
     }
     private void OnLeftArmAdded(SelectEnterEventArgs args)
     {
-        xRLockSocketInteractor.attachTransform = rearArmAttach;
         robotArm.SetActive(false);
         leftArm.SetActive(true);
-        //TODO : 겜매에서든 스테이지 매니저에서든 참조하고 있다가 실행시켜야함.
-        // FindAnyObjectByType<OpenDoor>().enabled = true;
+        xRLockSocketInteractor.attachTransform = rearArmAttach;
         xRLockSocketInteractor.selectEntered.RemoveListener(OnLeftArmAdded);
         xRLockSocketInteractor.selectEntered.AddListener(OnRearArmAdded);
         xRLockSocketInteractor.keychainLock.requiredKeys.Clear();

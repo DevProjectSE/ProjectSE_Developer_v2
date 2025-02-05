@@ -21,7 +21,7 @@ public class Tile : MonoBehaviour
             stageFourth = GetComponentInParent<StageFourth>();
         }
     }
-    private void FixedUpdate()
+    private void Update()
     {
         if (cheak)
         {
@@ -29,7 +29,6 @@ public class Tile : MonoBehaviour
             if (tempTime > 1f) cheak = false;
         }
     }
-
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.TryGetComponent<Hammer>(out Hammer hammer))
@@ -40,7 +39,8 @@ public class Tile : MonoBehaviour
                 cheak = true;
                 return;
             }
-            if (hammer.m_Rb.velocity.magnitude > reachingSpeed && hitCount == 1 && tempTime > 1f)
+            if (hammer.m_Rb.velocity.magnitude > reachingSpeed &&
+                hitCount == 1 && tempTime > 1f)
             {
                 ActivateObj();
                 tile[hitCount + 1].SetActive(true);
@@ -50,7 +50,6 @@ public class Tile : MonoBehaviour
             }
         }
     }
-
     private void ActivateObj()
     {
         tile[hitCount].SetActive(false);
