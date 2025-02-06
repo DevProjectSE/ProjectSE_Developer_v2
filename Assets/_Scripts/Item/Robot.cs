@@ -1,57 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR.Content.Interaction;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class Robot : MonoBehaviour
+public class Robot : Combination
 {
-    public XRLockSocketInteractor xRLockSocketInteractor;
-    public GameObject leftArm;
-    public GameObject rearArm;
-    public Transform rearArmAttach;
-    public GameObject robotArm;
 
-    public Key rearKey;
+    // public GameObject leftArm;
+    // public GameObject rearArm;
+    // public Transform rearArmAttach;
+    // public GameObject robotArm;
 
-    private void Awake()
+    // public Key rearKey;
+
+    // protected override void CominationItemAdd()
+    // {
+    //     base.CominationItemAdd();
+    // }
+
+    protected override void Awake()
     {
-        xRLockSocketInteractor.selectEntered.AddListener(OnLeftArmAdded);
-        if (SceneManager.GetActiveScene().name == "Stage5_Complete")
-        {
-            xRLockSocketInteractor.selectEntered.RemoveListener(OnLeftArmAdded);
-            xRLockSocketInteractor.selectEntered.AddListener(OnRearArmAdded);
-        }
-    }
-    private void OnLeftArmAdded(SelectEnterEventArgs args)
-    {
-        robotArm.SetActive(false);
-        leftArm.SetActive(true);
-        xRLockSocketInteractor.attachTransform = rearArmAttach;
-        xRLockSocketInteractor.selectEntered.RemoveListener(OnLeftArmAdded);
-        xRLockSocketInteractor.selectEntered.AddListener(OnRearArmAdded);
-        xRLockSocketInteractor.keychainLock.requiredKeys.Clear();
-        xRLockSocketInteractor.keychainLock.requiredKeys.Add(rearKey);
-        robotArm = null;
-    }
-    private void OnRearArmAdded(SelectEnterEventArgs args)
-    {
-        gameObject.tag = "Robot";
-        robotArm.SetActive(false);
-        rearArm.SetActive(true);
+        base.Awake();
+
+        #region Before
+        // lockSock_Inter.selectEntered.AddListener(OnLeftArmAdded);
+        // if (SceneManager.GetActiveScene().name == "Stage5_Complete")
+        // {
+        //     lockSock_Inter.selectEntered.RemoveListener(OnLeftArmAdded);
+        //     lockSock_Inter.selectEntered.AddListener(OnRearArmAdded);
+        // }
+        #endregion
+
     }
 
-    private void OnTriggerEnter(Collider other)
+    #region Before
+    // private void OnLeftArmAdded(SelectEnterEventArgs args)
+    // {
+    //     robotArm.SetActive(false);
+    //     leftArm.SetActive(true);
+    //     lockSock_Inter.attachTransform = rearArmAttach;
+    //     lockSock_Inter.selectEntered.RemoveListener(OnLeftArmAdded);
+    //     lockSock_Inter.selectEntered.AddListener(OnRearArmAdded);
+    //     lockSock_Inter.keychainLock.requiredKeys.Clear();
+    //     lockSock_Inter.keychainLock.requiredKeys.Add(rearKey);
+    //     robotArm = null;
+    // }
+    // private void OnRearArmAdded(SelectEnterEventArgs args)
+    // {
+    //     gameObject.tag = "Robot";
+    //     robotArm.SetActive(false);
+    //     rearArm.SetActive(true);
+    // }
+    #endregion
+
+    protected override void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("RobotLeftArm") && leftArm.activeSelf == false)
-        {
-            robotArm = other.gameObject;
-        }
-        if (other.CompareTag("RobotRearArm") && rearArm.activeSelf == false)
-        {
-            robotArm = other.gameObject;
-        }
+        base.OnTriggerEnter(other);
+
+        #region Before
+        // if (other.CompareTag("RobotLeftArm") && leftArm.activeSelf == false)
+        // {
+        //     robotArm = other.gameObject;
+        // }
+        // if (other.CompareTag("RobotRearArm") && rearArm.activeSelf == false)
+        // {
+        //     robotArm = other.gameObject;
+        // }
+        #endregion
+
     }
 
 }

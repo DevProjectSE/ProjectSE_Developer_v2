@@ -27,13 +27,12 @@ public class GameManager : SingletonManager<GameManager>
 
         SceneManager.sceneLoaded += (x, y) =>
         {
-            if (SceneManager.GetActiveScene().name == "Stage1_Complete")
+            if (SceneManager.GetActiveScene().name == "Stage1")
             {
                 uiManager = FindAnyObjectByType<UIManager>();
             }
             if (SceneManager.GetActiveScene().name != "LoadingScene")
             {
-
                 Player = FindAnyObjectByType<Player>().gameObject;
                 int i = 0;
                 foreach (bool a in DataManager.Instance.dataTable.isStageEnter)

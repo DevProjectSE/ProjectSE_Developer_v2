@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit.Inputs;
 
 public class Main_Title : MonoBehaviour
 {
@@ -43,22 +44,16 @@ public class Main_Title : MonoBehaviour
         stageBTN[4].onClick.AddListener(Stage5_LoadBTNClick);
         stageBTN[5].onClick.AddListener(Stage6_LoadBTNClick);
         stageBTN[6].onClick.AddListener(Stage7_LoadBTNClick);
-        foreach (Button button in stageBTN)
-        {
-            button.interactable = false;
-        }
-
     }
     private void Start()
     {
         int i = 0;
         foreach (bool isStageEnter in DataManager.Instance.dataTable.isStageEnter)
         {
-            if (isStageEnter) stageBTN[i].interactable = true;
-            else break;
+            stageBTN[i].interactable = isStageEnter;
             i++;
         }
-        if (SceneManager.GetActiveScene().name != "Title_Complete")
+        if (SceneManager.GetActiveScene().name != "Title")
         {
             titlePanel.SetActive(false);
         }
@@ -117,31 +112,31 @@ public class Main_Title : MonoBehaviour
     }
     private void Stage1_LoadBTNClick()
     {
-        StageSelect(StageNumber.HappyEnding);
+        StageSelect(StageNumber.Stage1);
     }
     private void Stage2_LoadBTNClick()
     {
-        StageSelect(StageNumber.HappyEnding);
+        StageSelect(StageNumber.Stage2);
     }
     private void Stage3_LoadBTNClick()
     {
-        StageSelect(StageNumber.HappyEnding);
+        StageSelect(StageNumber.Stage3);
     }
     private void Stage4_LoadBTNClick()
     {
-        StageSelect(StageNumber.HappyEnding);
+        StageSelect(StageNumber.Stage4);
     }
     private void Stage5_LoadBTNClick()
     {
-        StageSelect(StageNumber.HappyEnding);
+        StageSelect(StageNumber.Stage5);
     }
     private void Stage6_LoadBTNClick()
     {
-        StageSelect(StageNumber.HappyEnding);
+        StageSelect(StageNumber.Happy_Ending);
     }
     private void Stage7_LoadBTNClick()
     {
-        StageSelect(StageNumber.HappyEnding);
+        StageSelect(StageNumber.Bad_Ending);
     }
     private void StageSelect(StageNumber stageNumber)
     {

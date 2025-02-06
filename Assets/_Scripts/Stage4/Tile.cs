@@ -12,21 +12,21 @@ public class Tile : MonoBehaviour
     public float reachingSpeed;
 
     private float tempTime = 0;
-    private bool cheak = false;
+    private bool check = false;
 
     private void Awake()
     {
-        if (stageFourth == null)
-        {
-            stageFourth = GetComponentInParent<StageFourth>();
-        }
+        // if (stageFourth == null)
+        // {
+        //     stageFourth = GetComponentInParent<StageFourth>();
+        // }
     }
     private void Update()
     {
-        if (cheak)
+        if (check)
         {
             tempTime += Time.deltaTime;
-            if (tempTime > 1f) cheak = false;
+            if (tempTime > 1f) check = false;
         }
     }
     private void OnCollisionEnter(Collision other)
@@ -36,7 +36,7 @@ public class Tile : MonoBehaviour
             if (hammer.m_Rb.velocity.magnitude > reachingSpeed && hitCount == 0)
             {
                 ActivateObj();
-                cheak = true;
+                check = true;
                 return;
             }
             if (hammer.m_Rb.velocity.magnitude > reachingSpeed &&
@@ -44,7 +44,7 @@ public class Tile : MonoBehaviour
             {
                 ActivateObj();
                 tile[hitCount + 1].SetActive(true);
-                stageFourth.WallBreakClear();
+                // stageFourth.WallBreakClear();
                 GetComponent<BoxCollider>().enabled = false;
                 return;
             }

@@ -21,76 +21,50 @@ public class DataManager : SingletonManager<DataManager>
 {
 
     public DataTable dataTable = new DataTable();
-    private string path;
     private string fileName = "JSON_SaveFile";
     protected override void Awake()
     {
         base.Awake();
-#if UNITY_EDITOR
-        path = Path.Combine(Application.dataPath, fileName);
-#else
-        // 빌드된 게임에서는 persistentDataPath 사용
-        path = Path.Combine(Application.persistentDataPath, "SaveData");
-#endif
         LoadData();
     }
-    public void SaveData(StageNumber stageNumber)
+    public void SaveData(int stageNumber)
     {
-        switch (stageNumber)
+        dataTable.currentStage = stageNumber;
+        if (stageNumber != 0)
         {
-            case StageNumber.Title:
-                dataTable.currentStage = 0;
-                break;
-            case StageNumber.Stage1:
-                dataTable.currentStage = 1;
-                dataTable.isStageEnter[0] = true;
-                break;
-            case StageNumber.Stage2:
-                dataTable.currentStage = 2;
-                dataTable.isStageEnter[1] = true;
-                break;
-            case StageNumber.Stage3:
-                dataTable.currentStage = 3;
-                dataTable.isStageEnter[2] = true;
-                break;
-            case StageNumber.Stage4:
-                dataTable.currentStage = 4;
-                dataTable.isStageEnter[3] = true;
-                break;
-            case StageNumber.Stage5:
-                dataTable.currentStage = 5;
-                dataTable.isStageEnter[4] = true;
-                break;
-            case StageNumber.BadEnding:
-                dataTable.currentStage = 6;
-                dataTable.isStageEnter[5] = true;
-                break;
-            case StageNumber.HappyEnding:
-                dataTable.currentStage = 7;
-                dataTable.isStageEnter[6] = true;
-                break;
+            dataTable.isStageEnter[stageNumber - 1] = true;
         }
         string saveFile = JsonUtility.ToJson(dataTable);
-        File.WriteAllText(path, saveFile);
+        File.WriteAllText(SaveFilePath(), saveFile);
     }
-
     public void LoadData()
     {
         string loadFile;
         try
         {
-            loadFile = File.ReadAllText(path);
+            loadFile = File.ReadAllText(SaveFilePath());
         }
         catch
         {
             string saveFile = JsonUtility.ToJson(dataTable);
-            File.WriteAllText(path, saveFile);
+            File.WriteAllText(SaveFilePath(), saveFile);
         }
         finally
         {
-            loadFile = File.ReadAllText(path);
-            dataTable = JsonUtility.FromJson<DataTable>(loadFile);
+            loadFile = File.ReadAllText(SaveFilePath());
         }
+        dataTable = JsonUtility.FromJson<DataTable>(loadFile);
     }
 
+    private string SaveFilePath()
+    {
+#if UNITY_EDITOR
+        string path = Path.Combine(Application.dataPath, fileName);
+        return path;
+#elif UNITY_STANDALONE 
+        // 빌드된 게임에서는 persistentDataPath 사용
+        string path = Path.Combine(Application.persistentDataPath, fileName);
+        return path;
+#endif
+    }
 }

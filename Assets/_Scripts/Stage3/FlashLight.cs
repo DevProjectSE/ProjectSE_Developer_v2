@@ -19,13 +19,13 @@ public class FlashLight : MonoBehaviour
 
     //public SpriteMask spriteMask;
     [SerializeField]
-    private Light lightComponent; 
+    private Light lightComponent;
 
     public Color basicColor = Color.white;
     public Color UVColor = Color.blue;
 
-    public float rayDistance = 50f; 
-    public GameObject[] targetObject; 
+    public float rayDistance = 50f;
+    public GameObject[] targetObject;
 
     public int lightState = 0;
     public bool canToggleLight = false;
@@ -68,7 +68,7 @@ public class FlashLight : MonoBehaviour
             {
                 if (hit.collider.gameObject == target)
                 {
-                    isHit = true; // raycast°¡ target¿¡ ´ê¾ÒÀ¸¸é isHitÀ» true·Î ¼³Á¤
+                    isHit = true; // raycastï¿½ï¿½ targetï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ isHitï¿½ï¿½ trueï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 }
 
                 //spriteMask.transform.position = hit.point;
@@ -83,9 +83,9 @@ public class FlashLight : MonoBehaviour
                     target.transform.GetChild(0).gameObject.SetActive(false);
                 }
             }
-            
+
         }
-    
+
     }
 
     private void OnEnable()
@@ -137,7 +137,7 @@ public class FlashLight : MonoBehaviour
             {
                 lightComponent.color = basicColor;
                 lightState = 2;
-                return; 
+                return;
             }
             else if (lightState == 2)
             {
@@ -146,7 +146,7 @@ public class FlashLight : MonoBehaviour
                 return;
             }
 
-    }
+        }
         catch (Exception e)
         {
             Debug.LogError(e.Message);

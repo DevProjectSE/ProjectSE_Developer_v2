@@ -7,6 +7,6 @@ public class RobotLeftArm : MonoBehaviour
 
     private void OnDisable()
     {
-        FindAnyObjectByType<StageFourth>().openDoor.enabled = true;
+        GetComponentInParent<StageFourth>().openDoor.enabled = true;
     }
 }

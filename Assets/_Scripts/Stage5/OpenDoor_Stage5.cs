@@ -12,13 +12,11 @@ public class OpenDoor_Stage5 : OpenDoor
             //TODO : 게임매니저에서 가져오도록 후처리
             if (FindAnyObjectByType<StageFifth>().yejins_Phone.takeOnPhone)
             {
-                //TODO : 해피엔딩씬로드
-                SceneLoadManager.Instance.StageLoad(StageNumber.HappyEnding);
+                SceneLoadManager.Instance.StageLoad(StageNumber.Happy_Ending);
             }
             else
             {
-                //TODO : 배드엔딩로드
-                SceneLoadManager.Instance.StageLoad(StageNumber.HappyEnding);
+                SceneLoadManager.Instance.StageLoad(StageNumber.Bad_Ending);
             }
         }
     }
