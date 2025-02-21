@@ -22,8 +22,8 @@ public abstract class Combination : MonoBehaviour
     protected virtual void Awake()
     {
         lockSock_Inter = GetComponent<XRLockSocketInteractor>();
-        lockSock_Inter.selectEntered.AddListener(OnItemConnected);
-        lockSock_Inter.selectExited.AddListener(OnItemDeConnected);
+        lockSock_Inter.selectEntered.AddListener(OnItemCombination);
+        lockSock_Inter.selectExited.AddListener(OnItemDecomposition);
         CombinationItemAdd();
     }
     protected virtual void CombinationItemAdd()
@@ -53,14 +53,16 @@ public abstract class Combination : MonoBehaviour
     //장착 가능한 아이템을 찾음
     protected virtual void FindCombinableObj(Collider other)
     {
-        if (other.gameObject.TryGetComponent<ICombinable>(out ICombinable obj))
+        if (other.gameObject.TryGetComponent<Combinable>(out Combinable obj))
         {
             //등록해둔 requiredKeys를 other가 보유하는지 확인
             Debug.Log("감지");
             foreach (Key key in m_Keys)
             {
                 Debug.Log("확인");
-                if (obj.keychain.Contains(key) && m_CombiItem.ContainsKey(key))
+                // if (obj.keychain.Contains(key) && m_CombiItem.ContainsKey(key))
+                // {
+                if (key == obj.GetRequiarKey() && addedItemDic.ContainsKey(key) == false)
                 {
                     Debug.Log($"찾아온 아이템 이름 : {other.gameObject.name}");
                     //새로운 키 등록 전 requiredKeys초기화
@@ -81,7 +83,7 @@ public abstract class Combination : MonoBehaviour
     }
 
     //아이템이 장착될 시 일어나는 이벤트
-    protected virtual void OnItemConnected(SelectEnterEventArgs args)
+    protected virtual void OnItemCombination(SelectEnterEventArgs args)
     {
         //args.interactableObject->grab interactable
         //args.interactorObject->poke interacter, etc....
@@ -91,7 +93,6 @@ public abstract class Combination : MonoBehaviour
         args.interactableObject.transform.gameObject.
         GetComponent<BoxCollider>().excludeLayers = thisObjLayer;
 
-        //TODO 좆버그 씨발련아
         if (args.interactableObject.transform.gameObject.
         TryGetComponent<Combinable>(out Combinable component))
         {
@@ -100,12 +101,11 @@ public abstract class Combination : MonoBehaviour
         }
     }
 
-    protected virtual void OnItemDeConnected(SelectExitEventArgs args)
+    protected virtual void OnItemDecomposition(SelectExitEventArgs args)
     {
         args.interactableObject.transform.gameObject.
         GetComponent<BoxCollider>().excludeLayers -= thisObjLayer;
 
-        //TODO 좆버그 씨발련아
         if (args.interactableObject.transform.gameObject.
         TryGetComponent<Combinable>(out Combinable component))
         {
