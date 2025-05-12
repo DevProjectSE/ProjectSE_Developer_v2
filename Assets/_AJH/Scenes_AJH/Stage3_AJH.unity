@@ -240,7 +240,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e852352c784e12a4fb33814a9d9a653c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogSystems: []
   stage3Step: 0
+  setNum: 0
+  isTouchDoor: 0
+  isCheckTeachersdesk: 0
+  isGetLight: 0
+  isCheckHaYunsDesk: 0
+  isGetDiary: 0
+  isDiaryInInventory1: 0
+  isGetBook: 0
+  isDiaryInInventory2: 0
+  isGetHomework: 0
+  isDiaryInInventory3: 0
+  isGetBagpack: 0
+  isSettingHaYunsObject: 0
+  isCheckRope: 0
+  isGetRobot: 0
+  isDariyInInventory4: 0
+  backpackLoker: {fileID: 0}
+  backpackLokerKnob: {fileID: 0}
+  backPack: {fileID: 0}
+  robot: {fileID: 0}
+  cleanLockDoor: {fileID: 0}
+  stage3ClassDoor: {fileID: 0}
 --- !u!4 &23315375
 Transform:
   m_ObjectHideFlags: 0
@@ -1846,7 +1869,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -3344,7 +3368,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -5642,25 +5666,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd76b4eddd23ec44beaf1d74f107382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: {fileID: 0}
-  m_DoorJoint: {fileID: 1011675805}
-  m_DoorPuller: {fileID: 1474933224}
-  m_KeyKnob: {fileID: 447517573}
-  m_HandleOpenValue: 0.1
-  m_HandleCloseValue: 0.5
-  m_HingeCloseAngle: 5
-  m_KeyLockValue: 0.9
-  m_KeyUnlockValue: 0.1
-  m_KeyPullDistance: 0.1
-  m_OnLock:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnUnlock:
-    m_PersistentCalls:
-      m_Calls: []
   Locked: 1
   Keypad: {fileID: 821443215}
   numberKeyPad: {fileID: 821443217}
+  teacherDeskLockedDoor: {fileID: 0}
+  flashLightGrab: {fileID: 0}
+  knifeGrab: {fileID: 0}
 --- !u!1 &678994890
 GameObject:
   m_ObjectHideFlags: 0
@@ -11319,7 +11330,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -13026,7 +13037,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -13042,7 +13053,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -30565,7 +30576,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -52138,25 +52150,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd76b4eddd23ec44beaf1d74f107382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: {fileID: 0}
-  m_DoorJoint: {fileID: 8414342748917696843}
-  m_DoorPuller: {fileID: 496878008}
-  m_KeyKnob: {fileID: 0}
-  m_HandleOpenValue: 0.1
-  m_HandleCloseValue: 0.5
-  m_HingeCloseAngle: 5
-  m_KeyLockValue: 0.9
-  m_KeyUnlockValue: 0.1
-  m_KeyPullDistance: 0.1
-  m_OnLock:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnUnlock:
-    m_PersistentCalls:
-      m_Calls: []
   Locked: 1
   Keypad: {fileID: 0}
   numberKeyPad: {fileID: 0}
+  teacherDeskLockedDoor: {fileID: 0}
+  flashLightGrab: {fileID: 0}
+  knifeGrab: {fileID: 0}
 --- !u!4 &4259680079066220933
 Transform:
   m_ObjectHideFlags: 0
@@ -76300,7 +76299,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -76316,7 +76315,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -76332,7 +76331,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -76348,7 +76347,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -83641,25 +83640,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd76b4eddd23ec44beaf1d74f107382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: {fileID: 0}
-  m_DoorJoint: {fileID: 0}
-  m_DoorPuller: {fileID: 0}
-  m_KeyKnob: {fileID: 0}
-  m_HandleOpenValue: 0.1
-  m_HandleCloseValue: 0.5
-  m_HingeCloseAngle: 5
-  m_KeyLockValue: 0.9
-  m_KeyUnlockValue: 0.1
-  m_KeyPullDistance: 0.1
-  m_OnLock:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnUnlock:
-    m_PersistentCalls:
-      m_Calls: []
   Locked: 1
   Keypad: {fileID: 8574589424131383311}
   numberKeyPad: {fileID: 7973862158529568046}
+  teacherDeskLockedDoor: {fileID: 0}
+  flashLightGrab: {fileID: 0}
+  knifeGrab: {fileID: 0}
 --- !u!1 &7554765760456967679
 GameObject:
   m_ObjectHideFlags: 0
@@ -92549,7 +92535,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5

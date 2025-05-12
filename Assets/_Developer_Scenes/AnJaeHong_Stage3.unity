@@ -130,59 +130,73 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2593990056247519979, guid: 852a11fecc1877149be52139ea40a3be, type: 3}
+    - target: {fileID: 2593990056247519979, guid: 852a11fecc1877149be52139ea40a3be,
+        type: 3}
       propertyPath: m_Name
       value: Combination PadLock
       objectReference: {fileID: 0}
-    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be, type: 3}
+    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be, type: 3}
+    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be,
+        type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.231
       objectReference: {fileID: 0}
-    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be, type: 3}
+    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be,
+        type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be, type: 3}
+    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be,
+        type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be, type: 3}
+    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be, type: 3}
+    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be,
+        type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be, type: 3}
+    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be,
+        type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be, type: 3}
+    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be, type: 3}
+    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be, type: 3}
+    - target: {fileID: 2933079874060365905, guid: 852a11fecc1877149be52139ea40a3be,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3404402356410622241, guid: 852a11fecc1877149be52139ea40a3be, type: 3}
+    - target: {fileID: 3404402356410622241, guid: 852a11fecc1877149be52139ea40a3be,
+        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5964744854259160217, guid: 852a11fecc1877149be52139ea40a3be, type: 3}
+    - target: {fileID: 5964744854259160217, guid: 852a11fecc1877149be52139ea40a3be,
+        type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.293
       objectReference: {fileID: 0}
-    - target: {fileID: 5964744854259160217, guid: 852a11fecc1877149be52139ea40a3be, type: 3}
+    - target: {fileID: 5964744854259160217, guid: 852a11fecc1877149be52139ea40a3be,
+        type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.011
       objectReference: {fileID: 0}
@@ -580,9 +594,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 2147483648
-  m_Handedness: 2
   m_AttachTransform: {fileID: 2326377464165203979}
   m_KeepSelectedTargetValid: 0
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -602,71 +618,22 @@ MonoBehaviour:
       m_Calls: []
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
-  m_SelectInput:
-    m_InputSourceMode: 2
-    m_InputActionPerformed:
-      m_Name: Select
-      m_Type: 1
-      m_ExpectedControlType: 
-      m_Id: 36843f28-4fd5-4729-b5a6-afe92ef11597
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionValue:
-      m_Name: Select Value
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: 1a51c331-470d-4462-b8e1-2522a24bd40c
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: -8061240218431744966, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_InputActionReferenceValue: {fileID: -8061240218431744966, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualPerformed: 0
-    m_ManualValue: 0
-    m_ManualQueuePerformed: 0
-    m_ManualQueueWasPerformedThisFrame: 0
-    m_ManualQueueWasCompletedThisFrame: 0
-    m_ManualQueueValue: 0
-    m_ManualQueueTargetFrame: 0
-  m_ActivateInput:
-    m_InputSourceMode: 2
-    m_InputActionPerformed:
-      m_Name: Activate
-      m_Type: 1
-      m_ExpectedControlType: 
-      m_Id: 0ace7244-e61f-4e60-8d0b-2ef8c3ae51af
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionValue:
-      m_Name: Activate Value
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: bdf06a24-21b3-4f27-a8a3-72086e6c7f00
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_InputActionReferenceValue: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualPerformed: 0
-    m_ManualValue: 0
-    m_ManualQueuePerformed: 0
-    m_ManualQueueWasPerformedThisFrame: 0
-    m_ManualQueueWasCompletedThisFrame: 0
-    m_ManualQueueValue: 0
-    m_ManualQueueTargetFrame: 0
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
   m_SelectActionTrigger: 0
+  m_HideControllerOnSelect: 0
   m_AllowHoveredActivate: 0
   m_TargetPriorityMode: 0
-  m_HideControllerOnSelect: 0
-  m_InputCompatibilityMode: 0
   m_PlayAudioClipOnSelectEntered: 0
   m_AudioClipForOnSelectEntered: {fileID: 0}
   m_PlayAudioClipOnSelectExited: 0
@@ -716,7 +683,6 @@ MonoBehaviour:
   m_HitDetectionType: 0
   m_SphereCastRadius: 0.1
   m_ConeCastAngle: 6
-  m_LiveConeCastDebugVisuals: 0
   m_RaycastMask:
     serializedVersion: 2
     m_Bits: 2147483681
@@ -728,14 +694,13 @@ MonoBehaviour:
   m_AutoDeselect: 0
   m_TimeToAutoDeselect: 1
   m_EnableUIInteraction: 0
-  m_BlockInteractionsWithScreenSpaceUI: 0
   m_BlockUIOnInteractableSelection: 1
-  m_ManipulateAttachTransform: 1
+  m_AllowAnchorControl: 1
   m_UseForceGrab: 0
   m_RotateSpeed: 180
   m_TranslateSpeed: 0
-  m_RotateReferenceFrame: {fileID: 0}
-  m_RotateMode: 1
+  m_AnchorRotateReferenceFrame: {fileID: 0}
+  m_AnchorRotationMode: 0
   m_UIHoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -746,150 +711,6 @@ MonoBehaviour:
   m_OccludeARHitsWith3DObjects: 0
   m_OccludeARHitsWith2DObjects: 0
   m_ScaleMode: 0
-  m_UIPressInput:
-    m_InputSourceMode: 0
-    m_InputActionPerformed:
-      m_Name: UI Press
-      m_Type: 1
-      m_ExpectedControlType: 
-      m_Id: 54867c8e-3650-4605-a53c-ee8ffb351dcf
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionValue:
-      m_Name: UI Press Value
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: 257d8673-0295-4ff5-b278-e63d20cd918b
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: 0}
-    m_InputActionReferenceValue: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualPerformed: 0
-    m_ManualValue: 0
-    m_ManualQueuePerformed: 0
-    m_ManualQueueWasPerformedThisFrame: 0
-    m_ManualQueueWasCompletedThisFrame: 0
-    m_ManualQueueValue: 0
-    m_ManualQueueTargetFrame: 0
-  m_UIScrollInput:
-    m_InputSourceMode: 0
-    m_InputAction:
-      m_Name: UI Scroll
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: 8c6b1aac-a242-4bf4-a5b3-bfad6e83b638
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_TranslateManipulationInput:
-    m_InputSourceMode: 0
-    m_InputAction:
-      m_Name: Translate Manipulation
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: 0f9fd0ee-650d-41a6-ab30-2a036c425c21
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_RotateManipulationInput:
-    m_InputSourceMode: 2
-    m_InputAction:
-      m_Name: Rotate Manipulation
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: cadca2d2-f642-4efc-a222-c1827be3e896
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: -5913262927076077117, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_DirectionalManipulationInput:
-    m_InputSourceMode: 2
-    m_InputAction:
-      m_Name: Directional Manipulation
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: 472cbca3-7add-47a9-a5fc-73d3d10107aa
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: -440298646266941818, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_ScaleToggleInput:
-    m_InputSourceMode: 0
-    m_InputActionPerformed:
-      m_Name: Scale Toggle
-      m_Type: 1
-      m_ExpectedControlType: 
-      m_Id: 692a9304-a2fd-4dbd-9e2f-2fb4b6154f1c
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionValue:
-      m_Name: Scale Toggle Value
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: d0cf082b-f2d7-4100-b069-651cf2820425
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: 0}
-    m_InputActionReferenceValue: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualPerformed: 0
-    m_ManualValue: 0
-    m_ManualQueuePerformed: 0
-    m_ManualQueueWasPerformedThisFrame: 0
-    m_ManualQueueWasCompletedThisFrame: 0
-    m_ManualQueueValue: 0
-    m_ManualQueueTargetFrame: 0
-  m_ScaleOverTimeInput:
-    m_InputSourceMode: 0
-    m_InputAction:
-      m_Name: Scale Over Time
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: 6f835f0d-f1c2-461c-b8bc-edc587e89149
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_ScaleDistanceDeltaInput:
-    m_InputSourceMode: 0
-    m_InputAction:
-      m_Name: Scale Distance Delta
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: 9140e1d5-f197-46d4-88c2-a02441edeac5
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: 0
 --- !u!4 &261793901690684652
 Transform:
   m_ObjectHideFlags: 0
@@ -1176,8 +997,10 @@ MonoBehaviour:
   m_SmoothMovement: 0
   m_FollowTightness: 10
   m_SnapThresholdDistance: 10
-  m_Reticle: {fileID: 8748868027195207512, guid: 893219773891c784ab469a39151879b4, type: 3}
-  m_BlockedReticle: {fileID: 3177232254315139758, guid: a3fde713df4d99042a0403c4be9eea32, type: 3}
+  m_Reticle: {fileID: 8748868027195207512, guid: 893219773891c784ab469a39151879b4,
+    type: 3}
+  m_BlockedReticle: {fileID: 3177232254315139758, guid: a3fde713df4d99042a0403c4be9eea32,
+    type: 3}
   m_StopLineAtFirstRaycastHit: 1
   m_StopLineAtSelection: 0
   m_SnapEndpointIfAvailable: 1
@@ -1299,9 +1122,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 1073741825
-  m_Handedness: 0
   m_AttachTransform: {fileID: 6200415212062679264}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -1321,71 +1146,22 @@ MonoBehaviour:
       m_Calls: []
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
-  m_SelectInput:
-    m_InputSourceMode: 0
-    m_InputActionPerformed:
-      m_Name: Select
-      m_Type: 1
-      m_ExpectedControlType: 
-      m_Id: 26dcb486-2cd5-4bf0-83a4-8252a6419ca1
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionValue:
-      m_Name: Select Value
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: d589f510-c88e-41dc-89ee-4accd74ded87
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: 0}
-    m_InputActionReferenceValue: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualPerformed: 0
-    m_ManualValue: 0
-    m_ManualQueuePerformed: 0
-    m_ManualQueueWasPerformedThisFrame: 0
-    m_ManualQueueWasCompletedThisFrame: 0
-    m_ManualQueueValue: 0
-    m_ManualQueueTargetFrame: 0
-  m_ActivateInput:
-    m_InputSourceMode: 0
-    m_InputActionPerformed:
-      m_Name: Activate
-      m_Type: 1
-      m_ExpectedControlType: 
-      m_Id: 1b75ac5e-63d2-4c5c-9b86-0fe382e6b137
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionValue:
-      m_Name: Activate Value
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: fde38f1d-c7ff-4233-b8ba-2548488943d7
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: 0}
-    m_InputActionReferenceValue: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualPerformed: 0
-    m_ManualValue: 0
-    m_ManualQueuePerformed: 0
-    m_ManualQueueWasPerformedThisFrame: 0
-    m_ManualQueueWasCompletedThisFrame: 0
-    m_ManualQueueValue: 0
-    m_ManualQueueTargetFrame: 0
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
   m_SelectActionTrigger: 0
+  m_HideControllerOnSelect: 0
   m_AllowHoveredActivate: 0
   m_TargetPriorityMode: 0
-  m_HideControllerOnSelect: 0
-  m_InputCompatibilityMode: 0
   m_PlayAudioClipOnSelectEntered: 0
   m_AudioClipForOnSelectEntered: {fileID: 0}
   m_PlayAudioClipOnSelectExited: 0
@@ -1435,7 +1211,6 @@ MonoBehaviour:
   m_HitDetectionType: 0
   m_SphereCastRadius: 0.1
   m_ConeCastAngle: 6
-  m_LiveConeCastDebugVisuals: 0
   m_RaycastMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1447,14 +1222,13 @@ MonoBehaviour:
   m_AutoDeselect: 1
   m_TimeToAutoDeselect: 0.25
   m_EnableUIInteraction: 1
-  m_BlockInteractionsWithScreenSpaceUI: 0
   m_BlockUIOnInteractableSelection: 1
-  m_ManipulateAttachTransform: 0
+  m_AllowAnchorControl: 1
   m_UseForceGrab: 0
   m_RotateSpeed: 180
   m_TranslateSpeed: 1
-  m_RotateReferenceFrame: {fileID: 0}
-  m_RotateMode: 0
+  m_AnchorRotateReferenceFrame: {fileID: 0}
+  m_AnchorRotationMode: 0
   m_UIHoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -1465,150 +1239,6 @@ MonoBehaviour:
   m_OccludeARHitsWith3DObjects: 0
   m_OccludeARHitsWith2DObjects: 0
   m_ScaleMode: 0
-  m_UIPressInput:
-    m_InputSourceMode: 0
-    m_InputActionPerformed:
-      m_Name: UI Press
-      m_Type: 1
-      m_ExpectedControlType: 
-      m_Id: 8e16e22c-3195-4e76-b0d2-9ec60d8bfc8e
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionValue:
-      m_Name: UI Press Value
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: f2af0d9f-965a-4778-accc-36828a6e40b8
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: 0}
-    m_InputActionReferenceValue: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualPerformed: 0
-    m_ManualValue: 0
-    m_ManualQueuePerformed: 0
-    m_ManualQueueWasPerformedThisFrame: 0
-    m_ManualQueueWasCompletedThisFrame: 0
-    m_ManualQueueValue: 0
-    m_ManualQueueTargetFrame: 0
-  m_UIScrollInput:
-    m_InputSourceMode: 0
-    m_InputAction:
-      m_Name: UI Scroll
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: 83ec219e-cbbd-4b69-9013-f330cea06247
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_TranslateManipulationInput:
-    m_InputSourceMode: 0
-    m_InputAction:
-      m_Name: Translate Manipulation
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: 78fd2d8b-06b9-4583-8d46-a896cee22152
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_RotateManipulationInput:
-    m_InputSourceMode: 0
-    m_InputAction:
-      m_Name: Rotate Manipulation
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: 2941b9e4-5f6c-48d5-9338-136ff3a60e62
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_DirectionalManipulationInput:
-    m_InputSourceMode: 0
-    m_InputAction:
-      m_Name: Directional Manipulation
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: 4decd4bd-22c4-4e97-af9b-f22d09a3ea8e
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_ScaleToggleInput:
-    m_InputSourceMode: 0
-    m_InputActionPerformed:
-      m_Name: Scale Toggle
-      m_Type: 1
-      m_ExpectedControlType: 
-      m_Id: 4e7a5ca5-86e4-4d9d-9678-01fb7083e39b
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionValue:
-      m_Name: Scale Toggle Value
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: 0c82215d-82dc-4f94-a5a2-cd3a7186171a
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: 0}
-    m_InputActionReferenceValue: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualPerformed: 0
-    m_ManualValue: 0
-    m_ManualQueuePerformed: 0
-    m_ManualQueueWasPerformedThisFrame: 0
-    m_ManualQueueWasCompletedThisFrame: 0
-    m_ManualQueueValue: 0
-    m_ManualQueueTargetFrame: 0
-  m_ScaleOverTimeInput:
-    m_InputSourceMode: 0
-    m_InputAction:
-      m_Name: Scale Over Time
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: ec6d1bcc-90c1-4e80-98a9-7de37426ef90
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_ScaleDistanceDeltaInput:
-    m_InputSourceMode: 0
-    m_InputAction:
-      m_Name: Scale Distance Delta
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: 7e170bb1-3339-4b96-bbd9-61c01cb414db
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: 0
   m_GazeAssistanceCalculation: 1
   m_GazeAssistanceColliderFixedSize: 1
   m_GazeAssistanceColliderScale: 1
@@ -2095,8 +1725,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DynamicMoveProvider: {fileID: 2341446914895207985}
-  m_SmoothTurnProvider: {fileID: 8911972107923972071}
-  m_SnapTurnProvider: {fileID: 5162315227079799291}
+  m_SmoothTurnProvider: {fileID: 0}
+  m_SnapTurnProvider: {fileID: 0}
   m_TwoHandedGrabMoveProvider: {fileID: 2886918007033090119}
   m_LeftHandManager: {fileID: 6922857782816145553}
   m_RightHandManager: {fileID: 7838305194176253114}
@@ -2515,7 +2145,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReference: {fileID: -60998027439631388, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReference: {fileID: -60998027439631388, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
   m_TriggerTransform: {fileID: 660028907810157864}
@@ -2531,7 +2162,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReference: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReference: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: 0
   m_GripTransform: {fileID: 1727047149944463908}
@@ -2547,7 +2179,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReference: {fileID: 6558622148059887818, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReference: {fileID: 6558622148059887818, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: 0
 --- !u!114 &1719831787135512021
@@ -2651,7 +2284,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReference: {fileID: -8222252007134549311, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReference: {fileID: -8222252007134549311, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
   m_AmplitudeMultiplier: 1
 --- !u!114 &1873159982626816521
@@ -2790,8 +2424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b94c4c83dec6a94fbaebf543478259e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mediator: {fileID: 9114009150373565867}
-  m_TransformationPriority: 0
+  m_System: {fileID: 0}
   m_EnableFreeXMovement: 1
   m_EnableFreeYMovement: 0
   m_EnableFreeZMovement: 1
@@ -2800,36 +2433,6 @@ MonoBehaviour:
   m_ControllerTransform: {fileID: 2476258798101711873}
   m_EnableMoveWhileSelecting: 0
   m_MoveFactor: 1
-  m_GrabMoveInput:
-    m_InputSourceMode: 2
-    m_InputActionPerformed:
-      m_Name: Grab Move
-      m_Type: 1
-      m_ExpectedControlType: 
-      m_Id: 67220c99-f046-4e98-aa6f-d84114cad173
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionValue:
-      m_Name: Grab Move Value
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: ed114d26-3fbf-41fc-80fa-9675240038c5
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: 15759602096507913, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_InputActionReferenceValue: {fileID: 15759602096507913, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualPerformed: 0
-    m_ManualValue: 0
-    m_ManualQueuePerformed: 0
-    m_ManualQueueWasPerformedThisFrame: 0
-    m_ManualQueueWasCompletedThisFrame: 0
-    m_ManualQueueValue: 0
-    m_ManualQueueTargetFrame: 0
   m_GrabMoveAction:
     m_UseReference: 1
     m_Action:
@@ -2904,7 +2507,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: -3326005586356538449, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_Reference: {fileID: -3326005586356538449, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
   m_RotationInput:
     m_UseReference: 1
     m_Action:
@@ -2916,7 +2520,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 5101698808175986029, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_Reference: {fileID: 5101698808175986029, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
   m_TrackingStateInput:
     m_UseReference: 1
     m_Action:
@@ -2928,7 +2533,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: -1277054153949319361, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_Reference: {fileID: -1277054153949319361, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
   m_PositionAction:
     m_Name: 
     m_Type: 0
@@ -2960,9 +2566,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 1
-  m_Handedness: 1
   m_AttachTransform: {fileID: 5551020153498526849}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -2982,6 +2590,18 @@ MonoBehaviour:
       m_Calls: []
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
   m_PokeDepth: 0.1
   m_PokeWidth: 0.0075
   m_PokeSelectWidth: 0.015
@@ -3032,7 +2652,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ClimbTeleportInteractor: {fileID: 2942387204058212791}
-  m_PointerPrefab: {fileID: 5212361887338514247, guid: ae1968658b9687b47976fe86c062168f, type: 3}
+  m_PointerPrefab: {fileID: 5212361887338514247, guid: ae1968658b9687b47976fe86c062168f,
+    type: 3}
   m_PointerDistance: 0.3
 --- !u!4 &2264660478637933192
 Transform:
@@ -3076,41 +2697,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b1e8c997df241c1a67045eeac79b41b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mediator: {fileID: 9114009150373565867}
-  m_TransformationPriority: 0
+  m_System: {fileID: 0}
   m_MoveSpeed: 2.5
   m_EnableStrafe: 1
   m_EnableFly: 0
   m_UseGravity: 1
+  m_GravityApplicationMode: 0
   m_ForwardSource: {fileID: 2476258798257499266}
-  m_LeftHandMoveInput:
-    m_InputSourceMode: 2
-    m_InputAction:
+  m_LeftHandMoveAction:
+    m_UseReference: 0
+    m_Action:
       m_Name: Left Hand Move
       m_Type: 0
       m_ExpectedControlType: Vector2
-      m_Id: 16c2fabb-fb1c-4a11-94d0-0b1d894b8593
+      m_Id: 3bea93c2-0c73-4269-84a7-3b43affb0539
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_RightHandMoveInput:
-    m_InputSourceMode: 2
-    m_InputAction:
+    m_Reference: {fileID: 0}
+  m_RightHandMoveAction:
+    m_UseReference: 0
+    m_Action:
       m_Name: Right Hand Move
       m_Type: 0
       m_ExpectedControlType: Vector2
-      m_Id: af2e3d83-024e-4a1f-8bc1-f97f0b4ae1d5
+      m_Id: bd6c35ef-0199-45be-ac99-1c0ca07dfa7d
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReference: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
+    m_Reference: {fileID: 0}
   m_HeadTransform: {fileID: 2476258798257499266}
   m_LeftControllerTransform: {fileID: 2476258797807996128}
   m_RightControllerTransform: {fileID: 2476258798101711873}
@@ -3565,8 +3182,10 @@ MonoBehaviour:
   m_SmoothMovement: 0
   m_FollowTightness: 10
   m_SnapThresholdDistance: 10
-  m_Reticle: {fileID: 8748868027195207512, guid: 893219773891c784ab469a39151879b4, type: 3}
-  m_BlockedReticle: {fileID: 3177232254315139758, guid: a3fde713df4d99042a0403c4be9eea32, type: 3}
+  m_Reticle: {fileID: 8748868027195207512, guid: 893219773891c784ab469a39151879b4,
+    type: 3}
+  m_BlockedReticle: {fileID: 3177232254315139758, guid: a3fde713df4d99042a0403c4be9eea32,
+    type: 3}
   m_StopLineAtFirstRaycastHit: 1
   m_StopLineAtSelection: 0
   m_SnapEndpointIfAvailable: 1
@@ -3700,9 +3319,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 2147483648
-  m_Handedness: 1
   m_AttachTransform: {fileID: 8018534059266811654}
   m_KeepSelectedTargetValid: 0
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -3722,71 +3343,22 @@ MonoBehaviour:
       m_Calls: []
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
-  m_SelectInput:
-    m_InputSourceMode: 2
-    m_InputActionPerformed:
-      m_Name: Select
-      m_Type: 1
-      m_ExpectedControlType: 
-      m_Id: 36843f28-4fd5-4729-b5a6-afe92ef11597
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionValue:
-      m_Name: Select Value
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: 1a51c331-470d-4462-b8e1-2522a24bd40c
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: 1263111715868034790, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_InputActionReferenceValue: {fileID: 1263111715868034790, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualPerformed: 0
-    m_ManualValue: 0
-    m_ManualQueuePerformed: 0
-    m_ManualQueueWasPerformedThisFrame: 0
-    m_ManualQueueWasCompletedThisFrame: 0
-    m_ManualQueueValue: 0
-    m_ManualQueueTargetFrame: 0
-  m_ActivateInput:
-    m_InputSourceMode: 2
-    m_InputActionPerformed:
-      m_Name: Activate
-      m_Type: 1
-      m_ExpectedControlType: 
-      m_Id: 0ace7244-e61f-4e60-8d0b-2ef8c3ae51af
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionValue:
-      m_Name: Activate Value
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: bdf06a24-21b3-4f27-a8a3-72086e6c7f00
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_InputActionReferenceValue: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualPerformed: 0
-    m_ManualValue: 0
-    m_ManualQueuePerformed: 0
-    m_ManualQueueWasPerformedThisFrame: 0
-    m_ManualQueueWasCompletedThisFrame: 0
-    m_ManualQueueValue: 0
-    m_ManualQueueTargetFrame: 0
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
   m_SelectActionTrigger: 0
+  m_HideControllerOnSelect: 0
   m_AllowHoveredActivate: 0
   m_TargetPriorityMode: 0
-  m_HideControllerOnSelect: 0
-  m_InputCompatibilityMode: 0
   m_PlayAudioClipOnSelectEntered: 0
   m_AudioClipForOnSelectEntered: {fileID: 0}
   m_PlayAudioClipOnSelectExited: 0
@@ -3836,7 +3408,6 @@ MonoBehaviour:
   m_HitDetectionType: 0
   m_SphereCastRadius: 0.1
   m_ConeCastAngle: 6
-  m_LiveConeCastDebugVisuals: 0
   m_RaycastMask:
     serializedVersion: 2
     m_Bits: 2147483681
@@ -3848,14 +3419,13 @@ MonoBehaviour:
   m_AutoDeselect: 0
   m_TimeToAutoDeselect: 1
   m_EnableUIInteraction: 0
-  m_BlockInteractionsWithScreenSpaceUI: 0
   m_BlockUIOnInteractableSelection: 1
-  m_ManipulateAttachTransform: 1
+  m_AllowAnchorControl: 1
   m_UseForceGrab: 0
   m_RotateSpeed: 180
   m_TranslateSpeed: 0
-  m_RotateReferenceFrame: {fileID: 0}
-  m_RotateMode: 1
+  m_AnchorRotateReferenceFrame: {fileID: 0}
+  m_AnchorRotationMode: 0
   m_UIHoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -3866,150 +3436,6 @@ MonoBehaviour:
   m_OccludeARHitsWith3DObjects: 0
   m_OccludeARHitsWith2DObjects: 0
   m_ScaleMode: 0
-  m_UIPressInput:
-    m_InputSourceMode: 0
-    m_InputActionPerformed:
-      m_Name: UI Press
-      m_Type: 1
-      m_ExpectedControlType: 
-      m_Id: 54867c8e-3650-4605-a53c-ee8ffb351dcf
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionValue:
-      m_Name: UI Press Value
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: 257d8673-0295-4ff5-b278-e63d20cd918b
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: 0}
-    m_InputActionReferenceValue: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualPerformed: 0
-    m_ManualValue: 0
-    m_ManualQueuePerformed: 0
-    m_ManualQueueWasPerformedThisFrame: 0
-    m_ManualQueueWasCompletedThisFrame: 0
-    m_ManualQueueValue: 0
-    m_ManualQueueTargetFrame: 0
-  m_UIScrollInput:
-    m_InputSourceMode: 0
-    m_InputAction:
-      m_Name: UI Scroll
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: 8c6b1aac-a242-4bf4-a5b3-bfad6e83b638
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_TranslateManipulationInput:
-    m_InputSourceMode: 0
-    m_InputAction:
-      m_Name: Translate Manipulation
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: 0f9fd0ee-650d-41a6-ab30-2a036c425c21
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_RotateManipulationInput:
-    m_InputSourceMode: 2
-    m_InputAction:
-      m_Name: Rotate Manipulation
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: cadca2d2-f642-4efc-a222-c1827be3e896
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: -7363382999065477798, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_DirectionalManipulationInput:
-    m_InputSourceMode: 2
-    m_InputAction:
-      m_Name: Directional Manipulation
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: 472cbca3-7add-47a9-a5fc-73d3d10107aa
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: -8811388872089202044, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_ScaleToggleInput:
-    m_InputSourceMode: 0
-    m_InputActionPerformed:
-      m_Name: Scale Toggle
-      m_Type: 1
-      m_ExpectedControlType: 
-      m_Id: 692a9304-a2fd-4dbd-9e2f-2fb4b6154f1c
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionValue:
-      m_Name: Scale Toggle Value
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: d0cf082b-f2d7-4100-b069-651cf2820425
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: 0}
-    m_InputActionReferenceValue: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualPerformed: 0
-    m_ManualValue: 0
-    m_ManualQueuePerformed: 0
-    m_ManualQueueWasPerformedThisFrame: 0
-    m_ManualQueueWasCompletedThisFrame: 0
-    m_ManualQueueValue: 0
-    m_ManualQueueTargetFrame: 0
-  m_ScaleOverTimeInput:
-    m_InputSourceMode: 0
-    m_InputAction:
-      m_Name: Scale Over Time
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: 6f835f0d-f1c2-461c-b8bc-edc587e89149
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: {x: 0, y: 0}
-  m_ScaleDistanceDeltaInput:
-    m_InputSourceMode: 0
-    m_InputAction:
-      m_Name: Scale Distance Delta
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: 9140e1d5-f197-46d4-88c2-a02441edeac5
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualValue: 0
 --- !u!1 &2479545474264503491
 GameObject:
   m_ObjectHideFlags: 0
@@ -4232,8 +3658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760ff70c1c91bdd45907d0ff0cdcaf7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mediator: {fileID: 9114009150373565867}
-  m_TransformationPriority: 0
+  m_System: {fileID: 0}
   m_EnableFreeXMovement: 1
   m_EnableFreeYMovement: 0
   m_EnableFreeZMovement: 1
@@ -4311,9 +3736,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 4294967295
-  m_Handedness: 0
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -4333,6 +3760,18 @@ MonoBehaviour:
       m_Calls: []
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
   m_ClimbProvider: {fileID: 7924248444316590182}
   m_DestinationEvaluationSettings:
     m_UseConstant: 1
@@ -4341,7 +3780,8 @@ MonoBehaviour:
       m_DestinationEvaluationDelayTime: 1
       m_PollForDestinationChange: 1
       m_DestinationPollFrequency: 1
-      m_DestinationFilterObject: {fileID: 11400000, guid: 0f906c94e2aa0c3488832acc1db04295, type: 2}
+      m_DestinationFilterObject: {fileID: 11400000, guid: 0f906c94e2aa0c3488832acc1db04295,
+        type: 2}
     m_Variable: {fileID: 0}
 --- !u!23 &2963576099613560683
 MeshRenderer:
@@ -5432,8 +4872,10 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_InputActionReferenceValue: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReferencePerformed: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+    m_InputActionReferenceValue: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualPerformed: 0
     m_ManualValue: 0
@@ -5462,8 +4904,10 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_InputActionReferenceValue: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReferencePerformed: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+    m_InputActionReferenceValue: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualPerformed: 0
     m_ManualValue: 0
@@ -5545,8 +4989,10 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: 3279264004350380116, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_InputActionReferenceValue: {fileID: -5908353012961274365, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReferencePerformed: {fileID: 3279264004350380116, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+    m_InputActionReferenceValue: {fileID: -5908353012961274365, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualPerformed: 0
     m_ManualValue: 0
@@ -5566,7 +5012,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReference: {fileID: -6756787485274679044, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReference: {fileID: -6756787485274679044, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
 --- !u!114 &4113549309133870014
@@ -5582,7 +5029,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxRaycastDistance: 10
-  m_ReticlePrefab: {fileID: 230010714376457507, guid: 722c8a668b7904041bced9198d7df62c, type: 3}
+  m_ReticlePrefab: {fileID: 230010714376457507, guid: 722c8a668b7904041bced9198d7df62c,
+    type: 3}
   m_PrefabScalingFactor: 1
   m_UndoDistanceScaling: 1
   m_AlignPrefabWithSurfaceNormal: 0
@@ -5604,8 +5052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f69dc1cb084aa42b2f2f8cd87bc770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mediator: {fileID: 9114009150373565867}
-  m_TransformationPriority: 0
+  m_System: {fileID: 0}
   m_DelayTime: 0
 --- !u!1 &4189785251140019842
 GameObject:
@@ -5739,8 +5186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b94c4c83dec6a94fbaebf543478259e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mediator: {fileID: 9114009150373565867}
-  m_TransformationPriority: 0
+  m_System: {fileID: 0}
   m_EnableFreeXMovement: 1
   m_EnableFreeYMovement: 0
   m_EnableFreeZMovement: 1
@@ -5749,36 +5195,6 @@ MonoBehaviour:
   m_ControllerTransform: {fileID: 2476258797807996128}
   m_EnableMoveWhileSelecting: 0
   m_MoveFactor: 1
-  m_GrabMoveInput:
-    m_InputSourceMode: 2
-    m_InputActionPerformed:
-      m_Name: Grab Move
-      m_Type: 1
-      m_ExpectedControlType: 
-      m_Id: 2e9a23ce-d949-4c67-9b12-7a9a35510733
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionValue:
-      m_Name: Grab Move Value
-      m_Type: 0
-      m_ExpectedControlType: Axis
-      m_Id: 3680a95b-119c-4eba-b8fe-7e0a362e460b
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: -3742484312079769484, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_InputActionReferenceValue: {fileID: -3742484312079769484, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_ObjectReferenceObject: {fileID: 0}
-    m_ManualPerformed: 0
-    m_ManualValue: 0
-    m_ManualQueuePerformed: 0
-    m_ManualQueueWasPerformedThisFrame: 0
-    m_ManualQueueWasCompletedThisFrame: 0
-    m_ManualQueueValue: 0
-    m_ManualQueueTargetFrame: 0
   m_GrabMoveAction:
     m_UseReference: 1
     m_Action:
@@ -5804,9 +5220,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 1
-  m_Handedness: 2
   m_AttachTransform: {fileID: 7851545464160452760}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -5826,6 +5244,18 @@ MonoBehaviour:
       m_Calls: []
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
   m_PokeDepth: 0.1
   m_PokeWidth: 0.0075
   m_PokeSelectWidth: 0.015
@@ -6064,7 +5494,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReference: {fileID: -7374733323251553461, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReference: {fileID: -7374733323251553461, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
   m_RightHandTurnInput:
@@ -6078,7 +5509,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReference: {fileID: -8525429354371678379, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReference: {fileID: -8525429354371678379, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
 --- !u!114 &5164960969668590460
@@ -7006,8 +6438,10 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_InputActionReferenceValue: {fileID: 6558622148059887818, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReferencePerformed: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+    m_InputActionReferenceValue: {fileID: 6558622148059887818, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualPerformed: 0
     m_ManualValue: 0
@@ -7036,8 +6470,10 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_InputActionReferenceValue: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReferencePerformed: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+    m_InputActionReferenceValue: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualPerformed: 0
     m_ManualValue: 0
@@ -7119,8 +6555,10 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: -6395602842196007441, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    m_InputActionReferenceValue: {fileID: 71106601250685021, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReferencePerformed: {fileID: -6395602842196007441, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+    m_InputActionReferenceValue: {fileID: 71106601250685021, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualPerformed: 0
     m_ManualValue: 0
@@ -7140,7 +6578,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReference: {fileID: 2464016903823916871, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReference: {fileID: 2464016903823916871, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
 --- !u!4 &6530449960557830583
@@ -7440,22 +6879,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ac216f0eb04754b1d938aac6380b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ManipulationInteractionGroup: {fileID: 0}
+  m_DirectInteractor: {fileID: 0}
   m_RayInteractor: {fileID: 0}
-  m_NearFarInteractor: {fileID: 6444477441127236900}
   m_TeleportInteractor: {fileID: 2476258798859084024}
-  m_TeleportMode: {fileID: 1263111715868034790, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  m_TeleportModeCancel: {fileID: 737890489006591557, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_Select: {fileID: 0}
+  m_AnchorTranslate: {fileID: 0}
+  m_AnchorRotate: {fileID: 0}
+  m_TeleportModeActivate: {fileID: 0}
+  m_TeleportModeCancel: {fileID: 737890489006591557, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
   m_Turn: {fileID: 1010738217276881514, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  m_SnapTurn: {fileID: -7374733323251553461, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_SnapTurn: {fileID: -7374733323251553461, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
   m_Move: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  m_UIScroll: {fileID: 2464016903823916871, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_SmoothMotionEnabled: 1
   m_SmoothTurnEnabled: 0
-  m_NearFarEnableTeleportDuringNearInteraction: 1
-  m_UIScrollingEnabled: 1
-  m_RayInteractorChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!33 &6968912723567407780
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7512,7 +6951,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReference: {fileID: -8666952849799569744, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReference: {fileID: -8666952849799569744, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
   m_TriggerTransform: {fileID: 7755738392674091766}
@@ -7528,7 +6968,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: 0
   m_GripTransform: {fileID: 8466408897848792570}
@@ -7544,7 +6985,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: 0
 --- !u!54 &7190311565188402166
@@ -7961,22 +7403,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ac216f0eb04754b1d938aac6380b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ManipulationInteractionGroup: {fileID: 0}
+  m_DirectInteractor: {fileID: 0}
   m_RayInteractor: {fileID: 0}
-  m_NearFarInteractor: {fileID: 4071222930749217723}
   m_TeleportInteractor: {fileID: 261793901690684641}
-  m_TeleportMode: {fileID: -8061240218431744966, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  m_TeleportModeCancel: {fileID: 2307464322626738743, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_Select: {fileID: 0}
+  m_AnchorTranslate: {fileID: 0}
+  m_AnchorRotate: {fileID: 0}
+  m_TeleportModeActivate: {fileID: 0}
+  m_TeleportModeCancel: {fileID: 2307464322626738743, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
   m_Turn: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  m_SnapTurn: {fileID: -8525429354371678379, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_SnapTurn: {fileID: -8525429354371678379, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
   m_Move: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  m_UIScroll: {fileID: -6756787485274679044, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_SmoothMotionEnabled: 0
   m_SmoothTurnEnabled: 0
-  m_NearFarEnableTeleportDuringNearInteraction: 1
-  m_UIScrollingEnabled: 1
-  m_RayInteractorChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &7846752671857706266
 GameObject:
   m_ObjectHideFlags: 0
@@ -8027,8 +7469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 496880615cd240be960d436c1c8ae570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mediator: {fileID: 9114009150373565867}
-  m_TransformationPriority: 0
+  m_System: {fileID: 0}
   m_ClimbSettings:
     m_UseConstant: 1
     m_ConstantValue:
@@ -8187,7 +7628,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReference: {fileID: -8785819595477538065, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReference: {fileID: -8785819595477538065, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
   m_AmplitudeMultiplier: 1
 --- !u!1 &8184969620337584340
@@ -8234,7 +7676,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 3220680263695665919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_Reference: {fileID: 3220680263695665919, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
   m_RotationInput:
     m_UseReference: 1
     m_Action:
@@ -8246,7 +7689,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: -5930349909990434036, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_Reference: {fileID: -5930349909990434036, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
   m_TrackingStateInput:
     m_UseReference: 1
     m_Action:
@@ -8258,7 +7702,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 2069149553511882089, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_Reference: {fileID: 2069149553511882089, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
   m_PositionAction:
     m_Name: 
     m_Type: 0
@@ -8385,7 +7830,8 @@ MonoBehaviour:
         m_Action: Position
         m_Flags: 0
       m_Flags: 0
-    m_Reference: {fileID: 7862207684358717888, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_Reference: {fileID: 7862207684358717888, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
   m_RotationInput:
     m_UseReference: 1
     m_Action:
@@ -8405,7 +7851,8 @@ MonoBehaviour:
         m_Action: Rotation
         m_Flags: 0
       m_Flags: 0
-    m_Reference: {fileID: -530380113134220495, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_Reference: {fileID: -530380113134220495, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
   m_TrackingStateInput:
     m_UseReference: 1
     m_Action:
@@ -8417,7 +7864,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 1031966339891076899, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_Reference: {fileID: 1031966339891076899, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
   m_PositionAction:
     m_Name: Position
     m_Type: 0
@@ -8708,6 +8156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_Colliders: []
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
@@ -8766,6 +8217,33 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
   m_AttachTransform: {fileID: 491451477}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
@@ -8812,10 +8290,10 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
+  m_AttachPointCompatibilityMode: 0
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
-  m_FarAttachMode: 0
 --- !u!114 &8639522064316933333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8829,12 +8307,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashLight: {fileID: 491451475}
-  leftActivateAction: {fileID: -60998027439631388, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  rightActivateAction: {fileID: -8666952849799569744, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  leftActivateAction: {fileID: -60998027439631388, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  rightActivateAction: {fileID: -8666952849799569744, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  lightComponent: {fileID: 0}
   basicColor: {r: 1, g: 1, b: 1, a: 1}
   UVColor: {r: 0, g: 0, b: 1, a: 1}
-  targetObject: {fileID: 0}
   rayDistance: 10
+  targetObject:
+  - {fileID: 0}
+  lightState: 0
+  canToggleLight: 0
 --- !u!23 &8640649148023687965
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9040,7 +8524,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReference: {fileID: 1010738217276881514, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReference: {fileID: 1010738217276881514, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
   m_RightHandTurnInput:
@@ -9054,7 +8539,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReference: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_InputActionReference: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
 --- !u!114 &8990884762455743490
@@ -9237,7 +8723,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: -2024308242397127297, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_Reference: {fileID: -2024308242397127297, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
   m_RotationInput:
     m_UseReference: 1
     m_Action:
@@ -9249,7 +8736,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 8248158260566104461, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_Reference: {fileID: 8248158260566104461, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
   m_TrackingStateInput:
     m_UseReference: 1
     m_Action:
@@ -9261,7 +8749,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 684395432459739428, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_Reference: {fileID: 684395432459739428, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
   m_PositionAction:
     m_Name: 
     m_Type: 0

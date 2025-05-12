@@ -880,19 +880,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   passWord: 
   text: {fileID: 5379433147916270157}
-  keyPadButton:
-  - {fileID: 7120699554075620379}
-  - {fileID: 6762344627418204519}
-  - {fileID: 8608590567889493998}
-  - {fileID: 1833350693195360186}
-  - {fileID: 2651370880460656140}
-  - {fileID: 6429480080845590976}
-  - {fileID: 860268492907072437}
-  - {fileID: 7677383712232138437}
-  - {fileID: 243739918099716894}
-  - {fileID: 5407762322622354360}
-  - {fileID: 220824936619584747}
-  isKeypadClear: 0
+  keyPadButtons: []
+  isUnlocked: 0
 --- !u!1 &2982796520854164611
 GameObject:
   m_ObjectHideFlags: 0
