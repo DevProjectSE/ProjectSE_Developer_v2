@@ -94,8 +94,8 @@ public class CustomPlayerController : MonoBehaviour
 
     private void Update()
     {
-        FindClosest(l_Controller);
-        FindClosest(r_Controller);
+        // FindClosest(l_Controller);
+        // FindClosest(r_Controller);
     }
 
     private void FindClosest(Transform pos)
