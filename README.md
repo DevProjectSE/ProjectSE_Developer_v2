@@ -1,3 +1,5 @@
+# 경일 게임 아카데미 VR 팀 프로젝트
+
 <div align="center">
 
 ![header](https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=Project%20SE)
