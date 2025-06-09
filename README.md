@@ -8,6 +8,40 @@
   <img src="https://img.shields.io/badge/Game_Development-4B32C3?style=for-the-badge&logo=gamemaker&logoColor=white"/>
 </p>
 
+<details>
+<summary><h1>📖 프로젝트 소개</h1></summary>
+<div align="center">
+
+### 📝 시나리오 소개
+
+&nbsp;&nbsp;&nbsp;예진과 하윤은 과거 친한 친구였지만, 고등학교를 <br>
+&nbsp;&nbsp;&nbsp;진학한 후 하윤이 왕따를 당하여 사이가 멀어진다.<br>
+&nbsp;&nbsp;&nbsp;예진은 그 모습을 방관하고, 하윤은 학교에서 극단적인<br>
+&nbsp;&nbsp;&nbsp;선택을 하게 된다. 예진은 그 사실을 모른 채 <br>
+&nbsp;&nbsp;&nbsp;하윤이 집에 돌아오지 않았다는 하윤의 어머니의 <br>
+&nbsp;&nbsp;&nbsp;전화로 하윤을 찾기 위해 학교에 가게된다.<br>
+&nbsp;&nbsp;&nbsp;하윤의 반을 찾아 복도를 걷던 예진은 기묘한 기운을<br>
+&nbsp;&nbsp;&nbsp;느끼며 하윤의 심상 세계로 들어가게 되는데...<br>
+
+### 🕹️ 프로젝트 소개
+
+&nbsp;&nbsp;&nbsp;• Project SE는 VR 방탈출 게임입니다.<br>
+&nbsp;&nbsp;&nbsp;프로젝트 참여 인원은 개발자 3인, 기획자 4인으로 이루어졌습니다.<br>
+&nbsp;&nbsp;&nbsp;개발 기간은 약 3주 소요되었습니다.<br>
+&nbsp;&nbsp;&nbsp;조작 튜토리얼과 스테이지마다 다양한 퍼즐을 풀어 클리어하는 게임입니다.<br>
+
+</div>
+</details>
+
+## 👥 팀원 소개
+
+### 개발 팀원
+| 팀장 | 팀원 | 팀원 |
+|-----------|-----------|-----------|
+| ![김찬영](https://avatars.githubusercontent.com/u/180273758?v=4) | ![백봉훈](https://avatars.githubusercontent.com/u/180765013?v=4) | ![정도윤](https://avatars.githubusercontent.com/u/182587175?v=4) |
+| **김찬영** | **백봉훈** | **정도윤** |
+| [GitHub](https://github.com/Victor20000130) | [GitHub](https://github.com/HundredBong) | [GitHub](https://github.com/7220RR)
+
 <h2>GitHub Merge Order</h2>
 <br>본인 개인 브랜치에 커밋하고 푸쉬 -> BETA 브랜치 체크아웃 후 모든 개인브랜치 머지(병합)-></br>
 <br>PBE 브랜치 체크아웃 후 BETA 브랜치 머지 -> MAIN 브랜치 체크아웃 후 PBE 브랜치 머지 -></br>
