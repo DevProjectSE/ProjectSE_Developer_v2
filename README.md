@@ -28,7 +28,7 @@
 &nbsp;&nbsp;&nbsp;• Project SE는 VR 방탈출 게임입니다.<br>
 &nbsp;&nbsp;&nbsp;프로젝트 참여 인원은 개발자 3인, 기획자 4인으로 이루어졌습니다.<br>
 &nbsp;&nbsp;&nbsp;개발 기간은 약 3주 소요되었습니다.<br>
-&nbsp;&nbsp;&nbsp;조작 튜토리얼과 스테이지마다 다양한 퍼즐을 풀어 클리어하는 게임입니다.<br>
+&nbsp;&nbsp;&nbsp;조작 튜토리얼과 스테이지마다 다양한 퍼즐을 풀어 클리어하는 스테이지가 존재하는 게임입니다.<br>
 
 </div>
 </details>
