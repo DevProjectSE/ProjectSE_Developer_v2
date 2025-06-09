@@ -33,18 +33,24 @@
 </div>
 </details>
 
-## 👥 팀원 소개
+<details>
 
-### 개발 팀원
-| 팀장 | 팀원 | 팀원 |
-|-----------|-----------|-----------|
-| ![김찬영](https://avatars.githubusercontent.com/u/180273758?v=4) | ![백봉훈](https://avatars.githubusercontent.com/u/180765013?v=4) | ![정도윤](https://avatars.githubusercontent.com/u/182587175?v=4) |
-| **김찬영** | **백봉훈** | **정도윤** |
-| [GitHub](https://github.com/Victor20000130) | [GitHub](https://github.com/HundredBong) | [GitHub](https://github.com/7220RR)
+<summary><h1>GitHub Merge Order</h1></summary>
+<div align="center">
 
-<h2>GitHub Merge Order</h2>
 <br>본인 개인 브랜치에 커밋하고 푸쉬 -> BETA 브랜치 체크아웃 후 모든 개인브랜치 머지(병합)-></br>
 <br>PBE 브랜치 체크아웃 후 BETA 브랜치 머지 -> MAIN 브랜치 체크아웃 후 PBE 브랜치 머지 -></br>
 <br>본인 개인 브랜치 체크아웃 후 유니티로 본인 작업물 확인 -> PULL 선택 -></br>
 <br>가져오기 위한 원격 브랜치를 MAIN으로 선택 후 PULL</br>
 <br>머지는 모든 개발자가 모여있는 상태에서 진행해야합니다.(병합 충돌 대비)</br>
+
+</details>
+
+## 👥 팀원 소개
+
+### 개발 팀원
+| 팀장 | 팀원 | 팀원 |
+|-----------|-----------|-----------|
+| ![김찬영](https://avatars.githubusercontent.com/u/180273758?v=4) | ![장대훈]https://avatars.githubusercontent.com/u/77885500?v=4) | ![안재홍](https://avatars.githubusercontent.com/u/182705863?v=4) |
+| **김찬영** | **백봉훈** | **정도윤** |
+| [GitHub](https://github.com/Victor20000130) | [GitHub](https://github.com/Jang-daehoon) | [GitHub](https://github.com/An-JaeHong)
