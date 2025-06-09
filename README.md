@@ -51,6 +51,6 @@
 ### 개발 팀원
 | 팀장 | 팀원 | 팀원 |
 |-----------|-----------|-----------|
-| ![김찬영](https://avatars.githubusercontent.com/u/180273758?v=4) | ![장대훈]https://avatars.githubusercontent.com/u/77885500?v=4) | ![안재홍](https://avatars.githubusercontent.com/u/182705863?v=4) |
-| **김찬영** | **백봉훈** | **정도윤** |
+| ![김찬영](https://avatars.githubusercontent.com/u/180273758?v=4) | ![장대훈](https://avatars.githubusercontent.com/u/77885500?v=4) | ![안재홍](https://avatars.githubusercontent.com/u/182705863?v=4) |
+| **김찬영** | **장대훈** | **안재홍** |
 | [GitHub](https://github.com/Victor20000130) | [GitHub](https://github.com/Jang-daehoon) | [GitHub](https://github.com/An-JaeHong)
